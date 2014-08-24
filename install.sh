@@ -1,11 +1,13 @@
 #!/bin/bash
 
+os="linux"
+
 prompt_() {
   while true; do
-    read -p "$1 (y/n) " yn
+    read -p "$1 (y/N) " yn
     case $yn in
       [Yy]*) return 0 ;;
-      [Nn]*) return 1 ;;
+      *) return 1 ;;
     esac;
   done
 }
@@ -31,7 +33,6 @@ link_() {
   ln -s "$DOTFILES/$1" "$HOME/.$1"
 }
 
-
 if hash apt-get 2>/dev/null; then
   colorize "[Installing required packages]" 32
   sudo apt-get install git vim zsh
@@ -49,21 +50,10 @@ if try_unlink "$HOME/.vim/bundle/Vundle.vim"; then
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi;
 
-if try_unlink "$HOME/.vimrc"; then
-  link_ "vimrc"
-fi;
-
-if try_unlink "$HOME/.zshrc"; then
-  echo "Replacing zshrc"
-fi;
-
-if try_unlink "$HOME/.agignore"; then
-  link_ "agignore"
-fi;
-
-if try_unlink "$HOME/.editorconfig"; then
-  link_ "editorconfig"
-fi;
+if try_unlink "$HOME/.vimrc";         then (link_ "vimrc"); fi
+if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
+if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
+if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
 
 if prompt_ "Install rbenv?"; then
   if try_unlink "$HOME/.rbenv"; then
@@ -81,7 +71,15 @@ if prompt_ "Install oh-my-zsh?"; then
     else
       wget --no-check-certificate http://install.ohmyz.sh -O - | sh
     fi
+
+    rm -f $HOME/.zshrc
   fi
 fi
+
+if try_unlink "$HOME/.zshrc"; then (link_ "zshrc"); fi
+
+if prompt_ "Install Tomorrow Night theme? (Ubuntu)"; then
+  curl -L https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/Gnome-Terminal/setup-theme.sh | bash
+fi;
 
 vim +PluginInstall +qall
