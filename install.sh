@@ -1,7 +1,5 @@
 #!/bin/bash
 
-os="linux"
-
 prompt_() {
   while true; do
     read -p "$1 (y/N) " yn
@@ -12,9 +10,12 @@ prompt_() {
   done
 }
 
-colorize() {
-  echo -e "\x1B[1;$2m$1\x1B[0m"
-}
+colorize() { echo -e "\x1B[1;$2m$1\x1B[0m"; }
+install_apt() { if hash apt-get 2>/dev/null; then sudo apt-get install $1; fi }
+install_osx() { if hash brew 2>/dev/null; then brew install $1; fi }
+install_yum() { if hash yum 2>/dev/null; then yum install $1; fi }
+install_arch() { if hash pacman 2>/dev/null; then sudo pacman -S $1; fi }
+
 
 try_unlink() {
   if [ -f $1 ] && [ ! -L $1 ] || [ -d $1 ]; then
@@ -33,16 +34,17 @@ link_() {
   ln -s "$DOTFILES/$1" "$HOME/.$1"
 }
 
-if hash apt-get 2>/dev/null; then
-  colorize "[Installing required packages]" 32
-  sudo apt-get install git vim zsh
-fi
+if prompt_ "Install suggested packages? (recommended)"; then
+  install_apt "git vim zsh tmux silversearcher-ag"
+  install_arch "git vim zsh tmux"
+  install_osx "tmux"
+fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
 hash zsh 2>/dev/null || { echo >&2 "Zsh not found. Aborting"; exit 1; }
 hash vim 2>/dev/null || { echo >&2 "Vim not found. Aborting"; exit 1; }
 
-colorize "[Installing DOTFILES]" 32
+colorize "Installing dominikc/dotfiles" 32
 DOTFILES=$PWD
 
 if try_unlink "$HOME/.vim/bundle/Vundle.vim"; then
@@ -50,15 +52,28 @@ if try_unlink "$HOME/.vim/bundle/Vundle.vim"; then
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi;
 
-if try_unlink "$HOME/.vimrc";         then (link_ "vimrc"); fi
-if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
-if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
-if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
+if prompt_ "Install ruby (rbenv)?"; then
+  if prompt_ "Install rbenv?"; then
+    if try_unlink "$HOME/.rbenv"; then
+      colorize "Installing rbenv..." 32
+      git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+    fi
+  fi
 
-if prompt_ "Install rbenv?"; then
-  if try_unlink "$HOME/.rbenv"; then
-    colorize "Installing rbenv..." 32
-    git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+  if prompt_ "Install ruby-build?"; then
+    colorize "Installing suggested packages" 32
+    install_osx "openssl libyaml"
+    install_apt "autoconf bison build-essential libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev"
+    install_yum "gcc-c++ glibc-headers glibc-devel openssl-devel readline libyaml-devel readline-devel zlib zlib-devel"
+    install_arch "pacman -S gcc zlib readline autoconf make"
+
+    if try_unlink "$HOME/.rbenv/plugins/ruby-build"; then
+      git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+    fi
+  fi
+
+  if prompt_ "Install ruby-2.1.2?"; then
+    rbenv install 2.1.2 && rbenv global 2.1.2
   fi
 fi
 
@@ -76,10 +91,23 @@ if prompt_ "Install oh-my-zsh?"; then
   fi
 fi
 
-if try_unlink "$HOME/.zshrc"; then (link_ "zshrc"); fi
+if try_unlink "$HOME/.vimrc";         then (link_ "vimrc"); fi
+if try_unlink "$HOME/.zshrc";         then (link_ "zshrc"); fi
+if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
+if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
+if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
 
 if prompt_ "Install Tomorrow Night theme? (Ubuntu)"; then
   curl -L https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/Gnome-Terminal/setup-theme.sh | bash
-fi;
+fi
+
+
+if prompt_ "Install gitconfig?"; then
+  if try_unlink "$HOME/.gitconfig"; then
+    read -p "Please enter username: " username
+    read -p "Please enter email: " email
+    sed -e "s/GIT_USER_NAME/$username/" -e "s/GIT_USER_EMAIL/$email/" $DOTFILES/gitconfig > $HOME/.gitconfig
+  fi
+fi
 
 vim +PluginInstall +qall
