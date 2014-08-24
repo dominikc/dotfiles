@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Plugin 'ap/vim-css-color'
+Plugin 'guns/xterm-color-table.vim'
 Plugin 'bling/vim-airline'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'danro/rename.vim'
@@ -81,3 +82,4 @@ nmap s <Plug>(easymotion-s2)
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 au BufRead,BufNewFile *.hamlc set ft=haml
+hi CursorLine cterm=NONE ctermfg=NONE ctermbg=236
