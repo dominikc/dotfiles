@@ -87,6 +87,7 @@ if try_unlink "$HOME/.zshrc";         then (link_ "zshrc"); fi
 if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
 if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
 if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
+if try_unlink "$HOME/.tmuxline";      then (link_ "tmuxline"); fi
 
 if prompt_ "Install Tomorrow Night theme? (Gnome)"; then
   curl -L https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/Gnome-Terminal/setup-theme.sh | bash
