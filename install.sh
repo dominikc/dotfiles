@@ -13,7 +13,7 @@ prompt_() {
 colorize() { echo -e "\x1B[1;$2m$1\x1B[0m"; }
 install_apt() { if hash apt-get 2>/dev/null; then sudo apt-get install $1; fi }
 install_osx() { if hash brew 2>/dev/null; then brew install $1; fi }
-install_yum() { if hash yum 2>/dev/null; then yum install $1; fi }
+install_yum() { if hash yum 2>/dev/null; then sudo yum install $1; fi }
 install_arch() { if hash pacman 2>/dev/null; then sudo pacman -S $1; fi }
 
 
@@ -35,22 +35,19 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_apt "git vim zsh tmux silversearcher-ag"
-  install_arch "git vim zsh tmux"
+  install_apt "git vim zsh tmux silversearcher-ag tig curl"
+  install_arch "git vim zsh tmux tig"
+  install_yum "git vim zsh tmux the_silver_searcher tig"
   install_osx "tmux"
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
 hash zsh 2>/dev/null || { echo >&2 "Zsh not found. Aborting"; exit 1; }
 hash vim 2>/dev/null || { echo >&2 "Vim not found. Aborting"; exit 1; }
+hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 
 colorize "Installing dominikc/dotfiles" 32
 DOTFILES=$PWD
-
-if try_unlink "$HOME/.vim/bundle/Vundle.vim"; then
-  colorize "Installing vundle..." 32
-  git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-fi;
 
 if prompt_ "Install ruby (rbenv)?"; then
   if prompt_ "Install rbenv?"; then
@@ -80,13 +77,7 @@ fi
 if prompt_ "Install oh-my-zsh?"; then
   if try_unlink "$HOME/.oh-my-zsh"; then
     colorize "Installing oh-my-zsh..." 32
-
-    if hash curl 2>/dev/null; then
-      curl -L http://install.ohmyz.sh | sh
-    else
-      wget --no-check-certificate http://install.ohmyz.sh -O - | sh
-    fi
-
+    curl -L http://install.ohmyz.sh | sh
     rm -f $HOME/.zshrc
   fi
 fi
@@ -97,10 +88,9 @@ if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
 if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
 if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
 
-if prompt_ "Install Tomorrow Night theme? (Ubuntu)"; then
+if prompt_ "Install Tomorrow Night theme? (Gnome)"; then
   curl -L https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/Gnome-Terminal/setup-theme.sh | bash
 fi
-
 
 if prompt_ "Install gitconfig?"; then
   if try_unlink "$HOME/.gitconfig"; then
@@ -110,4 +100,4 @@ if prompt_ "Install gitconfig?"; then
   fi
 fi
 
-vim +PluginInstall +qall
+echo "Type 'vundle install' to install VIM plugins"
