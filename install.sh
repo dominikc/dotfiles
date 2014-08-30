@@ -64,6 +64,11 @@ if prompt_ "Install ruby (rbenv)?"; then
     install_yum "gcc-c++ glibc-headers glibc-devel openssl-devel readline libyaml-devel readline-devel zlib zlib-devel"
     install_arch "pacman -S gcc zlib readline autoconf make"
 
+    if prompt_ "Install libsqlite3?"; then
+      install_apt "libsqlite3-dev"
+      install_yum "libsqlite3x-devel"
+    fi
+
     if try_unlink "$HOME/.rbenv/plugins/ruby-build"; then
       git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
     fi

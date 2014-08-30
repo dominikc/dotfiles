@@ -5,7 +5,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Plugin 'ap/vim-css-color'
-Plugin 'guns/xterm-color-table.vim'
 Plugin 'bling/vim-airline'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'danro/rename.vim'
@@ -13,8 +12,10 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'ervandew/supertab'
+Plugin 'gmarik/sudo-gui.vim'
 Plugin 'gmarik/vundle'
 Plugin 'groenewege/vim-less'
+Plugin 'guns/xterm-color-table.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kchmck/vim-coffee-script'
