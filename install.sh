@@ -93,6 +93,7 @@ if prompt_ "Install oh-my-zsh?"; then
 fi
 
 if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
+if try_unlink "$HOME/.bashrc";        then (link_ "bashrc"); fi
 if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
 if try_unlink "$HOME/.tigrc";         then (link_ "tigrc"); fi
 if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
