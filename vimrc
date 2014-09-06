@@ -30,6 +30,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
@@ -62,10 +63,6 @@ let g:airline_powerline_fonts = 1
 
 " misc
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
-map <Leader>d :vsp<CR>
-map <Leader>w :sp<CR>
-map <Leader>q :q<CR>
-map <Leader>t :tabe<CR>
 map <Leader>] gt
 map <Leader>[ gT
 
@@ -83,4 +80,14 @@ nmap s <Plug>(easymotion-s2)
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 au BufRead,BufNewFile *.hamlc set ft=haml
+
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+let g:gitgutter_highlight_lines = 1
+
 hi CursorLine cterm=NONE ctermfg=NONE ctermbg=236
+hi DiffAdd    ctermfg=7  ctermbg=22
+hi DiffDelete ctermfg=7  ctermbg=124
+hi DiffChange ctermfg=7  ctermbg=53

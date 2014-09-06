@@ -1,0 +1,5 @@
+set mouse = true
+set line-graphics = utf-8
+set git-colors = no
+set split-view-width = 60%
+set refresh-mode = auto
