@@ -1,4 +1,5 @@
 #!/bin/bash
+DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 prompt_() {
   while true; do
@@ -48,7 +49,6 @@ hash vim 2>/dev/null || { echo >&2 "Vim not found. Aborting"; exit 1; }
 hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 
 colorize "Installing dominikc/dotfiles" 32
-DOTFILES=$PWD
 
 if prompt_ "Install ruby (rbenv)?"; then
   if prompt_ "Install rbenv?"; then
