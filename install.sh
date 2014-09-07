@@ -19,12 +19,14 @@ install_arch() { if hash pacman 2>/dev/null; then sudo pacman -S $1; fi }
 try_unlink() {
   if [ -f $1 ] && [ ! -L $1 ] || [ -d $1 ]; then
     if prompt_ "Replace $1 ?"; then
+      colorize "Copying $1 to $1.prev" 32
+      cp -r "$1" "$1.prev"
       rm -rf $1; return 0
     else
       return 1;
     fi;
   else
-    rm -rf $1; return 0
+    rm -f $1; return 0
   fi;
 }
 
