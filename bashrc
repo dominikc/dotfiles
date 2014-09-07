@@ -1,2 +1,2 @@
-tmux -2 attach || tmux -2 new
+tmux -2 attach || tmux -2 new -s tmux
 exit
