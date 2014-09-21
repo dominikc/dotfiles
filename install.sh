@@ -75,8 +75,8 @@ if prompt_ "Install ruby (rbenv)?"; then
     fi
   fi
 
-  if prompt_ "Install ruby-2.1.2?"; then
-    rbenv install 2.1.2 && rbenv global 2.1.2
+  if prompt_ "Install ruby-2.1.3?"; then
+    rbenv install 2.1.3 && rbenv global 2.1.3
   fi
 fi
 
