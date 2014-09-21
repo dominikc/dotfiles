@@ -37,7 +37,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_apt "git vim zsh tmux silversearcher-ag tig curl vifm tree"
+  install_apt "git vim zsh tmux silversearcher-ag tig curl"
   install_arch "git vim-minimal zsh tmux tig the_silver_searcher vifm tree"
   install_yum "git vim zsh tmux the_silver_searcher tig vifm tree"
   install_osx "tmux vifm tree"
