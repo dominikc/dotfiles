@@ -18,14 +18,15 @@ Plugin 'gmarik/vundle'
 Plugin 'groenewege/vim-less'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'honza/vim-snippets'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lokaltog/vim-easymotion'
+Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'mhinz/vim-signify'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'othree/vim-autocomplpop'
+Plugin 'raimondi/delimitMate'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -37,6 +38,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
@@ -44,6 +46,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-tbone'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/ZoomWin'
 
 filetype plugin indent on
 
@@ -65,11 +68,16 @@ set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 
 " misc
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 map <Leader>] gt
 map <Leader>[ gT
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>T :tabe<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+nmap <F8> :TagbarToggle<CR>
 
 " vim-easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -81,16 +89,6 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 nmap s <Plug>(easymotion-s2)
-
-let g:nerdtree_tabs_open_on_console_startup = 1
-
-au BufRead,BufNewFile *.hamlc set ft=haml
-
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>T :tabe<CR>
-map <Leader>s :call RunNearestSpec()<CR>
 
 highlight DiffAdd    ctermfg=NONE ctermbg=22
 highlight DiffDelete ctermfg=NONE ctermbg=124
