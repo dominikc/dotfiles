@@ -7,6 +7,7 @@ call vundle#rc()
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'chriskempson/base16-vim'
 Plugin 'danro/rename.vim'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'editorconfig/editorconfig-vim'
@@ -69,6 +70,14 @@ set background=dark
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+
+if has("gui_running")
+  set guioptions=agit
+  colorscheme base16-monokai
+  set guifont=Source\ Code\ Pro\ for\ Powerline
+endif
+
+let g:airline#extensions#tmuxline#enabled = 0
 
 " misc
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip

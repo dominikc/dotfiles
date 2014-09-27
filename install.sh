@@ -37,10 +37,10 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_apt "git vim zsh tmux silversearcher-ag tig curl"
-  install_arch "git vim-minimal zsh tmux tig the_silver_searcher vifm tree"
-  install_yum "git vim zsh tmux the_silver_searcher tig vifm tree"
-  install_osx "tmux vifm tree"
+  install_apt "git zsh tmux silversearcher-ag tig curl tree"
+  install_arch "git zsh tmux tig the_silver_searcher tree"
+  install_yum "git vim zsh tmux the_silver_searcher tig tree"
+  install_osx "tmux"
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
@@ -92,6 +92,10 @@ if prompt_ "Install oh-my-zsh?"; then
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git \
       "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
   fi
+fi
+
+if prompt_ "Install Powerline fonts?"; then
+  git clone git://github.com/Lokaltog/powerline-fonts.git $HOME/powerline
 fi
 
 if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
