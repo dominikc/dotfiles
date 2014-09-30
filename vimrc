@@ -6,6 +6,7 @@ call vundle#rc()
 
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
+Plugin 'bitc/vim-bad-whitespace'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'danro/rename.vim'
@@ -19,20 +20,24 @@ Plugin 'gmarik/vundle'
 Plugin 'groenewege/vim-less'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'honza/vim-snippets'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lokaltog/vim-easymotion'
+Plugin 'loremipsum'
 Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'mhinz/vim-signify'
-Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'raimondi/delimitMate'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'shougo/unite.vim'
+Plugin 'shougo/vimfiler.vim'
 Plugin 't9md/vim-ruby-xmpfilter'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-bundler'
@@ -40,6 +45,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
@@ -70,6 +76,8 @@ set background=dark
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+let g:airline#extensions#tmuxline#enabled = 0
+let g:vimfiler_as_default_explorer = 1
 
 if has("gui_running")
   set guioptions=agit
@@ -77,7 +85,6 @@ if has("gui_running")
   set guifont=Source\ Code\ Pro\ for\ Powerline
 endif
 
-let g:airline#extensions#tmuxline#enabled = 0
 
 " misc
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
@@ -87,6 +94,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>T :tabe<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 nmap <F8> :TagbarToggle<CR>
+vmap <Enter> <Plug>(EasyAlign)
+vmap i <C-n>i
+map <Leader>e :VimFilerExplorer<CR>
 
 " vim-easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
