@@ -8,7 +8,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'chriskempson/base16-vim'
 Plugin 'danro/rename.vim'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'editorconfig/editorconfig-vim'
@@ -21,6 +20,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jgdavey/vim-blockle'
+Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
@@ -31,6 +31,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'raimondi/delimitMate'
+Plugin 'reedes/vim-colors-pencil'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -75,15 +76,20 @@ set background=dark
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:airline#extensions#tmuxline#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimfiler:explorer']
+let g:pencil_higher_contrast_ui = 1
+let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:vimfiler_as_default_explorer = 1
+
+colorscheme pencil
 
 if has("gui_running")
   set guioptions=agit
   set guifont=Source\ Code\ Pro\ for\ Powerline
-  colorscheme base16-monokai
+else
+  let g:airline_theme = 'dark'
 endif
 
 " NORMAL mappings
@@ -93,6 +99,7 @@ nmap <Leader>t :call RunCurrentSpecFile()<CR>
 nmap <Leader>s :call RunNearestSpec()<CR>
 nmap <Leader>e :VimFilerExplorer<CR>
 nmap <Leader>T :TagbarToggle<CR>
+nmap <Leader>G :Goyo<CR>
 nmap <Leader>l <Plug>(easymotion-lineforward)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
@@ -102,7 +109,7 @@ nmap n         <Plug>(easymotion-next)
 nmap N         <Plug>(easymotion-prev)
 nmap s         <Plug>(easymotion-s2)
 
-" Visual mappings
+" VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
 vmap i <C-n>i
 
@@ -117,10 +124,7 @@ highlight GitGutterChange       ctermbg=black ctermfg=yellow
 highlight GitGutterDelete       ctermbg=black ctermfg=red
 highlight GitGutterChangeDelete ctermbg=black ctermfg=blue
 highlight SignColumn            ctermbg=black
-highlight CursorLine            ctermfg=NONE  ctermbg=NONE  cterm=underline
 
 " AutoCmd
 autocmd VimEnter * VimFilerExplorer
-autocmd InsertEnter * highlight CursorLine ctermfg=NONE ctermbg=233  cterm=none
-autocmd InsertLeave * highlight CursorLine ctermfg=NONE ctermbg=NONE cterm=underline
 autocmd FileType vimfiler setlocal nonumber
