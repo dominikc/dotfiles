@@ -62,9 +62,9 @@ if prompt_ "Install ruby (rbenv)?"; then
     colorize "Installing suggested packages" 32
     install_osx "openssl libyaml"
     install_apt "autoconf bison build-essential libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev"
-    install_yum "gcc-c++ glibc-headers glibc-devel openssl-devel readline libyaml-devel readline-devel zlib zlib-devel"
+    install_yum "gcc-c++ glibc-headers glibc-devel openssl-devel readline libyaml-devel readline-devel zlib zlib-devel patch"
 
-    if prompt_ "Install pg & libsqlite3?"; then
+    if prompt_ "Install pg/sqlite libs"; then
       install_apt "libsqlite3-dev libpq-dev"
       install_yum "libsqlite3x-devel postgresql-devel"
       install_arch "postgresql-libs sqlite3"

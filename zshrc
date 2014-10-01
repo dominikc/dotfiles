@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 BUNDLED_COMMANDS=(rails)
 
 plugins=(
-  adb bundler git rails rbenv systemd
+  adb bundler git git-flow rails rbenv systemd
   tmuxinator vundle zsh-syntax-highlighting
 )
 
