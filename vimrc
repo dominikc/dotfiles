@@ -1,4 +1,5 @@
 set nocompatible
+
 filetype off
 
 set rtp+=~/.vim/bundle/vundle
@@ -27,7 +28,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'raimondi/delimitMate'
@@ -57,6 +57,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/loremipsum'
 Plugin 'vim-scripts/zoomwin'
+Plugin 'yggdroot/indentLine'
+Plugin 'zaiste/tmux.vim'
 
 filetype plugin indent on
 
@@ -83,6 +85,12 @@ let g:pencil_higher_contrast_ui = 1
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:vimfiler_as_default_explorer = 1
 
+" Code folding
+set foldenable
+set foldlevelstart=5
+set foldmethod=indent
+nnoremap <space> za
+
 colorscheme pencil
 
 if has("gui_running")
@@ -93,38 +101,55 @@ else
 endif
 
 " NORMAL mappings
-nmap <Leader>] gt
-nmap <Leader>[ gT
-nmap <Leader>t :call RunCurrentSpecFile()<CR>
-nmap <Leader>s :call RunNearestSpec()<CR>
-nmap <Leader>e :VimFilerExplorer<CR>
-nmap <Leader>T :TagbarToggle<CR>
-nmap <Leader>G :Goyo<CR>
-nmap <Leader>l <Plug>(easymotion-lineforward)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>h <Plug>(easymotion-linebackward)
-nmap /         <Plug>(easymotion-sn)
-nmap n         <Plug>(easymotion-next)
-nmap N         <Plug>(easymotion-prev)
-nmap s         <Plug>(easymotion-s2)
+nmap     <Leader>] gt
+nmap     <Leader>[ gT
+nmap     <Leader>t :call RunCurrentSpecFile()<CR>
+nmap     <Leader>s :call RunNearestSpec()<CR>
+nmap     <Leader>e :VimFilerExplorer<CR>
+nmap     <Leader>T :TagbarToggle<CR>
+nmap     <Leader>G :Goyo<CR>
+nmap     <Leader>l <Plug>(easymotion-lineforward)
+nmap     <Leader>j <Plug>(easymotion-j)
+nmap     <Leader>k <Plug>(easymotion-k)
+nmap     <Leader>h <Plug>(easymotion-linebackward)
+nmap     /         <Plug>(easymotion-sn)
+nmap     n         <Plug>(easymotion-next)
+nmap     N         <Plug>(easymotion-prev)
+nmap     s         <Plug>(easymotion-s2)
+nnoremap B         ^
+nnoremap E         $
+nnoremap $         <nop>
+nnoremap ^         <nop>
+nnoremap <Leader>a :Ag
+nnoremap <silent> <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
 vmap i <C-n>i
 
+" INSERT mappings
+inoremap jk <esc>
+
+" CtrlP
+if executable("ag")
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_show_hidden = 1
+endif
+
 " Highlights
-highlight DiffAdd               ctermfg=NONE  ctermbg=22
-highlight DiffDelete            ctermfg=NONE  ctermbg=124
-highlight DiffChange            ctermfg=NONE  ctermbg=53
-highlight Pmenu                 ctermfg=NONE  ctermbg=233   term=reverse
-highlight PmenuSel              ctermfg=233   ctermbg=green term=reverse
-highlight GitGutterAdd          ctermbg=black ctermfg=green
-highlight GitGutterChange       ctermbg=black ctermfg=yellow
-highlight GitGutterDelete       ctermbg=black ctermfg=red
-highlight GitGutterChangeDelete ctermbg=black ctermfg=blue
-highlight SignColumn            ctermbg=black
+function! SetHighlight()
+  highlight DiffAdd               ctermfg=NONE  ctermbg=22
+  highlight DiffDelete            ctermfg=NONE  ctermbg=124
+  highlight DiffChange            ctermfg=NONE  ctermbg=53
+  highlight PmenuSel              ctermfg=black ctermbg=green term=reverse
+  highlight GitGutterAdd          ctermbg=black ctermfg=green
+  highlight GitGutterChange       ctermbg=black ctermfg=yellow
+  highlight GitGutterDelete       ctermbg=black ctermfg=red
+  highlight GitGutterChangeDelete ctermbg=black ctermfg=blue
+  highlight SignColumn            ctermbg=black
+endfunction
 
 " AutoCmd
 autocmd VimEnter * VimFilerExplorer
+autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
