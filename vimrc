@@ -30,6 +30,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'othree/vim-autocomplpop'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'raimondi/delimitMate'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'rking/ag.vim'
@@ -41,12 +42,11 @@ Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
@@ -150,6 +150,5 @@ function! SetHighlight()
 endfunction
 
 " AutoCmd
-autocmd VimEnter * VimFilerExplorer
 autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
