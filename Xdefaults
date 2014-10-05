@@ -1,0 +1,86 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:              96
+Xft.antialias:        false
+Xft.rgba:             rgb
+Xft.hinting:          true
+Xft.hintstyle:        hintslight
+
+URxvt.depth:          32
+URxvt.geometry:       90x30
+URxvt.transparent:    false
+URxvt.fading:         0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:     true
+URxvt.saveLines:      50
+URxvt.internalBorder: 3
+URxvt.lineSpace:      0
+
+! Fonts
+URxvt.allow_bold: true
+URxvt*font:       xft:Source Code Pro for Powerline:pixelsize=14
+URxvt*boldFont:   xft:Source Code Pro for Powerline:pixelsize=14
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:     rxvt
+URxvt.scrollBar:       false
+
+! Perl extensions
+URxvt.perl-ext-common: default,matcher
+URxvt.matcher.button:  1
+URxvt.urlLauncher:     firefox
+
+! Cursor
+URxvt.cursorBlink:     true
+URxvt.cursorColor:     #20bbfc
+URxvt.cursorUnderline: false
+
+! Pointer
+URxvt.pointerBlank:    true
+
+! Source https://github.com/reedes/vim-colors-pencil
+
+*background:             #212121
+*foreground:             #f1f1f1
+!!*fading: 40
+*cursorColor:            #f1f1f1
+*pointerColorBackground: #20bbfc
+*pointerColorForeground: #f1f1f1
+
+!! black dark/light
+*color0:  #212121
+*color8:  #424242
+
+!! red dark/light
+*color1:  #c30771
+*color9:  #fb007a
+
+!! green dark/light
+*color2:  #10a778
+*color10: #5fd7af
+
+!! yellow dark/light
+*color3:  #a89c14
+*color11: #f3e430
+
+!! blue dark/light
+*color4:  #008ec4
+*color12: #20bbfc
+
+!! magenta dark/light
+*color5:  #523c79
+*color13: #6855de
+
+!! cyan dark/light
+*color6:  #20a5ba
+*color14: #4fb8cc
+
+!! white dark/light
+*color7:  #d9d9d9
+*color15: #f1f1f1

@@ -18,7 +18,7 @@ install_yum() { if hash yum 2>/dev/null; then sudo yum install $1; fi }
 install_arch() { if hash pacman 2>/dev/null; then sudo pacman -S $1; fi }
 
 try_unlink() {
-  if [ -f $1 ] && [ ! -L $1 ] || [ -d $1 ]; then
+  if [ -f $1 ] && [ ! -L $1 ] || [ -d $1 ] && [ ! -L $1 ]; then
     if prompt_ "Replace $1 ?"; then
       colorize "Copying $1 to $1.prev" 32
       cp -r "$1" "$1.prev"
@@ -98,14 +98,15 @@ if prompt_ "Install Powerline fonts?"; then
   git clone git://github.com/Lokaltog/powerline-fonts.git $HOME/powerline
 fi
 
-if try_unlink "$HOME/.agignore";      then (link_ "agignore"); fi
-if try_unlink "$HOME/.bashrc";        then (link_ "bashrc"); fi
-if try_unlink "$HOME/.editorconfig";  then (link_ "editorconfig"); fi
-if try_unlink "$HOME/.tigrc";         then (link_ "tigrc"); fi
-if try_unlink "$HOME/.tmux.conf";     then (link_ "tmux.conf"); fi
-if try_unlink "$HOME/.tmuxline";      then (link_ "tmuxline"); fi
-if try_unlink "$HOME/.vimrc";         then (link_ "vimrc"); fi
-if try_unlink "$HOME/.zshrc";         then (link_ "zshrc"); fi
+if try_unlink "$HOME/.Xdefaults";    then (link_ "Xdefaults");    fi
+if try_unlink "$HOME/.agignore";     then (link_ "agignore");     fi
+if try_unlink "$HOME/.bashrc";       then (link_ "bashrc");       fi
+if try_unlink "$HOME/.editorconfig"; then (link_ "editorconfig"); fi
+if try_unlink "$HOME/.tigrc";        then (link_ "tigrc");        fi
+if try_unlink "$HOME/.tmux.conf";    then (link_ "tmux.conf");    fi
+if try_unlink "$HOME/.tmuxline";     then (link_ "tmuxline");     fi
+if try_unlink "$HOME/.vimrc";        then (link_ "vimrc");        fi
+if try_unlink "$HOME/.zshrc";        then (link_ "zshrc");        fi
 
 if prompt_ "Install gitconfig?"; then
   if try_unlink "$HOME/.gitconfig"; then
