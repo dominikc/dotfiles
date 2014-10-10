@@ -60,11 +60,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'yggdroot/indentLine'
 
 " Commands
-Plugin 'danro/rename.vim'
-Plugin 'gmarik/sudo-gui.vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/loremipsum'
 
@@ -98,7 +97,6 @@ let g:vimfiler_as_default_explorer = 1
 set foldenable
 set foldlevelstart=5
 set foldmethod=indent
-nnoremap <space> za
 
 colorscheme pencil
 
