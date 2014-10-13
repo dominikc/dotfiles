@@ -100,6 +100,7 @@ fi
 
 if try_unlink "$HOME/.Xdefaults";    then (link_ "Xdefaults");    fi
 if try_unlink "$HOME/.agignore";     then (link_ "agignore");     fi
+if try_unlink "$HOME/.i3";           then (link_ "i3");           fi
 if try_unlink "$HOME/.editorconfig"; then (link_ "editorconfig"); fi
 if try_unlink "$HOME/.tigrc";        then (link_ "tigrc");        fi
 if try_unlink "$HOME/.tmux.conf";    then (link_ "tmux.conf");    fi

@@ -26,6 +26,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-haml'
 Plugin 'zaiste/tmux.vim'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " UI
 Plugin 'airblade/vim-gitgutter'
@@ -65,6 +66,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
 Plugin 'vim-scripts/loremipsum'
 
 " vimrc
@@ -108,8 +110,6 @@ else
 endif
 
 " NORMAL mappings
-nmap     <Leader>] gt
-nmap     <Leader>[ gT
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
 nmap     <Leader>s :call RunNearestSpec()<CR>
 nmap     <Leader>e :VimFilerExplorer<CR>
