@@ -95,6 +95,8 @@ let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimf
 let g:pencil_higher_contrast_ui = 1
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:vimfiler_as_default_explorer = 1
+let g:gitgutter_map_keys = 0
+let g:speeddating_no_mappings = 1
 
 " Code folding
 set foldenable
@@ -124,12 +126,16 @@ nmap     /         <Plug>(easymotion-sn)
 nmap     n         <Plug>(easymotion-next)
 nmap     N         <Plug>(easymotion-prev)
 nmap     s         <Plug>(easymotion-s2)
+nmap     <C-X>     <Plug>SpeedDatingUp
+nmap     <C-C>     <Plug>SpeedDatingDown
+nmap     d<C-C>    <Plug>SpeedDatingNowUTC
+nmap     d<C-X>    <Plug>SpeedDatingNowLocal
 nnoremap B         ^
 nnoremap E         $
 nnoremap $         <nop>
 nnoremap ^         <nop>
 nnoremap <Leader>a :Ag
-nnoremap <silent> <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
+nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
