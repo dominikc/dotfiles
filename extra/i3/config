@@ -102,17 +102,17 @@ bar {
   position top
   status_command ~/i3-script.sh
   colors {
-    separator #444444
+    separator #666666
     background #222222
-    statusline #666666
-    focused_workspace #d70a53 #d70a53 #ffffff
-    active_workspace #333333 #333333 #888888
+    statusline #dddddd
+    focused_workspace #0088CC #0088CC #ffffff
+    active_workspace #333333 #333333 #ffffff
     inactive_workspace #333333 #333333 #888888
-    urgent_workspace #eb709b #eb709b #ffffff
+    urgent_workspace #2f343a #900000 #ffffff
   }
 }
 
-client.focused #d70a53 #d70a53 #ffffff #8c0333
-client.focused_inactive #333333 #333333 #888888 #333333
-client.unfocused #333333 #333333 #888888 #333333
-client.urgent #eb709b #eb709b #ffffff #eb709b
+client.focused #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused #333333 #333333 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000

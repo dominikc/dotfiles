@@ -98,12 +98,13 @@ if prompt_ "Install Powerline fonts?"; then
   git clone git://github.com/Lokaltog/powerline-fonts.git $HOME/powerline
 fi
 
-if try_unlink "$HOME/.agignore";     then (link_ "agignore");     fi
-if try_unlink "$HOME/.editorconfig"; then (link_ "editorconfig"); fi
-if try_unlink "$HOME/.tmux.conf";    then (link_ "tmux.conf");    fi
-if try_unlink "$HOME/.tmuxline";     then (link_ "tmuxline");     fi
-if try_unlink "$HOME/.vimrc";        then (link_ "vimrc");        fi
-if try_unlink "$HOME/.zshrc";        then (link_ "zshrc");        fi
+
+files=(agignore editorconfig tmux.conf tmuxline vimrc zshrc)
+
+for file in ${files[*]}
+do
+  if try_unlink "$HOME/.$file"; then (link_ $file); fi
+done
 
 if prompt_ "Install gitconfig?"; then
   if try_unlink "$HOME/.gitconfig"; then
@@ -115,11 +116,13 @@ if prompt_ "Install gitconfig?"; then
 fi
 
 if prompt_ "Install extra dotfiles?"; then
+  mkdir -p $HOME/.ncmpcpp
   DOTFILES="$DOTFILES/extra"
-  if try_unlink "$HOME/.Xdefaults"; then (link_ "Xdefaults"); fi
-  if try_unlink "$HOME/.i3";        then (link_ "i3");        fi
-  if try_unlink "$HOME/.tigrc";     then (link_ "tigrc");     fi
-  if try_unlink "$HOME/.yaourtrc";  then (link_ "yaourtrc");  fi
+  files=(Xdefaults i3 tigrc yaourtrc ncmpcpp/config)
+  for file in ${files[*]}
+  do
+    if try_unlink "$HOME/.$file"; then (link_ $file); fi
+  done
 fi
 
 echo "Type 'vundle install' to install VIM plugins"
