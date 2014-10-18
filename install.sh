@@ -98,11 +98,8 @@ if prompt_ "Install Powerline fonts?"; then
   git clone git://github.com/Lokaltog/powerline-fonts.git $HOME/powerline
 fi
 
-if try_unlink "$HOME/.Xdefaults";    then (link_ "Xdefaults");    fi
 if try_unlink "$HOME/.agignore";     then (link_ "agignore");     fi
-if try_unlink "$HOME/.i3";           then (link_ "i3");           fi
 if try_unlink "$HOME/.editorconfig"; then (link_ "editorconfig"); fi
-if try_unlink "$HOME/.tigrc";        then (link_ "tigrc");        fi
 if try_unlink "$HOME/.tmux.conf";    then (link_ "tmux.conf");    fi
 if try_unlink "$HOME/.tmuxline";     then (link_ "tmuxline");     fi
 if try_unlink "$HOME/.vimrc";        then (link_ "vimrc");        fi
@@ -115,6 +112,13 @@ if prompt_ "Install gitconfig?"; then
     sed -e "s/GIT_USER_NAME/$username/" -e "s/GIT_USER_EMAIL/$email/" \
       $DOTFILES/gitconfig > $HOME/.gitconfig
   fi
+fi
+
+if prompt_ "Install extra dotfiles?"; then
+  DOTFILES="$DOTFILES/extra"
+  if try_unlink "$HOME/.Xdefaults"; then (link_ "Xdefaults"); fi
+  if try_unlink "$HOME/.tigrc";     then (link_ "tigrc");     fi
+  if try_unlink "$HOME/.i3";        then (link_ "i3");        fi
 fi
 
 echo "Type 'vundle install' to install VIM plugins"
