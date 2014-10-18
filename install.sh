@@ -117,8 +117,9 @@ fi
 if prompt_ "Install extra dotfiles?"; then
   DOTFILES="$DOTFILES/extra"
   if try_unlink "$HOME/.Xdefaults"; then (link_ "Xdefaults"); fi
-  if try_unlink "$HOME/.tigrc";     then (link_ "tigrc");     fi
   if try_unlink "$HOME/.i3";        then (link_ "i3");        fi
+  if try_unlink "$HOME/.tigrc";     then (link_ "tigrc");     fi
+  if try_unlink "$HOME/.yaourtrc";  then (link_ "yaourtrc");  fi
 fi
 
 echo "Type 'vundle install' to install VIM plugins"
