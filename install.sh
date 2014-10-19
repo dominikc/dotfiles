@@ -1,5 +1,6 @@
 #!/bin/bash
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ORIG_DOTFILES=$DOTFILES
 
 prompt_() {
   while true; do
@@ -117,12 +118,22 @@ fi
 
 if prompt_ "Install extra dotfiles?"; then
   mkdir -p $HOME/.ncmpcpp
-  DOTFILES="$DOTFILES/extra"
-  files=(Xdefaults i3 tigrc yaourtrc ncmpcpp/config)
+  DOTFILES="$ORIG_DOTFILES/extra"
+  files=(Xdefaults i3 tigrc ncmpcpp/config)
   for file in ${files[*]}
   do
     if try_unlink "$HOME/.$file"; then (link_ $file); fi
   done
 fi
+
+if hash pacman 2>/dev/null; then
+  DOTFILES="$ORIG_DOTFILES/archlinux"
+  files=(zshrc yaourtrc)
+  for file in ${files[*]}
+  do
+    if try_unlink "$HOME/.$file"; then (link_ $file); fi
+  done
+fi;
+
 
 echo "Type 'vundle install' to install VIM plugins"

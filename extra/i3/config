@@ -9,9 +9,9 @@ bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q set Master 5%- unmu
 bindsym XF86AudioMute         exec --no-startup-id amixer -q set Master toggle
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext         exec --no-startup-id playerctl next
-bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay         exec --no-startup-id mpc -q toggle
+bindsym XF86AudioNext         exec --no-startup-id mpc -q next
+bindsym XF86AudioPrev         exec --no-startup-id mpc -q prev
 
 bindsym $mod+Shift+q kill
 
@@ -95,6 +95,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id setxkbmap pl -option ctrl:nocaps
+exec --no-startup-id mopidy
 
 focus_follows_mouse no
 
