@@ -16,6 +16,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 
 " Syntax
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'garbas/vim-snipmate'
@@ -26,7 +27,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-haml'
 Plugin 'zaiste/tmux.vim'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " UI
 Plugin 'airblade/vim-gitgutter'
@@ -36,9 +36,10 @@ Plugin 'jgdavey/vim-blockle'
 Plugin 'junegunn/goyo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-startify'
 Plugin 'othree/vim-autocomplpop'
-Plugin 'reedes/vim-colors-pencil'
 Plugin 'shougo/vimfiler.vim'
+Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/zoomwin'
 
 " Ruby
@@ -61,12 +62,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'yggdroot/indentLine'
 
 " Commands
+Plugin 'gregsexton/gitv'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'gregsexton/gitv'
 Plugin 'vim-scripts/loremipsum'
 
 " vimrc
@@ -84,7 +85,6 @@ set cursorline
 set colorcolumn=80
 set laststatus=2
 set noshowmode
-set background=dark
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 
 let g:airline#extensions#tabline#enabled = 1
@@ -92,7 +92,6 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimfiler:explorer']
-let g:pencil_higher_contrast_ui = 1
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:vimfiler_as_default_explorer = 1
 let g:gitgutter_map_keys = 0
@@ -103,7 +102,10 @@ set foldenable
 set foldlevelstart=5
 set foldmethod=indent
 
-colorscheme pencil
+set background=dark
+let g:molokai_original = 1
+let g:rehash256 = 1
+colorscheme molokai
 
 if has("gui_running")
   set guioptions=agit
