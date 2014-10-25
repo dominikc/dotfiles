@@ -39,7 +39,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-startify'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'shougo/vimfiler.vim'
-Plugin 'tomasr/molokai'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/zoomwin'
 
 " Ruby
@@ -102,6 +102,7 @@ set foldenable
 set foldlevelstart=5
 set foldmethod=indent
 
+set t_Co=256
 set background=dark
 let g:molokai_original = 1
 let g:rehash256 = 1
