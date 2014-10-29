@@ -41,6 +41,7 @@ Plugin 'othree/vim-autocomplpop'
 Plugin 'shougo/vimfiler.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/zoomwin'
+Plugin 'kien/rainbow_parentheses.vim'
 
 " Ruby
 Plugin 'ecomba/vim-ruby-refactoring'
@@ -69,6 +70,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/loremipsum'
+Plugin 'chrisbra/NrrwRgn'
 
 " vimrc
 filetype plugin indent on
@@ -98,7 +100,7 @@ let g:gitgutter_map_keys = 0
 let g:speeddating_no_mappings = 1
 
 " Code folding
-set foldenable
+"set foldenable
 set foldlevelstart=5
 set foldmethod=indent
 
@@ -107,6 +109,7 @@ set background=dark
 let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme molokai
+
 
 if has("gui_running")
   set guioptions=agit
@@ -169,3 +172,32 @@ endfunction
 " AutoCmd
 autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
+
+Plugin 'amdt/vim-niji'
+
+let g:rbpt_colorpairs = [
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 1
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
