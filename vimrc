@@ -173,7 +173,13 @@ endfunction
 autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
 
-Plugin 'amdt/vim-niji'
+autocmd FileType ruby nmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
+autocmd FileType ruby xmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
+autocmd FileType ruby imap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
+
+autocmd FileType ruby nmap <buffer> <Leader>R <Plug>(xmpfilter-run)
+autocmd FileType ruby xmap <buffer> <Leader>R <Plug>(xmpfilter-run)
+autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
 
 let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
