@@ -75,6 +75,7 @@ Plugin 'chrisbra/NrrwRgn'
 " vimrc
 filetype plugin indent on
 
+let mapleader=","
 set number
 set hlsearch
 set ignorecase
