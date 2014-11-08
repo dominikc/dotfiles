@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
-ZSH_THEME="agnoster"
+ZSH_THEME="eastwood"
 
 COMPLETION_WAITING_DOTS="true"
 
