@@ -101,8 +101,8 @@ let g:speeddating_no_mappings = 1
 
 " Code folding
 "set foldenable
-set foldlevelstart=5
-set foldmethod=indent
+"set foldlevelstart=5
+"set foldmethod=indent
 
 set t_Co=256
 set background=dark
@@ -155,6 +155,8 @@ if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_show_hidden = 1
 endif
+
+let g:ctrlp_reuse_window = 'startify'
 
 " Highlights
 function! SetHighlight()
