@@ -3,6 +3,7 @@ export EDITOR="vim"
 ZSH_THEME="eastwood"
 
 COMPLETION_WAITING_DOTS="true"
+DISABLE_AUTO_TITLE="true"
 
 BUNDLED_COMMANDS=(rails)
 
