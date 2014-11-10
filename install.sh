@@ -1,6 +1,7 @@
 #!/bin/bash
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ORIG_DOTFILES=$DOTFILES
+TMP_PATH="/tmp/dotfiles"
 
 prompt_() {
   while true; do
@@ -35,7 +36,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_osx "tmux rbenv ruby-build rbenv-gem-rehash"
+  install_osx "tmux rbenv ruby-build rbenv-gem-rehash ag tig"
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
@@ -46,7 +47,7 @@ hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 colorize "Installing dominikc/dotfiles" 32
 
 if prompt_ "Install ruby (rbenv)?"; then
-  if prompt_ "Install ruby-2.1.3?"; then
+  if prompt_ "Install ruby-2.1.4?"; then
     rbenv install 2.1.4 && rbenv global 2.1.4
   fi
 fi
@@ -66,8 +67,8 @@ if prompt_ "Install oh-my-zsh?"; then
 fi
 
 if prompt_ "Install Powerline fonts?"; then
-  git clone git://github.com/Lokaltog/powerline-fonts.git /tmp/powerline
-  /tmp/powerline/install.sh
+  git clone git://github.com/Lokaltog/powerline-fonts.git $TMP_PATH/powerline
+  $TMP_PATH/powerline/install.sh
 fi
 
 files=(agignore editorconfig tmux.conf tmuxline vimrc zshrc tigrc)
@@ -84,6 +85,12 @@ if prompt_ "Install gitconfig?"; then
     sed -e "s/GIT_USER_NAME/$username/" -e "s/GIT_USER_EMAIL/$email/" \
       $DOTFILES/gitconfig > $HOME/.gitconfig
   fi
+fi
+
+if prompt_ "Install solarized OS X terminal theme?"; then
+  git clone https://github.com/tomislav/osx-terminal.app-colors-solarized $TMP_PATH/solarized
+  open "$TMP_PATH/solarized/Solarized Dark.terminal"
+  open "$TMP_PATH/solarized/Solarized Light.terminal"
 fi
 
 echo "Type 'vundle install' to install VIM plugins"
