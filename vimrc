@@ -7,6 +7,7 @@ call vundle#rc()
 
 " Essentials & dependencies
 Plugin 'eparreno/vim-l9'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/vundle'
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'shougo/unite.vim'
@@ -35,13 +36,12 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'junegunn/goyo.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-startify'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'shougo/vimfiler.vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/zoomwin'
-Plugin 'kien/rainbow_parentheses.vim'
 
 " Ruby
 Plugin 'ecomba/vim-ruby-refactoring'
@@ -75,7 +75,6 @@ Plugin 'chrisbra/NrrwRgn'
 " vimrc
 filetype plugin indent on
 
-let mapleader=","
 set number
 set hlsearch
 set ignorecase
@@ -89,9 +88,12 @@ set colorcolumn=80
 set laststatus=2
 set noshowmode
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
+set showbreak=⇇
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimfiler:explorer']
@@ -114,7 +116,7 @@ colorscheme molokai
 
 if has("gui_running")
   set guioptions=agit
-  set guifont=Source\ Code\ Pro\ for\ Powerline
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 else
   let g:airline_theme = 'dark'
 endif
@@ -139,10 +141,10 @@ nmap     d<C-C>    <Plug>SpeedDatingNowUTC
 nmap     d<C-X>    <Plug>SpeedDatingNowLocal
 nnoremap B         ^
 nnoremap E         $
-nnoremap $         <nop>
-nnoremap ^         <nop>
 nnoremap <Leader>a :Ag
 nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
+nnoremap Q         <nop>
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
@@ -185,28 +187,30 @@ autocmd FileType ruby xmap <buffer> <Leader>R <Plug>(xmpfilter-run)
 autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
 
 let g:rbpt_colorpairs = [
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+      \ ['darkred',     'DarkOrchid3'],
+      \ ['brown',       'RoyalBlue3'],
+      \ ['Darkblue',    'SeaGreen3'],
+      \ ['darkgray',    'DarkOrchid3'],
+      \ ['darkgreen',   'firebrick3'],
+      \ ['darkcyan',    'RoyalBlue3'],
+      \ ['darkred',     'SeaGreen3'],
+      \ ['darkgreen',   'RoyalBlue3'],
+      \ ['brown',       'firebrick3'],
+      \ ['gray',        'RoyalBlue3'],
+      \ ['black',       'SeaGreen3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['Darkblue',    'firebrick3'],
+      \ ['darkcyan',    'SeaGreen3'],
+      \ ['red',         'firebrick3'],
+      \ ]
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 1
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+if exists("*RainbowParenthesesToggle")
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+endif

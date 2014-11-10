@@ -36,7 +36,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_osx "tmux rbenv ruby-build rbenv-gem-rehash ag tig"
+  install_osx "vim tmux rbenv ruby-build rbenv-gem-rehash ag tig htop ssh-copy-id"
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
