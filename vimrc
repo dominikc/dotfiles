@@ -63,14 +63,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'yggdroot/indentLine'
 
 " Commands
+Plugin 'chrisbra/NrrwRgn'
 Plugin 'gregsexton/gitv'
+Plugin 'kana/vim-textobj-user'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/loremipsum'
-Plugin 'chrisbra/NrrwRgn'
+Plugin 'vim-textobj-rubyblock'
 
 " vimrc
 filetype plugin indent on
@@ -148,7 +150,7 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
-vmap i <C-n>i
+vmap I <C-n>i
 
 " INSERT mappings
 inoremap jk <esc>

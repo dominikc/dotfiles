@@ -5,10 +5,10 @@ ZSH_THEME="eastwood"
 COMPLETION_WAITING_DOTS="true"
 [[ -n $TMUX ]] || DISABLE_AUTO_TITLE="true"
 
-BUNDLED_COMMANDS=(rails)
+BUNDLED_COMMANDS=(rails zeus)
 
 plugins=(
-  adb bundler git git-flow rails tmuxinator vundle zsh-syntax-highlighting
+  adb bundler git git-flow rails tmuxinator vundle zsh-syntax-highlighting zeus
 )
 
 source $ZSH/oh-my-zsh.sh
