@@ -72,7 +72,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/loremipsum'
-Plugin 'vim-textobj-rubyblock'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " vimrc
 filetype plugin indent on
