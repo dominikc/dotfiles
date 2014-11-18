@@ -36,7 +36,6 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'junegunn/goyo.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-startify'
 Plugin 'othree/vim-autocomplpop'
@@ -163,6 +162,15 @@ endif
 
 let g:ctrlp_reuse_window = 'startify'
 
+" xmpfilter
+autocmd FileType ruby nmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
+autocmd FileType ruby xmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
+autocmd FileType ruby imap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
+
+autocmd FileType ruby nmap <buffer> <Leader>R <Plug>(xmpfilter-run)
+autocmd FileType ruby xmap <buffer> <Leader>R <Plug>(xmpfilter-run)
+autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
+
 " Highlights
 function! SetHighlight()
   highlight DiffAdd               ctermfg=NONE  ctermbg=22
@@ -179,40 +187,3 @@ endfunction
 " AutoCmd
 autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
-
-autocmd FileType ruby nmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
-autocmd FileType ruby xmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
-autocmd FileType ruby imap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
-
-autocmd FileType ruby nmap <buffer> <Leader>R <Plug>(xmpfilter-run)
-autocmd FileType ruby xmap <buffer> <Leader>R <Plug>(xmpfilter-run)
-autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
-
-let g:rbpt_colorpairs = [
-      \ ['darkred',     'DarkOrchid3'],
-      \ ['brown',       'RoyalBlue3'],
-      \ ['Darkblue',    'SeaGreen3'],
-      \ ['darkgray',    'DarkOrchid3'],
-      \ ['darkgreen',   'firebrick3'],
-      \ ['darkcyan',    'RoyalBlue3'],
-      \ ['darkred',     'SeaGreen3'],
-      \ ['darkgreen',   'RoyalBlue3'],
-      \ ['brown',       'firebrick3'],
-      \ ['gray',        'RoyalBlue3'],
-      \ ['black',       'SeaGreen3'],
-      \ ['darkmagenta', 'DarkOrchid3'],
-      \ ['darkmagenta', 'DarkOrchid3'],
-      \ ['Darkblue',    'firebrick3'],
-      \ ['darkcyan',    'SeaGreen3'],
-      \ ['red',         'firebrick3'],
-      \ ]
-
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 1
-
-if exists("*RainbowParenthesesToggle")
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
-endif
