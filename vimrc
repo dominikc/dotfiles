@@ -17,13 +17,14 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 
 " Syntax
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'burnettk/vim-angular'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'groenewege/vim-less'
 Plugin 'honza/vim-snippets'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'moll/vim-node'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-haml'
@@ -109,17 +110,11 @@ let g:speeddating_no_mappings = 1
 "set foldmethod=indent
 
 set t_Co=256
-set background=dark
-let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme molokai
-
+colorscheme Tomorrow-Night
 
 if has("gui_running")
   set guioptions=agit
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-else
-  let g:airline_theme = 'dark'
 endif
 
 " NORMAL mappings
