@@ -103,6 +103,7 @@ let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:vimfiler_as_default_explorer = 1
 let g:gitgutter_map_keys = 0
 let g:speeddating_no_mappings = 1
+let g:syntastic_html_checkers=['']
 
 " Code folding
 "set foldenable
@@ -141,6 +142,8 @@ nnoremap <Leader>a :Ag
 nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap Q         <nop>
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
 
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
