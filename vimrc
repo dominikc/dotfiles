@@ -25,6 +25,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'honza/vim-snippets'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'moll/vim-node'
+Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-haml'
@@ -65,14 +66,16 @@ Plugin 'yggdroot/indentLine'
 " Commands
 Plugin 'chrisbra/NrrwRgn'
 Plugin 'gregsexton/gitv'
+Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'rking/ag.vim'
+Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/loremipsum'
-Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " vimrc
 filetype plugin indent on
@@ -92,6 +95,7 @@ set noshowmode
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 set showbreak=⇇
 
+let g:buffergator_suppress_keymaps = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_close_button = 0
@@ -119,11 +123,13 @@ if has("gui_running")
 endif
 
 " NORMAL mappings
+nmap     <Leader>B :BuffergatorOpen<CR>
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
 nmap     <Leader>s :call RunNearestSpec()<CR>
 nmap     <Leader>e :VimFilerExplorer<CR>
 nmap     <Leader>T :TagbarToggle<CR>
 nmap     <Leader>G :Goyo<CR>
+nmap     <Leader>g :GundoToggle<CR>
 nmap     <Leader>l <Plug>(easymotion-lineforward)
 nmap     <Leader>j <Plug>(easymotion-j)
 nmap     <Leader>k <Plug>(easymotion-k)
