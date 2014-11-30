@@ -56,6 +56,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'raimondi/delimitMate'
+Plugin 'reedes/vim-pencil'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-endwise'
@@ -65,7 +66,6 @@ Plugin 'yggdroot/indentLine'
 
 " Commands
 Plugin 'chrisbra/NrrwRgn'
-Plugin 'gregsexton/gitv'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -115,7 +115,7 @@ let g:syntastic_html_checkers=['']
 "set foldmethod=indent
 
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Bright
 
 if has("gui_running")
   set guioptions=agit
@@ -191,3 +191,4 @@ endfunction
 " AutoCmd
 autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
+autocmd QuickFixCmdPost *grep* cwindow
