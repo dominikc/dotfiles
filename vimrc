@@ -75,7 +75,6 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/loremipsum'
 
 " vimrc
 filetype plugin indent on
@@ -120,6 +119,8 @@ colorscheme Tomorrow-Night-Bright
 if has("gui_running")
   set guioptions=agit
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+else
+  let g:airline_theme = "dark"
 endif
 
 " NORMAL mappings
