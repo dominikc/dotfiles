@@ -54,13 +54,13 @@ Plugin 'vim-ruby/vim-ruby'
 " Editing
 Plugin 'junegunn/vim-easy-align'
 Plugin 'lokaltog/vim-easymotion'
+Plugin 'myusuf3/numbers.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'raimondi/delimitMate'
 Plugin 'reedes/vim-pencil'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'yggdroot/indentLine'
 
@@ -92,7 +92,6 @@ set colorcolumn=80
 set laststatus=2
 set noshowmode
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
-set showbreak=⇇
 
 let g:buffergator_suppress_keymaps = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -105,7 +104,6 @@ let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimf
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:vimfiler_as_default_explorer = 1
 let g:gitgutter_map_keys = 0
-let g:speeddating_no_mappings = 1
 let g:syntastic_html_checkers=['']
 
 " Code folding
@@ -114,7 +112,7 @@ let g:syntastic_html_checkers=['']
 "set foldmethod=indent
 
 set t_Co=256
-colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow-Night
 
 if has("gui_running")
   set guioptions=agit
@@ -139,10 +137,8 @@ nmap     /         <Plug>(easymotion-sn)
 nmap     n         <Plug>(easymotion-next)
 nmap     N         <Plug>(easymotion-prev)
 nmap     s         <Plug>(easymotion-s2)
-nmap     <C-X>     <Plug>SpeedDatingUp
-nmap     <C-C>     <Plug>SpeedDatingDown
-nmap     d<C-C>    <Plug>SpeedDatingNowUTC
-nmap     d<C-X>    <Plug>SpeedDatingNowLocal
+nmap     ]c        <Plug>GitGutterNextHunk
+nmap     [c        <Plug>GitGutterPrevHunk
 nnoremap B         ^
 nnoremap E         $
 nnoremap <Leader>a :Ag
