@@ -24,6 +24,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'groenewege/vim-less'
 Plugin 'honza/vim-snippets'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mattn/emmet-vim'
 Plugin 'moll/vim-node'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
@@ -39,7 +40,6 @@ Plugin 'jgdavey/vim-blockle'
 Plugin 'junegunn/goyo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'mhinz/vim-startify'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'shougo/vimfiler.vim'
 Plugin 'vim-scripts/zoomwin'
@@ -54,7 +54,6 @@ Plugin 'vim-ruby/vim-ruby'
 " Editing
 Plugin 'junegunn/vim-easy-align'
 Plugin 'lokaltog/vim-easymotion'
-Plugin 'myusuf3/numbers.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'raimondi/delimitMate'
 Plugin 'reedes/vim-pencil'
@@ -112,7 +111,9 @@ let g:syntastic_html_checkers=['']
 "set foldmethod=indent
 
 set t_Co=256
-colorscheme Tomorrow-Night
+let g:rehash256 = 1
+colorscheme molokai
+
 
 if has("gui_running")
   set guioptions=agit
@@ -148,6 +149,16 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
+
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
 vmap I <C-n>i
@@ -161,8 +172,6 @@ if executable("ag")
   let g:ctrlp_show_hidden = 1
 endif
 
-let g:ctrlp_reuse_window = 'startify'
-
 " xmpfilter
 autocmd FileType ruby nmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
 autocmd FileType ruby xmap <buffer> <Leader><tab> <Plug>(xmpfilter-mark)
@@ -172,20 +181,6 @@ autocmd FileType ruby nmap <buffer> <Leader>R <Plug>(xmpfilter-run)
 autocmd FileType ruby xmap <buffer> <Leader>R <Plug>(xmpfilter-run)
 autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
 
-" Highlights
-function! SetHighlight()
-  highlight DiffAdd               ctermfg=NONE  ctermbg=22
-  highlight DiffDelete            ctermfg=NONE  ctermbg=124
-  highlight DiffChange            ctermfg=NONE  ctermbg=53
-  highlight PmenuSel              ctermfg=black ctermbg=green term=reverse
-  highlight GitGutterAdd          ctermbg=black ctermfg=green
-  highlight GitGutterChange       ctermbg=black ctermfg=yellow
-  highlight GitGutterDelete       ctermbg=black ctermfg=red
-  highlight GitGutterChangeDelete ctermbg=black ctermfg=blue
-  highlight SignColumn            ctermbg=black
-endfunction
-
 " AutoCmd
-autocmd VimEnter * call SetHighlight()
 autocmd FileType vimfiler setlocal nonumber
 autocmd QuickFixCmdPost *grep* cwindow
