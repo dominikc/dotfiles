@@ -47,7 +47,7 @@ Plugin 'vim-scripts/zoomwin'
 " Ruby
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 't9md/vim-ruby-xmpfilter'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'geekjuice/vim-spec'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 
@@ -101,6 +101,7 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimfiler:explorer']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+let g:mocha_coffee_command = "Dispatch ./node_modules/.bin/mocha {spec}"
 let g:vimfiler_as_default_explorer = 1
 let g:gitgutter_map_keys = 0
 let g:syntastic_html_checkers=['']
@@ -125,7 +126,6 @@ endif
 " NORMAL mappings
 nmap     <Leader>B :BuffergatorOpen<CR>
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
-nmap     <Leader>s :call RunNearestSpec()<CR>
 nmap     <Leader>e :VimFilerExplorer<CR>
 nmap     <Leader>T :TagbarToggle<CR>
 nmap     <Leader>G :Goyo<CR>
@@ -146,8 +146,6 @@ nnoremap <Leader>a :Ag
 nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap Q         <nop>
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
-nnoremap <Tab> <C-w>w
-nnoremap <S-Tab> <C-w>W
 
 noremap <Up> <nop>
 noremap <Down> <nop>
