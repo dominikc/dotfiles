@@ -55,7 +55,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'raimondi/delimitMate'
 Plugin 'reedes/vim-pencil'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
@@ -115,7 +114,6 @@ set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
 
-
 if has("gui_running")
   set guioptions=agit
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
@@ -144,8 +142,10 @@ nnoremap B         ^
 nnoremap E         $
 nnoremap <Leader>a :Ag
 nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
-nnoremap Q         <nop>
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap Q <nop>
+nnoremap K <nop>
+nmap T :tabe<CR>
 
 noremap <Up> <nop>
 noremap <Down> <nop>

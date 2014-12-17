@@ -1,14 +1,14 @@
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
-ZSH_THEME="eastwood"
+ZSH_THEME="dst"
 
 COMPLETION_WAITING_DOTS="true"
 [[ -n $TMUX ]] || DISABLE_AUTO_TITLE="true"
 
-BUNDLED_COMMANDS=(rails zeus)
+BUNDLED_COMMANDS=(rails)
 
 plugins=(
-  adb bundler git git-flow rails tmuxinator vundle zsh-syntax-highlighting zeus
+  adb bundler git git-flow rails tmuxinator vundle zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
