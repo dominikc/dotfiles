@@ -37,15 +37,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jgdavey/vim-blockle'
-Plugin 'junegunn/goyo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'shougo/vimfiler.vim'
-Plugin 'vim-scripts/zoomwin'
 
 " Ruby
-Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'geekjuice/vim-spec'
 Plugin 'tpope/vim-rails'
@@ -55,7 +52,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'reedes/vim-pencil'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-endwise'
@@ -64,7 +60,6 @@ Plugin 'yggdroot/indentLine'
 
 " Commands
 Plugin 'chrisbra/NrrwRgn'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'rking/ag.vim'
@@ -91,7 +86,6 @@ set laststatus=2
 set noshowmode
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 
-let g:buffergator_suppress_keymaps = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_close_button = 0
@@ -99,11 +93,12 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimfiler:explorer']
-let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
-let g:mocha_coffee_command = "Dispatch ./node_modules/.bin/mocha {spec}"
-let g:vimfiler_as_default_explorer = 1
 let g:gitgutter_map_keys = 0
+let g:indentLine_fileTypeExclude = ['json']
+let g:mocha_coffee_command = "Dispatch ./node_modules/.bin/mocha {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:syntastic_html_checkers=['']
+let g:vimfiler_as_default_explorer = 1
 
 " Code folding
 "set foldenable
@@ -122,7 +117,6 @@ else
 endif
 
 " NORMAL mappings
-nmap     <Leader>B :BuffergatorOpen<CR>
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
 nmap     <Leader>e :VimFilerExplorer<CR>
 nmap     <Leader>T :TagbarToggle<CR>
