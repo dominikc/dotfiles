@@ -107,7 +107,7 @@ let g:vimfiler_as_default_explorer = 1
 
 set t_Co=256
 let g:rehash256 = 1
-colorscheme molokai
+colorscheme Tomorrow-Night
 
 if has("gui_running")
   set guioptions=agit

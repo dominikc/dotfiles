@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
-ZSH_THEME="dst"
+ZSH_THEME="fino"
 
 COMPLETION_WAITING_DOTS="true"
 [[ -n $TMUX ]] || DISABLE_AUTO_TITLE="true"
