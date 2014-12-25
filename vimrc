@@ -100,11 +100,6 @@ let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:syntastic_html_checkers=['']
 let g:vimfiler_as_default_explorer = 1
 
-" Code folding
-"set foldenable
-"set foldlevelstart=5
-"set foldmethod=indent
-
 set t_Co=256
 let g:rehash256 = 1
 colorscheme Tomorrow-Night
@@ -112,15 +107,12 @@ colorscheme Tomorrow-Night
 if has("gui_running")
   set guioptions=agit
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-else
-  let g:airline_theme = "dark"
 endif
 
 " NORMAL mappings
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
 nmap     <Leader>e :VimFilerExplorer<CR>
 nmap     <Leader>T :TagbarToggle<CR>
-nmap     <Leader>G :Goyo<CR>
 nmap     <Leader>g :GundoToggle<CR>
 nmap     <Leader>l <Plug>(easymotion-lineforward)
 nmap     <Leader>j <Plug>(easymotion-j)
@@ -138,7 +130,7 @@ nnoremap <Leader>a :Ag
 nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
-nnoremap K <nop>
+nnoremap K i<CR><Esc>
 nmap T :tabe<CR>
 
 noremap <Up> <nop>

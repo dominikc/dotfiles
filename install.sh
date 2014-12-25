@@ -47,8 +47,8 @@ hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 colorize "Installing dominikc/dotfiles" 32
 
 if prompt_ "Install ruby (rbenv)?"; then
-  if prompt_ "Install ruby-2.1.4?"; then
-    rbenv install 2.1.4 && rbenv global 2.1.4
+  if prompt_ "Install ruby-2.2.0?"; then
+    rbenv install 2.2.0 && rbenv global 2.2.0
   fi
 fi
 
