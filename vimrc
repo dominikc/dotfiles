@@ -130,6 +130,7 @@ nnoremap <Leader>a :Ag
 nnoremap <silent>  <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
+nnoremap QQ :q<CR>
 nnoremap K i<CR><Esc>
 nmap T :tabe<CR>
 
