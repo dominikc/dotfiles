@@ -36,10 +36,10 @@ Plugin 'zaiste/tmux.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'ervandew/supertab'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'othree/vim-autocomplpop'
 Plugin 'shougo/vimfiler.vim'
 
 " Ruby
@@ -102,11 +102,13 @@ let g:vimfiler_as_default_explorer = 1
 
 set t_Co=256
 let g:rehash256 = 1
-colorscheme Tomorrow-Night
+colorscheme molokai
 
 if has("gui_running")
   set guioptions=agit
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+else
+  let g:airline_theme = "dark"
 endif
 
 " NORMAL mappings
