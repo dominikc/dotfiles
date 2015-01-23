@@ -86,46 +86,40 @@ set laststatus=2
 set noshowmode
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:better_whitespace_filetypes_blacklist = ['unite', 'mkd', 'vimfiler', 'vimfiler:explorer']
-let g:gitgutter_map_keys = 0
-let g:indentLine_fileTypeExclude = ['json']
-let g:mocha_coffee_command = "Dispatch ./node_modules/.bin/mocha {spec}"
+let g:mocha_coffee_command = "Dispatch mocha {spec}"
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:syntastic_html_checkers=['']
 let g:vimfiler_as_default_explorer = 1
 
+if has("gui_running")
+  set guioptions=agite
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+else
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_buffers = 0
+  let g:airline#extensions#tabline#show_close_button = 0
+  let g:airline#extensions#tabline#show_tab_type = 0
+endif
+
 set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
-
-if has("gui_running")
-  set guioptions=agit
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-else
-  let g:airline_theme = "dark"
-endif
+let g:airline_theme = 'dark'
 
 " NORMAL mappings
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
 nmap     <Leader>e :VimFilerExplorer<CR>
 nmap     <Leader>T :TagbarToggle<CR>
 nmap     <Leader>g :GundoToggle<CR>
-nmap     <Leader>l <Plug>(easymotion-lineforward)
-nmap     <Leader>j <Plug>(easymotion-j)
-nmap     <Leader>k <Plug>(easymotion-k)
-nmap     <Leader>h <Plug>(easymotion-linebackward)
 nmap     /         <Plug>(easymotion-sn)
 nmap     n         <Plug>(easymotion-next)
 nmap     N         <Plug>(easymotion-prev)
 nmap     s         <Plug>(easymotion-s2)
-nmap     ]c        <Plug>GitGutterNextHunk
 nmap     [c        <Plug>GitGutterPrevHunk
+nmap     ]c        <Plug>GitGutterNextHunk
 nnoremap B         ^
 nnoremap E         $
 nnoremap <Leader>a :Ag
@@ -134,17 +128,13 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
 nnoremap QQ :q<CR>
 nnoremap K i<CR><Esc>
+nnoremap gV `[v`]
 nmap T :tabe<CR>
 
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-
 
 " VISUAL mappings
 vmap <Enter> <Plug>(EasyAlign)
@@ -152,11 +142,15 @@ vmap I <C-n>i
 
 " INSERT mappings
 inoremap jk <esc>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
 
 " CtrlP
 if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_show_hidden = 1
+  let g:ctrlp_switch_buffer = 0
 endif
 
 " xmpfilter
@@ -171,3 +165,11 @@ autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
 " AutoCmd
 autocmd FileType vimfiler setlocal nonumber
 autocmd QuickFixCmdPost *grep* cwindow
+
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
