@@ -15,6 +15,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'stulzer/heroku-colorscheme'
 
 " Syntax
 Plugin 'burnettk/vim-angular'
@@ -36,7 +37,7 @@ Plugin 'zaiste/tmux.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'ervandew/supertab'
+Plugin 'othree/vim-autocomplpop'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -97,17 +98,18 @@ let g:vimfiler_as_default_explorer = 1
 if has("gui_running")
   set guioptions=agite
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  colorscheme heroku
 else
+  set t_Co=256
+  let g:rehash256 = 1
+  colorscheme molokai
+  let g:airline_theme = 'dark'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#show_buffers = 0
   let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#tabline#show_tab_type = 0
 endif
 
-set t_Co=256
-let g:rehash256 = 1
-colorscheme molokai
-let g:airline_theme = 'dark'
 
 " NORMAL mappings
 nmap     <Leader>t :call RunCurrentSpecFile()<CR>
