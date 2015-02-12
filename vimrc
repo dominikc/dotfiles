@@ -15,7 +15,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'stulzer/heroku-colorscheme'
+Plugin 'chriskempson/base16-vim'
 
 " Syntax
 Plugin 'burnettk/vim-angular'
@@ -98,7 +98,8 @@ let g:vimfiler_as_default_explorer = 1
 if has("gui_running")
   set guioptions=agite
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-  colorscheme heroku
+  set background=dark
+  colorscheme base16-tomorrow
 else
   set t_Co=256
   let g:rehash256 = 1
