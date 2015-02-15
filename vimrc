@@ -99,7 +99,7 @@ if has("gui_running")
   set guioptions=agite
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   set background=dark
-  colorscheme base16-tomorrow
+  colorscheme base16-paraiso
 else
   set t_Co=256
   let g:rehash256 = 1
