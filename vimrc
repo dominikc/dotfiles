@@ -77,15 +77,19 @@ set number
 set hlsearch
 set ignorecase
 set smartcase
-set noswapfile
-set nobackup
-set nowritebackup
 set nowrap
 set cursorline
 set colorcolumn=80
-set laststatus=2
 set noshowmode
 set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
+
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+set backup
+set swapfile
+set writebackup
 
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
@@ -150,10 +154,18 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
+nnoremap ; :
+vnoremap ; :
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " CtrlP
+let g:ctrlp_switch_buffer = 0
 if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_switch_buffer = 0
 endif
 
 " xmpfilter
