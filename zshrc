@@ -22,3 +22,4 @@ export PATH="$HOME/.bin:$PATH"
 test -f /usr/local/rvm/scripts/rvm && source /usr/local/rvm/scripts/rvm
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias sync!="git pull --rebase origin develop"
+alias push!=ggpush

@@ -37,7 +37,6 @@ Plugin 'zaiste/tmux.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'othree/vim-autocomplpop'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -52,7 +51,6 @@ Plugin 'vim-ruby/vim-ruby'
 " Editing
 Plugin 'junegunn/vim-easy-align'
 Plugin 'lokaltog/vim-easymotion'
-Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-endwise'
@@ -86,10 +84,6 @@ set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-set backup
-set swapfile
-set writebackup
 
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
@@ -180,11 +174,3 @@ autocmd FileType ruby imap <buffer> <Leader>R <Plug>(xmpfilter-run)
 " AutoCmd
 autocmd FileType vimfiler setlocal nonumber
 autocmd QuickFixCmdPost *grep* cwindow
-
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
