@@ -58,7 +58,7 @@ Plugin 'bling/vim-airline'
   let g:airline#extensions#tabline#show_tab_type = 0
 
 Plugin 'thoughtbot/vim-rspec'
-let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+  let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
   nmap <Leader>t :call RunCurrentSpecFile()<CR>
   nmap <Leader>s :call RunNearestSpec()<CR>
 
