@@ -107,11 +107,13 @@ Plugin 'shougo/vimfiler.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
   Plugin 'kana/vim-textobj-user'
 
-Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'yggdroot/indentLine'
+  let g:indentLine_noConcealCursor=""
+
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'yggdroot/indentLine'
 
 " Essentials ;)
 Plugin 'tpope/vim-abolish'
