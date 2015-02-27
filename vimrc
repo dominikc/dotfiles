@@ -43,6 +43,7 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 autocmd QuickFixCmdPost *grep* cwindow
 
 Plugin 'tomasr/molokai'
+  set t_Co=256
   let g:rehash256 = 1
   colorscheme molokai
 
