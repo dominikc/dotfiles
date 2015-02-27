@@ -11,10 +11,10 @@ set nowrap
 set cursorline
 set colorcolumn=80
 set noshowmode
-set wildignore+=*/tmp/*,*/vendor/*,*/public/*,*.so,*.swp,*.zip
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set lazyredraw
 
 nnoremap B ^
 nnoremap E $
@@ -23,11 +23,11 @@ nnoremap Q <nop>
 nnoremap K i<CR><Esc>
 nnoremap gV `[v`]
 nnoremap T :tabe<CR>
+inoremap jk <esc>
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-inoremap jk <esc>
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
@@ -38,6 +38,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 nnoremap ; :
 vnoremap ; :
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
