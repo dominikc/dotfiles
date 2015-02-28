@@ -26,10 +26,6 @@ nnoremap gV `[v`]
 nnoremap T :tabe<CR>
 inoremap jk <esc>
 nnoremap <leader>l :set list!<CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 nnoremap ; :
 vnoremap ; :
 nnoremap <leader>r :source $MYVIMRC<CR>
@@ -120,10 +116,14 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'jgdavey/vim-blockle'
 
+" tmux
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tpope/vim-dispatch'
+
 " Essentials ;)
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
