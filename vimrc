@@ -15,6 +15,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set lazyredraw
+set listchars=tab:▸\ ,trail:·,eol:¬
 
 nnoremap B ^
 nnoremap E $
@@ -24,6 +25,14 @@ nnoremap K i<CR><Esc>
 nnoremap gV `[v`]
 nnoremap T :tabe<CR>
 inoremap jk <esc>
+nnoremap <leader>l :set list!<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap ; :
+vnoremap ; :
+nnoremap <leader>r :source $MYVIMRC<CR>
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -32,13 +41,6 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-nnoremap ; :
-vnoremap ; :
-nnoremap <leader>r :source $MYVIMRC<CR>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
