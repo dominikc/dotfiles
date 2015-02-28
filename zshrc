@@ -1,6 +1,6 @@
-LC_MESSAGES="en_US.UTF-8" # language; I don't want any GB langpacks
-LANG="en_US.UTF-8"      # fallback if LC_specific not set
-LC_CTYPE="en_US.UTF-8"      # fallback if LC_specific not set
+LC_MESSAGES="en_US.UTF-8"
+LANG="en_US.UTF-8"
+LC_CTYPE="en_US.UTF-8"
 
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
