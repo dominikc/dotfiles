@@ -111,20 +111,17 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'yggdroot/indentLine'
   let g:indentLine_noConcealCursor=""
 
-Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'jgdavey/vim-blockle'
-
-" tmux
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'tpope/vim-dispatch'
 
 " Essentials ;)
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
