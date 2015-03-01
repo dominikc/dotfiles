@@ -11,12 +11,12 @@ set nowrap
 set cursorline
 set colorcolumn=80
 set noshowmode
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set lazyredraw
 set listchars=tab:▸\ ,trail:·,eol:¬
 set diffopt=vertical
+set noswapfile
+set nobackup
+set nowritebackup
 
 nnoremap B ^
 nnoremap E $
