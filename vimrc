@@ -17,6 +17,7 @@ set diffopt=vertical
 set noswapfile
 set nobackup
 set nowritebackup
+set scrolloff=10
 
 nnoremap B ^
 nnoremap E $
@@ -40,6 +41,12 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 
 autocmd QuickFixCmdPost *grep* cwindow
+
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+autocmd BufReadPost COMMIT_EDITMSG 0
 
 Plugin 'tomasr/molokai'
   set t_Co=256
