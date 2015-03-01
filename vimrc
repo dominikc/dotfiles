@@ -16,6 +16,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set lazyredraw
 set listchars=tab:▸\ ,trail:·,eol:¬
+set diffopt=vertical
 
 nnoremap B ^
 nnoremap E $

@@ -1,6 +1,3 @@
-# This tmux statusbar config was created by tmuxline.vim
-# on Fri, 02 Jan 2015
-
 set -g status-bg "colour234"
 set -g message-command-fg "colour255"
 set -g status-justify "left"
