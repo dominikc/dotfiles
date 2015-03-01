@@ -18,6 +18,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set scrolloff=10
+set shiftround
 
 nnoremap B ^
 nnoremap E $
@@ -39,6 +40,9 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
+
+nnoremap <Leader>p "_diwP
+nnoremap <Leader>p "_diwP
 
 autocmd QuickFixCmdPost *grep* cwindow
 
