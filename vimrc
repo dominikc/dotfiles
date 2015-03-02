@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Plugin 'gmarik/vundle'
@@ -123,11 +124,15 @@ Plugin 'yggdroot/indentLine'
   let g:indentLine_noConcealCursor=""
 
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-ruby/vim-ruby'
+
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jgdavey/vim-blockle'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-ruby/vim-ruby'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'jimsei/winresizer'
 
 " Essentials ;)
 Plugin 'tpope/vim-abolish'
@@ -144,9 +149,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 
 " Disabled - no longer used
-" Plugin 'chrisbra/NrrwRgn'
 " Plugin 'edkolev/tmuxline.vim'
 " Plugin 'eparreno/vim-l9'
 " Plugin 'groenewege/vim-less'
-" Plugin 'pangloss/vim-javascript'
 " Plugin 'zaiste/tmux.vim'
+" Plugin 'chrisbra/NrrwRgn'

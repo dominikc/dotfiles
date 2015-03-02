@@ -4,7 +4,7 @@ LC_CTYPE="en_US.UTF-8"
 
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
-ZSH_THEME="kphoen"
+ZSH_THEME="robbyrussell"
 
 COMPLETION_WAITING_DOTS="true"
 [[ -n $TMUX ]] || DISABLE_AUTO_TITLE="true"
@@ -22,3 +22,4 @@ export PATH="$HOME/.bin:$PATH"
 test -f /usr/local/rvm/scripts/rvm && source /usr/local/rvm/scripts/rvm
 alias sync!="git pull --rebase origin develop"
 alias push!=ggpush
+alias c=clear
