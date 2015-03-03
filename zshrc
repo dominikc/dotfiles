@@ -22,4 +22,3 @@ export PATH="$HOME/.bin:$PATH"
 test -f /usr/local/rvm/scripts/rvm && source /usr/local/rvm/scripts/rvm
 alias sync!="git pull --rebase origin develop"
 alias push!=ggpush
-alias c=clear
