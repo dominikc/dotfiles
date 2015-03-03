@@ -4,6 +4,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Plugin 'gmarik/vundle'
 
+let mapleader=" "
 set number
 set hlsearch
 set ignorecase
@@ -74,8 +75,13 @@ Plugin 'lokaltog/vim-easymotion'
   nmap n <Plug>(easymotion-next)
   nmap N <Plug>(easymotion-prev)
   nmap s <Plug>(easymotion-s2)
+  map <Leader>l <Plug>(easymotion-lineforward)
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
+  map <Leader>h <Plug>(easymotion-linebackward)
 
 Plugin 'airblade/vim-gitgutter'
+  let g:gitgutter_map_keys = 0
   nmap [c <Plug>GitGutterPrevHunk
   nmap ]c <Plug>GitGutterNextHunk
 
@@ -129,8 +135,10 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'jimsei/winresizer'
+Plugin 'jgdavey/vim-blockle'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'jimsei/winresizer'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " Essentials ;)
 Plugin 'tpope/vim-abolish'
