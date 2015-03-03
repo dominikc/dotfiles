@@ -87,6 +87,7 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'scrooloose/syntastic'
   let g:syntastic_html_checkers=['']
+  let g:syntastic_check_on_open=1
 
 Plugin 'rking/ag.vim'
   nnoremap <Leader>a :Ag<Space>
@@ -97,7 +98,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
   let g:ctrlp_switch_buffer = 0
   if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
   endif
 
 Plugin 'junegunn/vim-easy-align'
