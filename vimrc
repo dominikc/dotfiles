@@ -47,12 +47,6 @@ nnoremap <Leader>p "_diwP
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
-autocmd BufReadPost COMMIT_EDITMSG 0
-
 Plugin 'tomasr/molokai'
   set t_Co=256
   let g:rehash256 = 1
@@ -127,15 +121,16 @@ Plugin 'yggdroot/indentLine'
   let g:indentLine_noConcealCursor=""
 
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'dietsche/vim-lastplace'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'jgdavey/vim-blockle'
-Plugin 'wesQ3/vim-windowswap'
 Plugin 'jimsei/winresizer'
+Plugin 'wesQ3/vim-windowswap'
 
 " Essentials ;)
 Plugin 'tpope/vim-abolish'
