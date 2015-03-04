@@ -4,6 +4,19 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Plugin 'gmarik/vundle'
 
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+
 let mapleader=" "
 set number
 set hlsearch
@@ -126,33 +139,26 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'yggdroot/indentLine'
   let g:indentLine_noConcealCursor=""
 
+Plugin 'dahu/vim-lotr'
+  nnoremap <Leader>w :LOTRToggle<CR>
+
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jgdavey/vim-blockle'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'jimsei/winresizer'
 Plugin 'AndrewRadev/splitjoin.vim'
 
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'jimsei/winresizer'
+Plugin 'vim-scripts/ZoomWin'
+
 " Essentials ;)
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
 
 " Disabled - no longer used
 " Plugin 'edkolev/tmuxline.vim'
