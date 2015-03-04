@@ -61,10 +61,9 @@ nnoremap <Leader>p "_diwP
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-Plugin 'tomasr/molokai'
+Plugin 'flazz/vim-colorschemes'
   set t_Co=256
-  let g:rehash256 = 1
-  colorscheme molokai
+  colorscheme hybrid
 
 Plugin 'bling/vim-airline'
   let g:airline_theme = 'dark'
