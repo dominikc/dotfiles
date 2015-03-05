@@ -11,6 +11,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
@@ -28,7 +29,7 @@ set colorcolumn=80
 set noshowmode
 set lazyredraw
 set listchars=tab:▸\ ,trail:·,eol:¬
-set diffopt=vertical
+set diffopt=filler,vertical
 set noswapfile
 set nobackup
 set nowritebackup
@@ -39,7 +40,6 @@ nnoremap B ^
 nnoremap E $
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
-nnoremap K i<CR><Esc>
 nnoremap gV `[v`]
 nnoremap T :tabe<CR>
 inoremap jk <esc>
@@ -55,9 +55,6 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
-
-nnoremap <Leader>p "_diwP
-nnoremap <Leader>p "_diwP
 
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -135,11 +132,8 @@ Plugin 'shougo/vimfiler.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
   Plugin 'kana/vim-textobj-user'
 
-Plugin 'yggdroot/indentLine'
-  let g:indentLine_noConcealCursor=""
-
 Plugin 'dahu/vim-lotr'
-  nnoremap <Leader>w :LOTRToggle<CR>
+  nnoremap \w :LOTRToggle<CR>
 
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jgdavey/vim-blockle'
@@ -155,9 +149,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'jimsei/winresizer'
-Plugin 'vim-scripts/ZoomWin'
-
-" Essentials ;)
+Plugin 'regedarek/ZoomWin'
 
 " Disabled - no longer used
 " Plugin 'edkolev/tmuxline.vim'
