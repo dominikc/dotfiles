@@ -33,19 +33,15 @@ set diffopt=filler,vertical
 set noswapfile
 set nobackup
 set nowritebackup
-set scrolloff=10
+set scrolloff=5
 set shiftround
 
-nnoremap B ^
-nnoremap E $
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
 nnoremap gV `[v`]
 nnoremap T :tabe<CR>
 inoremap jk <esc>
 nnoremap <leader>l :set list!<CR>
-nnoremap ; :
-vnoremap ; :
 nnoremap <leader>r :source $MYVIMRC<CR>
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -143,13 +139,13 @@ Plugin 'vim-ruby/vim-ruby'
 
 Plugin 'dietsche/vim-lastplace'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'jgdavey/vim-blockle'
 Plugin 'AndrewRadev/splitjoin.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
+Plugin 'myusuf3/numbers.vim'
 
 " Disabled - no longer used
 " Plugin 'edkolev/tmuxline.vim'
@@ -157,3 +153,45 @@ Plugin 'regedarek/ZoomWin'
 " Plugin 'groenewege/vim-less'
 " Plugin 'zaiste/tmux.vim'
 " Plugin 'chrisbra/NrrwRgn'
+"
+function! DisableIfNonCounted(move) range
+  if v:count
+    return a:move
+  else
+    return ""
+  endif
+endfunction
+
+function! SetDisablingOfBasicMotionsIfNonCounted(on)
+  let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
+  if a:on
+    for key in keys_to_disable
+      execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
+    endfor
+    let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
+    let g:is_non_counted_basic_motions_disabled = 1
+  else
+    for key in keys_to_disable
+      try
+        execute "unmap " . key
+      catch /E31:/
+      endtry
+    endfor
+    let g:is_non_counted_basic_motions_disabled = 0
+  endif
+endfunction
+
+function! ToggleDisablingOfBasicMotionsIfNonCounted()
+  let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
+  if is_disabled
+    call SetDisablingOfBasicMotionsIfNonCounted(0)
+  else
+    call SetDisablingOfBasicMotionsIfNonCounted(1)
+  endif
+endfunction
+
+command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
+command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
+command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
+
+DisableNonCountedBasicMotions
