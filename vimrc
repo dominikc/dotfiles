@@ -42,7 +42,6 @@ nnoremap gV `[v`]
 nnoremap T :tabe<CR>
 inoremap jk <esc>
 nnoremap <leader>l :set list!<CR>
-nnoremap <leader>r :source $MYVIMRC<CR>
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -131,6 +130,10 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'dahu/vim-lotr'
   nnoremap \w :LOTRToggle<CR>
 
+Plugin 'takac/vim-hardtime'
+  let g:hardtime_default_on = 1
+  let g:hardtime_allow_different_key = 1
+
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
@@ -153,45 +156,3 @@ Plugin 'myusuf3/numbers.vim'
 " Plugin 'groenewege/vim-less'
 " Plugin 'zaiste/tmux.vim'
 " Plugin 'chrisbra/NrrwRgn'
-"
-function! DisableIfNonCounted(move) range
-  if v:count
-    return a:move
-  else
-    return ""
-  endif
-endfunction
-
-function! SetDisablingOfBasicMotionsIfNonCounted(on)
-  let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
-  if a:on
-    for key in keys_to_disable
-      execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
-    endfor
-    let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
-    let g:is_non_counted_basic_motions_disabled = 1
-  else
-    for key in keys_to_disable
-      try
-        execute "unmap " . key
-      catch /E31:/
-      endtry
-    endfor
-    let g:is_non_counted_basic_motions_disabled = 0
-  endif
-endfunction
-
-function! ToggleDisablingOfBasicMotionsIfNonCounted()
-  let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
-  if is_disabled
-    call SetDisablingOfBasicMotionsIfNonCounted(0)
-  else
-    call SetDisablingOfBasicMotionsIfNonCounted(1)
-  endif
-endfunction
-
-command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
-command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
-command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
-
-DisableNonCountedBasicMotions
