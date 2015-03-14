@@ -130,10 +130,12 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'dahu/vim-lotr'
   nnoremap \w :LOTRToggle<CR>
 
-Plugin 'takac/vim-hardtime'
-  let g:hardtime_default_on = 1
-  let g:hardtime_allow_different_key = 1
+Plugin 'mhinz/vim-startify'
+  let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
+  let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
+  let g:ctrlp_reuse_window = 'startify'
 
+Plugin 'tejr/vim-tmux'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
@@ -149,10 +151,15 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
 Plugin 'myusuf3/numbers.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'gregsexton/MatchTag'
 
 " Disabled - no longer used
 " Plugin 'edkolev/tmuxline.vim'
 " Plugin 'eparreno/vim-l9'
 " Plugin 'groenewege/vim-less'
-" Plugin 'zaiste/tmux.vim'
 " Plugin 'chrisbra/NrrwRgn'
+
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif

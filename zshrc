@@ -4,7 +4,7 @@ export LC_CTYPE="en_US.UTF-8"
 
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="nanotech"
 
 COMPLETION_WAITING_DOTS="true"
 [[ -n $TMUX ]] || DISABLE_AUTO_TITLE="true"
@@ -23,3 +23,4 @@ test -f /usr/local/rvm/scripts/rvm && source /usr/local/rvm/scripts/rvm
 alias sync!="git pull --rebase origin develop"
 alias push!=ggpush
 alias pushf!="ggpush -f"
+alias e=$EDITOR
