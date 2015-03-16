@@ -135,6 +135,7 @@ Plugin 'mhinz/vim-startify'
   let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
   let g:ctrlp_reuse_window = 'startify'
 
+" Syntax
 Plugin 'tejr/vim-tmux'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jgdavey/vim-blockle'
@@ -142,23 +143,21 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 
+" Editing
 Plugin 'dietsche/vim-lastplace'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'gregsexton/MatchTag'
+Plugin 'mattn/emmet-vim'
+Plugin 'chrisbra/NrrwRgn'
 
+" UI
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'gregsexton/MatchTag'
-
-" Disabled - no longer used
-" Plugin 'edkolev/tmuxline.vim'
-" Plugin 'eparreno/vim-l9'
-" Plugin 'groenewege/vim-less'
-" Plugin 'chrisbra/NrrwRgn'
 
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
