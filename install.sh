@@ -78,6 +78,14 @@ do
   if try_unlink "$HOME/.$file"; then (link_ $file); fi
 done
 
+zsh_files=(zshrc zpreztorc zprofile zshenv zlogin)
+DOTFILES="$DOTFILES/zprezto"
+for file in ${zsh_files[*]}
+do
+  if try_unlink "$HOME/.$file"; then (link_ $file); fi
+done
+DOTFILES="$ORIG_DOTFILES"
+
 if prompt_ "Install gitconfig?"; then
   if try_unlink "$HOME/.gitconfig"; then
     read -p "Please enter username: " username
