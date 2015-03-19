@@ -18,7 +18,7 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'history-substring-search'
 
-zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:prompt' theme 'sorin'
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 

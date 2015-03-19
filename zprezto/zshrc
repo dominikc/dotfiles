@@ -2,7 +2,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-alias gss=''
+alias gss=gws
 alias gs=''
-alias gd=''
-alias gdc=''
+alias gd=gwd
+alias gdc=gid
+alias sync!='git pull --rebase origin develop'
+alias fetch='git remote update origin --prune'
+
+if [ -n "$TMUX" ]; then
+  alias cdd="cd $(tmux show-environment -g PWD | sed 's/PWD=//g')"
+fi

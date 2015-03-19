@@ -5,6 +5,7 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
@@ -35,6 +36,7 @@ set nobackup
 set nowritebackup
 set scrolloff=5
 set shiftround
+set iskeyword+=-
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
@@ -94,7 +96,10 @@ Plugin 'scrooloose/syntastic'
   let g:syntastic_check_on_open=1
 
 Plugin 'rking/ag.vim'
-  nnoremap <Leader>a :Ag<Space>
+  nnoremap <Leader>A :Ag<Space>
+
+Plugin 'gabesoft/vim-ags'
+  nnoremap <Leader>a :Ags<Space>
 
 Plugin 'majutsushi/tagbar'
   nmap <Leader>T :TagbarToggle<CR>
@@ -110,8 +115,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/vim-easy-align'
   vmap <Enter> <Plug>(EasyAlign)
 
-Plugin 'terryma/vim-multiple-cursors'
-  vmap I <C-n>i
 
 Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
@@ -133,31 +136,38 @@ Plugin 'dahu/vim-lotr'
 Plugin 'mhinz/vim-startify'
   let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
   let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
+  let g:startify_change_to_dir = 0
   let g:ctrlp_reuse_window = 'startify'
 
 " Syntax
-Plugin 'tejr/vim-tmux'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tejr/vim-tmux'
 Plugin 'vim-ruby/vim-ruby'
 
 " Editing
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'chrisbra/NrrwRgn'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'gregsexton/MatchTag'
 Plugin 'mattn/emmet-vim'
-Plugin 'chrisbra/NrrwRgn'
+Plugin 'terryma/vim-multiple-cursors'
 
 " UI
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'wesQ3/vim-windowswap'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
-Plugin 'myusuf3/numbers.vim'
+Plugin 'wesQ3/vim-windowswap'
+
+" Sandbox
+" Plugin 'myusuf3/numbers.vim'
+" Plugin 'szw/vim-ctrlspace'
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'gcmt/taboo.vim'
 
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
