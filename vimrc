@@ -18,6 +18,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 
 let mapleader=" "
 set number
@@ -36,7 +37,6 @@ set nobackup
 set nowritebackup
 set scrolloff=5
 set shiftround
-set iskeyword+=-
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
@@ -55,18 +55,30 @@ inoremap <Right> <nop>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-Plugin 'flazz/vim-colorschemes'
-  set t_Co=256
-  colorscheme hybrid
+Plugin 'w0ng/vim-hybrid'
+Plugin 'morhetz/gruvbox'
+Plugin 'chriskempson/base16-vim'
+Plugin 'tomasr/molokai'
+  let g:rehash256 = 1
 
 Plugin 'bling/vim-airline'
-  let g:airline_theme = 'dark'
-  let g:airline#extensions#tmuxline#enabled = 0
   let g:airline_powerline_fonts = 1
+
+if has("gui_running")
+  set guioptions=agite
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set background=dark
+  colorscheme base16-tomorrow
+else
+  set t_Co=256
+  " set background=dark
+  colorscheme hybrid
+  let g:airline_theme = 'dark'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#show_buffers = 0
   let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#tabline#show_tab_type = 0
+endif
 
 Plugin 'thoughtbot/vim-rspec'
   let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
@@ -77,14 +89,10 @@ Plugin 'sjl/gundo.vim'
   nmap <Leader>g :GundoToggle<CR>
 
 Plugin 'lokaltog/vim-easymotion'
-  nmap / <Plug>(easymotion-sn)
-  nmap n <Plug>(easymotion-next)
-  nmap N <Plug>(easymotion-prev)
-  nmap s <Plug>(easymotion-s2)
-  map <Leader>l <Plug>(easymotion-lineforward)
+  map <Leader><Leader> <Plug>(easymotion-prefix)
   map <Leader>j <Plug>(easymotion-j)
   map <Leader>k <Plug>(easymotion-k)
-  map <Leader>h <Plug>(easymotion-linebackward)
+  nmap s <Plug>(easymotion-s2)
 
 Plugin 'airblade/vim-gitgutter'
   let g:gitgutter_map_keys = 0
@@ -121,14 +129,11 @@ Plugin 'garbas/vim-snipmate'
   Plugin 'marcweber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
 
-Plugin 'shougo/vimfiler.vim'
-  Plugin 'shougo/unite.vim'
-  let g:vimfiler_as_default_explorer = 1
-  nmap <Leader>e :VimFilerExplorer<CR>
-  autocmd FileType vimfiler setlocal nonumber
-
-Plugin 'nelstrom/vim-textobj-rubyblock'
-  Plugin 'kana/vim-textobj-user'
+" Plugin 'shougo/vimfiler.vim'
+"   Plugin 'shougo/unite.vim'
+"   let g:vimfiler_as_default_explorer = 1
+"   nmap <Leader>e :VimFilerExplorer<CR>
+"   autocmd FileType vimfiler setlocal nonumber
 
 Plugin 'dahu/vim-lotr'
   nnoremap \w :LOTRToggle<CR>
@@ -148,6 +153,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tejr/vim-tmux'
 Plugin 'vim-ruby/vim-ruby'
 
+" Text objects
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
 " Editing
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'chrisbra/NrrwRgn'
@@ -162,9 +172,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'myusuf3/numbers.vim'
 
 " Sandbox
-" Plugin 'myusuf3/numbers.vim'
 " Plugin 'szw/vim-ctrlspace'
 " Plugin 'jiangmiao/auto-pairs'
 " Plugin 'gcmt/taboo.vim'
