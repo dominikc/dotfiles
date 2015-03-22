@@ -37,6 +37,8 @@ set nobackup
 set nowritebackup
 set scrolloff=5
 set shiftround
+set splitbelow
+set splitright
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
@@ -129,20 +131,14 @@ Plugin 'garbas/vim-snipmate'
   Plugin 'marcweber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
 
-" Plugin 'shougo/vimfiler.vim'
-"   Plugin 'shougo/unite.vim'
-"   let g:vimfiler_as_default_explorer = 1
-"   nmap <Leader>e :VimFilerExplorer<CR>
-"   autocmd FileType vimfiler setlocal nonumber
-
-Plugin 'dahu/vim-lotr'
-  nnoremap \w :LOTRToggle<CR>
-
 Plugin 'mhinz/vim-startify'
   let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
   let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
   let g:startify_change_to_dir = 0
   let g:ctrlp_reuse_window = 'startify'
+
+Plugin 'myusuf3/numbers.vim'
+  let g:numbers_exclude = ['tagbar', 'startify', 'gundo',  'netrw']
 
 " Syntax
 Plugin 'cakebaker/scss-syntax.vim'
@@ -172,7 +168,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
 Plugin 'wesQ3/vim-windowswap'
-Plugin 'myusuf3/numbers.vim'
 
 " Sandbox
 " Plugin 'szw/vim-ctrlspace'
