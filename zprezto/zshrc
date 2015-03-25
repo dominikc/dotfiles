@@ -12,3 +12,5 @@ alias fetch='git remote update origin --prune'
 if [ -n "$TMUX" ]; then
   alias cdd="cd $(tmux show-environment -g PWD | sed 's/PWD=//g')"
 fi
+
+alias e='TERM=xterm-256color emacs'
