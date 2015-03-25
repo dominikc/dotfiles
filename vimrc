@@ -43,7 +43,6 @@ set splitright
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
 nnoremap gV `[v`]
-nnoremap T :tabe<CR>
 inoremap jk <esc>
 nnoremap <leader>l :set list!<CR>
 noremap <Up> <nop>
@@ -70,10 +69,9 @@ if has("gui_running")
   set guioptions=agite
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   set background=dark
-  colorscheme base16-tomorrow
+  colorscheme base16-monokai
 else
   set t_Co=256
-  " set background=dark
   colorscheme hybrid
   let g:airline_theme = 'dark'
   let g:airline#extensions#tabline#enabled = 1
@@ -133,7 +131,6 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'mhinz/vim-startify'
   let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
-  let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
   let g:startify_change_to_dir = 0
   let g:ctrlp_reuse_window = 'startify'
 
@@ -142,6 +139,7 @@ Plugin 'myusuf3/numbers.vim'
 
 " Syntax
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
@@ -150,9 +148,10 @@ Plugin 'tejr/vim-tmux'
 Plugin 'vim-ruby/vim-ruby'
 
 " Text objects
-Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'tmhedberg/matchit'
 
 " Editing
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -168,6 +167,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jimsei/winresizer'
 Plugin 'regedarek/ZoomWin'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'calebsmith/vim-lambdify'
 
 " Sandbox
 " Plugin 'szw/vim-ctrlspace'
