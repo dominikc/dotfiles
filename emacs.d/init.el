@@ -42,6 +42,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (setq linum-format "%4d \u2502 ")
+(global-hl-line-mode 1)
 (global-linum-mode 1)
 (global-git-gutter-mode t)
 (git-gutter:linum-setup)

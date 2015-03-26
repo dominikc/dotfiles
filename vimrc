@@ -39,6 +39,7 @@ set scrolloff=5
 set shiftround
 set splitbelow
 set splitright
+set mouse=
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
@@ -59,11 +60,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 Plugin 'w0ng/vim-hybrid'
 Plugin 'morhetz/gruvbox'
 Plugin 'chriskempson/base16-vim'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'tomasr/molokai'
   let g:rehash256 = 1
-
-Plugin 'bling/vim-airline'
-  let g:airline_powerline_fonts = 1
 
 if has("gui_running")
   set guioptions=agite
@@ -72,13 +71,14 @@ if has("gui_running")
   colorscheme base16-monokai
 else
   set t_Co=256
-  colorscheme hybrid
-  let g:airline_theme = 'dark'
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#show_buffers = 0
-  let g:airline#extensions#tabline#show_close_button = 0
-  let g:airline#extensions#tabline#show_tab_type = 0
+  colorscheme jellybeans
 endif
+
+Plugin 'bling/vim-airline'
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_tabs = 0
+  let g:airline#extensions#tabline#buffer_nr_show = 1
 
 Plugin 'thoughtbot/vim-rspec'
   let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
@@ -101,7 +101,12 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'scrooloose/syntastic'
   let g:syntastic_html_checkers=['']
-  let g:syntastic_check_on_open=1
+  " let g:syntastic_check_on_open=1
+  let g:syntastic_error_symbol = '✗✗'
+  let g:syntastic_style_error_symbol = '✠✠'
+  let g:syntastic_warning_symbol = '∆∆'
+  let g:syntastic_style_warning_symbol = '≈≈'
+
 
 Plugin 'rking/ag.vim'
   nnoremap <Leader>A :Ag<Space>
@@ -129,13 +134,8 @@ Plugin 'garbas/vim-snipmate'
   Plugin 'marcweber/vim-addon-mw-utils'
   Plugin 'tomtom/tlib_vim'
 
-Plugin 'mhinz/vim-startify'
-  let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
-  let g:startify_change_to_dir = 0
-  let g:ctrlp_reuse_window = 'startify'
-
 Plugin 'myusuf3/numbers.vim'
-  let g:numbers_exclude = ['tagbar', 'startify', 'gundo',  'netrw']
+  let g:numbers_exclude = ['tagbar', 'gundo',  'netrw']
 
 " Syntax
 Plugin 'cakebaker/scss-syntax.vim'
