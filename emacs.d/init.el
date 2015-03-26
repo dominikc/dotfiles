@@ -16,10 +16,10 @@
 (menu-bar-mode -1)
 
 (evil-commentary-mode)
-(setq elscreen-display-screen-number nil)
-(setq elscreen-tab-display-kill-screen nil)
-(setq elscreen-tab-display-control nil)
-(global-evil-tabs-mode t)
+;; (setq elscreen-display-screen-number nil)
+;; (setq elscreen-tab-display-kill-screen nil)
+;; (setq elscreen-tab-display-control nil)
+;; (global-evil-tabs-mode t)
 (global-evil-surround-mode t)
 (global-evil-matchit-mode t)
 (evil-mode 1)
@@ -51,6 +51,8 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 (helm-mode 1)
+(helm-descbinds-mode 1)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 
 (load-theme 'smyx t)
 (sml/setup)
