@@ -80,6 +80,15 @@ Plugin 'bling/vim-airline'
   let g:airline#extensions#tabline#show_tabs = 0
   let g:airline#extensions#tabline#buffer_nr_show = 1
 
+if has("lua")
+  Plugin 'Shougo/neocomplete.vim'
+  Plugin 'Shougo/vimproc.vim'
+  Plugin 'osyo-manga/vim-monster'
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#force_omni_input_patterns = { 'ruby' : '[^. *\t]\.\|\h\w*::' }
+  let g:monster#completion#rcodetools#backend = "async_rct_complete"
+endif
+
 Plugin 'thoughtbot/vim-rspec'
   let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
   nmap <Leader>t :call RunCurrentSpecFile()<CR>
@@ -101,7 +110,6 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'scrooloose/syntastic'
   let g:syntastic_html_checkers=['']
-  " let g:syntastic_check_on_open=1
   let g:syntastic_error_symbol = '✗✗'
   let g:syntastic_style_error_symbol = '✠✠'
   let g:syntastic_warning_symbol = '∆∆'
@@ -127,7 +135,6 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'junegunn/vim-easy-align'
   vmap <Enter> <Plug>(EasyAlign)
-
 
 Plugin 'garbas/vim-snipmate'
   Plugin 'honza/vim-snippets'
