@@ -1,3 +1,4 @@
 emacs.d/.cask
 emacs.d/url
-projectile-bookmarks.eld
+emacs.d/projectile.cache
+emacs.d/projectile-bookmarks.eld

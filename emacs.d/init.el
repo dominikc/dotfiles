@@ -49,7 +49,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (defvar linum-format)
-(setq linum-format "%4d \u2502 ")
+(setq linum-format "%4d ")
 (global-hl-line-mode 1)
 (global-linum-mode 1)
 
