@@ -49,14 +49,20 @@ Plug 'tmhedberg/matchit'
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'calebsmith/vim-lambdify'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-startify'
 Plug 'myusuf3/numbers.vim'
-Plug 'nanotech/jellybeans.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
+
+" Themes
+Plug 'chriskempson/base16-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'w0ng/vim-hybrid'
 
 " Window Management
 Plug 'christoomey/vim-tmux-navigator'
@@ -100,7 +106,6 @@ inoremap <Right> <nop>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-colorscheme jellybeans
 nmap <Leader>a :Ag<Space>
 nmap <Leader>T :TagbarToggle<CR>
 nmap <Leader>s :call RunNearestSpec()<CR>
@@ -113,10 +118,13 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
 let g:airline_powerline_fonts = 1
+let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
-let g:numbers_exclude = ['tagbar', 'gundo', 'netrw']
+let g:numbers_exclude = ['tagbar', 'startify', 'gundo', 'netrw']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+let g:startify_change_to_dir = 0
+let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
 let g:syntastic_error_symbol = '✗✗'
 let g:syntastic_html_checkers=['']
 let g:syntastic_style_error_symbol = '✠✠'
@@ -127,4 +135,13 @@ if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
+endif
+
+if has("gui_running")
+  set guioptions=agite
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set background=dark
+  colorscheme base16-monokai
+else
+  colorscheme jellybeans
 endif
