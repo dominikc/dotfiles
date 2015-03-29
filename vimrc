@@ -1,5 +1,4 @@
 call plug#begin()
-
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
@@ -36,7 +35,6 @@ Plug 'garbas/vim-snipmate'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-  vmap <Enter> <Plug>(EasyAlign)
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
@@ -50,45 +48,22 @@ Plug 'tmhedberg/matchit'
 
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
-  let g:gitgutter_map_keys = 0
-  nmap [c <Plug>GitGutterPrevHunk
-  nmap ]c <Plug>GitGutterNextHunk
 Plug 'bling/vim-airline'
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#show_tabs = 0
-  let g:airline#extensions#tabline#buffer_nr_show = 1
-Plug 'calebsmith/vim-lambdify'
+Plug 'junegunn/vim-peekaboo'
 Plug 'kien/ctrlp.vim'
-  let g:ctrlp_switch_buffer = 0
-  if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
-  endif
 Plug 'majutsushi/tagbar'
-  nmap <Leader>T :TagbarToggle<CR>
 Plug 'myusuf3/numbers.vim'
-  let g:numbers_exclude = ['tagbar', 'gundo',  'netrw']
 Plug 'nanotech/jellybeans.vim'
 Plug 'rking/ag.vim'
-  nnoremap <Leader>A :Ag<Space>
 Plug 'scrooloose/syntastic'
-  let g:syntastic_html_checkers=['']
-  let g:syntastic_error_symbol = '✗✗'
-  let g:syntastic_style_error_symbol = '✠✠'
-  let g:syntastic_warning_symbol = '∆∆'
-  let g:syntastic_style_warning_symbol = '≈≈'
 Plug 'thoughtbot/vim-rspec'
-  let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
-  nmap <Leader>t :call RunCurrentSpecFile()<CR>
-  nmap <Leader>s :call RunNearestSpec()<CR>
 
 " Window Management
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jimsei/winresizer'
 Plug 'regedarek/ZoomWin'
 Plug 'wesQ3/vim-windowswap'
+call plug#end()
 
 let mapleader=" "
 set number
@@ -125,5 +100,31 @@ inoremap <Right> <nop>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-call plug#end()
 colorscheme jellybeans
+nmap <Leader>a :Ag<Space>
+nmap <Leader>T :TagbarToggle<CR>
+nmap <Leader>s :call RunNearestSpec()<CR>
+nmap <Leader>t :call RunCurrentSpecFile()<CR>
+nmap [c <Plug>GitGutterPrevHunk
+nmap ]c <Plug>GitGutterNextHunk
+vmap <Enter> <Plug>(EasyAlign)
+
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline_powerline_fonts = 1
+let g:ctrlp_switch_buffer = 0
+let g:gitgutter_map_keys = 0
+let g:numbers_exclude = ['tagbar', 'gundo', 'netrw']
+let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+let g:syntastic_error_symbol = '✗✗'
+let g:syntastic_html_checkers=['']
+let g:syntastic_style_error_symbol = '✠✠'
+let g:syntastic_style_warning_symbol = '≈≈'
+let g:syntastic_warning_symbol = '∆∆'
+
+if executable("ag")
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
