@@ -1,24 +1,94 @@
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Plugin 'gmarik/vundle'
+call plug#begin()
 
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+
+" Syntax
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'groenewege/vim-less'
+Plug 'jgdavey/vim-blockle'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tejr/vim-tmux'
+Plug 'vim-ruby/vim-ruby'
+
+" Editor
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'dietsche/vim-lastplace'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'garbas/vim-snipmate'
+Plug 'gregsexton/MatchTag'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+  vmap <Enter> <Plug>(EasyAlign)
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tlib_vim'
+
+" Text objects
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'tmhedberg/matchit'
+
+" UI / Commands
+Plug 'airblade/vim-gitgutter'
+  let g:gitgutter_map_keys = 0
+  nmap [c <Plug>GitGutterPrevHunk
+  nmap ]c <Plug>GitGutterNextHunk
+Plug 'bling/vim-airline'
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_tabs = 0
+  let g:airline#extensions#tabline#buffer_nr_show = 1
+Plug 'calebsmith/vim-lambdify'
+Plug 'kien/ctrlp.vim'
+  let g:ctrlp_switch_buffer = 0
+  if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+  endif
+Plug 'majutsushi/tagbar'
+  nmap <Leader>T :TagbarToggle<CR>
+Plug 'myusuf3/numbers.vim'
+  let g:numbers_exclude = ['tagbar', 'gundo',  'netrw']
+Plug 'nanotech/jellybeans.vim'
+Plug 'rking/ag.vim'
+  nnoremap <Leader>A :Ag<Space>
+Plug 'scrooloose/syntastic'
+  let g:syntastic_html_checkers=['']
+  let g:syntastic_error_symbol = '✗✗'
+  let g:syntastic_style_error_symbol = '✠✠'
+  let g:syntastic_warning_symbol = '∆∆'
+  let g:syntastic_style_warning_symbol = '≈≈'
+Plug 'thoughtbot/vim-rspec'
+  let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+  nmap <Leader>t :call RunCurrentSpecFile()<CR>
+  nmap <Leader>s :call RunNearestSpec()<CR>
+
+" Window Management
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jimsei/winresizer'
+Plug 'regedarek/ZoomWin'
+Plug 'wesQ3/vim-windowswap'
 
 let mapleader=" "
 set number
@@ -39,12 +109,10 @@ set scrolloff=5
 set shiftround
 set splitbelow
 set splitright
-set mouse=
+set t_Co=256
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
-nnoremap gV `[v`]
-inoremap jk <esc>
 nnoremap <leader>l :set list!<CR>
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -57,131 +125,5 @@ inoremap <Right> <nop>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-Plugin 'w0ng/vim-hybrid'
-Plugin 'morhetz/gruvbox'
-Plugin 'chriskempson/base16-vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'tomasr/molokai'
-  let g:rehash256 = 1
-
-if has("gui_running")
-  set guioptions=agite
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-  set background=dark
-  colorscheme base16-monokai
-else
-  set t_Co=256
-  colorscheme jellybeans
-endif
-
-Plugin 'bling/vim-airline'
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#show_tabs = 0
-  let g:airline#extensions#tabline#buffer_nr_show = 1
-
-if has("lua")
-  Plugin 'Shougo/neocomplete.vim'
-  Plugin 'Shougo/vimproc.vim'
-  Plugin 'osyo-manga/vim-monster'
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#force_omni_input_patterns = { 'ruby' : '[^. *\t]\.\|\h\w*::' }
-  let g:monster#completion#rcodetools#backend = "async_rct_complete"
-endif
-
-Plugin 'thoughtbot/vim-rspec'
-  let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
-  nmap <Leader>t :call RunCurrentSpecFile()<CR>
-  nmap <Leader>s :call RunNearestSpec()<CR>
-
-Plugin 'sjl/gundo.vim'
-  nmap <Leader>g :GundoToggle<CR>
-
-Plugin 'lokaltog/vim-easymotion'
-  map <Leader><Leader> <Plug>(easymotion-prefix)
-  map <Leader>j <Plug>(easymotion-j)
-  map <Leader>k <Plug>(easymotion-k)
-  nmap s <Plug>(easymotion-s2)
-
-Plugin 'airblade/vim-gitgutter'
-  let g:gitgutter_map_keys = 0
-  nmap [c <Plug>GitGutterPrevHunk
-  nmap ]c <Plug>GitGutterNextHunk
-
-Plugin 'scrooloose/syntastic'
-  let g:syntastic_html_checkers=['']
-  let g:syntastic_error_symbol = '✗✗'
-  let g:syntastic_style_error_symbol = '✠✠'
-  let g:syntastic_warning_symbol = '∆∆'
-  let g:syntastic_style_warning_symbol = '≈≈'
-
-
-Plugin 'rking/ag.vim'
-  nnoremap <Leader>A :Ag<Space>
-
-Plugin 'gabesoft/vim-ags'
-  nnoremap <Leader>a :Ags<Space>
-
-Plugin 'majutsushi/tagbar'
-  nmap <Leader>T :TagbarToggle<CR>
-
-Plugin 'kien/ctrlp.vim'
-  let g:ctrlp_switch_buffer = 0
-  if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
-  endif
-
-Plugin 'junegunn/vim-easy-align'
-  vmap <Enter> <Plug>(EasyAlign)
-
-Plugin 'garbas/vim-snipmate'
-  Plugin 'honza/vim-snippets'
-  Plugin 'marcweber/vim-addon-mw-utils'
-  Plugin 'tomtom/tlib_vim'
-
-Plugin 'myusuf3/numbers.vim'
-  let g:numbers_exclude = ['tagbar', 'gundo',  'netrw']
-
-" Syntax
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'groenewege/vim-less'
-Plugin 'jgdavey/vim-blockle'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'othree/html5.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tejr/vim-tmux'
-Plugin 'vim-ruby/vim-ruby'
-
-" Text objects
-Plugin 'kana/vim-textobj-entire'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'tmhedberg/matchit'
-
-" Editing
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'chrisbra/NrrwRgn'
-Plugin 'dietsche/vim-lastplace'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'gregsexton/MatchTag'
-Plugin 'mattn/emmet-vim'
-Plugin 'terryma/vim-multiple-cursors'
-
-" UI
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jimsei/winresizer'
-Plugin 'regedarek/ZoomWin'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'calebsmith/vim-lambdify'
-
-" Sandbox
-" Plugin 'szw/vim-ctrlspace'
-" Plugin 'jiangmiao/auto-pairs'
-" Plugin 'gcmt/taboo.vim'
-
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
+call plug#end()
+colorscheme jellybeans

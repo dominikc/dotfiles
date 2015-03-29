@@ -41,7 +41,6 @@ fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
 hash zsh 2>/dev/null || { echo >&2 "Zsh not found. Aborting"; exit 1; }
-hash vim 2>/dev/null || { echo >&2 "Vim not found. Aborting"; exit 1; }
 hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 
 colorize "Installing dominikc/dotfiles" 32
@@ -52,18 +51,9 @@ if prompt_ "Install ruby (rbenv)?"; then
   fi
 fi
 
-
-if prompt_ "Install oh-my-zsh?"; then
-  if try_unlink "$HOME/.oh-my-zsh"; then
-    colorize "Installing oh-my-zsh..." 32
-    curl -L http://install.ohmyz.sh | sh
-    rm -f $HOME/.zshrc
-  fi
-
-  if try_unlink "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"; then
-    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git \
-      "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-  fi
+if prompt_ "Install vim-plug?"; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 if prompt_ "Install Powerline fonts?"; then
@@ -100,5 +90,3 @@ if prompt_ "Install solarized OS X terminal theme?"; then
   open "$TMP_PATH/solarized/Solarized Dark.terminal"
   open "$TMP_PATH/solarized/Solarized Light.terminal"
 fi
-
-echo "Type 'vundle install' to install VIM plugins"
