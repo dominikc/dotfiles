@@ -50,6 +50,7 @@ Plug 'tmhedberg/matchit'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'calebsmith/vim-lambdify'
+Plug 'gregsexton/gitv'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -60,6 +61,7 @@ Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
 
 " Themes
+Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
@@ -141,7 +143,9 @@ if has("gui_running")
   set guioptions=agite
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   set background=dark
-  colorscheme base16-monokai
+  colorscheme gruvbox
 else
-  colorscheme jellybeans
+  let g:airline_theme = 'dark'
+  set background=dark
+  colorscheme gruvbox
 endif
