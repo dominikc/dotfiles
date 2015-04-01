@@ -45,6 +45,7 @@
 (defvar company-minimum-prefix-length)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
+(setq-default flycheck-disabled-checkers '(html-tidy))
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 

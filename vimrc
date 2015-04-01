@@ -34,9 +34,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'garbas/vim-snipmate'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tommcdo/vim-exchange'
 Plug 'tomtom/tlib_vim'
 
 " Text objects
@@ -55,14 +57,13 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
-Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
 
 " Themes
-Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
 
@@ -71,6 +72,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jimsei/winresizer'
 Plug 'regedarek/ZoomWin'
 Plug 'wesQ3/vim-windowswap'
+
+if has("lua")
+  Plug 'Shougo/neocomplete.vim'
+endif
+
 call plug#end()
 
 let mapleader=" "
@@ -123,6 +129,7 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
+let g:neocomplete#enable_at_startup = 1
 let g:numbers_exclude = ['tagbar', 'startify', 'gundo', 'netrw']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:startify_change_to_dir = 0
@@ -143,7 +150,7 @@ if has("gui_running")
   set guioptions=agite
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   set background=dark
-  colorscheme gruvbox
+  colorscheme base16-ocean
 else
   let g:airline_theme = 'dark'
   set background=dark
