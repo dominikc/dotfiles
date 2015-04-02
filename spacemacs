@@ -1,7 +1,6 @@
 ;; -*- mode: dotspacemacs -*-
 
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration."
   (setq-default
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers '(company-mode git ruby javascript)
@@ -9,16 +8,9 @@
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
-  "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration."
   (setq-default
    dotspacemacs-startup-banner 'official
-   dotspacemacs-themes '(solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(monokai zenburn)
 
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
@@ -45,7 +37,15 @@ before layers configuration."
   )
 
 (defun dotspacemacs/config ()
-  "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
-)
+  (global-linum-mode)
+  (linum-relative-toggle)
+  (toggle-truncate-lines)
+
+  (setq js-indent-level 2)
+  (setq-default web-mode-markup-indent-offset 2 web-mode-css-indent-offset 2 web-mode-code-indent-offset 2)
+  (setq-default js2-basic-offset 2)
+
+  (setq-default tab-width 2)
+  (setq indent-line-function 'insert-tab)
+  (setq-default evil-shift-width 2)
+  )
