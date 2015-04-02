@@ -61,7 +61,7 @@ if prompt_ "Install Powerline fonts?"; then
   $TMP_PATH/powerline/install.sh
 fi
 
-files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin emacs.d)
+files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin spacemacs)
 
 for file in ${files[*]}
 do
