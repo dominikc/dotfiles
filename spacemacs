@@ -3,7 +3,7 @@
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-configuration-layer-path '()
-   dotspacemacs-configuration-layers '(company-mode git ruby javascript)
+   dotspacemacs-configuration-layers '(company-mode git ruby javascript tmux osx colors)
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
 
@@ -33,7 +33,10 @@
    dotspacemacs-smooth-scrolling t
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-persistent-server nil
-   dotspacemacs-default-package-repository nil)
+   dotspacemacs-default-package-repository nil
+   ruby-enable-ruby-on-rails-support t
+   ruby-version-manager 'rbenv
+   )
   )
 
 (defun dotspacemacs/config ()
@@ -43,9 +46,13 @@
 
   (setq js-indent-level 2)
   (setq-default web-mode-markup-indent-offset 2 web-mode-css-indent-offset 2 web-mode-code-indent-offset 2)
+  (setq css-indent-offset 2)
   (setq-default js2-basic-offset 2)
 
   (setq-default tab-width 2)
   (setq indent-line-function 'insert-tab)
   (setq-default evil-shift-width 2)
+  (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
+  (setq evil-want-fine-undo nil)
+  (setq require-final-newline t)
   )
