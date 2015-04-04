@@ -85,6 +85,10 @@ if prompt_ "Install gitconfig?"; then
   fi
 fi
 
+if prompt_ "Install zprezto?"; then
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
+fi
+
 if prompt_ "Install solarized OS X terminal theme?"; then
   git clone https://github.com/tomislav/osx-terminal.app-colors-solarized $TMP_PATH/solarized
   open "$TMP_PATH/solarized/Solarized Dark.terminal"
