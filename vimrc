@@ -36,7 +36,6 @@ Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
@@ -51,9 +50,11 @@ Plug 'tmhedberg/matchit'
 
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
+Plug 'aquach/vim-http-client'
 Plug 'bling/vim-airline'
 Plug 'calebsmith/vim-lambdify'
 Plug 'gregsexton/gitv'
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -62,7 +63,6 @@ Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
-Plug 'jeetsukumaran/vim-buffergator'
 
 " Themes
 Plug 'chriskempson/base16-vim'
@@ -157,5 +157,5 @@ if has("gui_running")
 else
   let g:airline_theme = 'dark'
   set background=dark
-  colorscheme gruvbox
+  colorscheme jellybeans
 endif
