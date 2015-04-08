@@ -36,7 +36,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_osx "vim tmux ag tig htop ssh-copy-id git tree ctags zsh rename"
+  install_osx "vim tmux ag tig htop ssh-copy-id git tree ctags zsh rename rbenv rbenv-gem-rehash ruby-build"
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
@@ -46,8 +46,8 @@ hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 colorize "Installing dominikc/dotfiles" 32
 
 if prompt_ "Install ruby (rbenv)?"; then
-  if prompt_ "Install ruby-2.2.0?"; then
-    rbenv install 2.2.0 && rbenv global 2.2.0
+  if prompt_ "Install ruby-2.2.1?"; then
+    rbenv install 2.2.1 && rbenv global 2.2.1
   fi
 fi
 
