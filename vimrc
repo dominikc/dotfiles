@@ -26,7 +26,6 @@ Plug 'tejr/vim-tmux'
 Plug 'vim-ruby/vim-ruby'
 
 " Editor
-Plug '0x0dea/vim-molasses'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'dietsche/vim-lastplace'
@@ -34,7 +33,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'garbas/vim-snipmate'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
@@ -58,6 +56,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
@@ -75,10 +74,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jimsei/winresizer'
 Plug 'regedarek/ZoomWin'
 Plug 'wesQ3/vim-windowswap'
-
-if has("lua")
-  Plug 'Shougo/neocomplete.vim'
-endif
 
 call plug#end()
 
@@ -102,6 +97,9 @@ set shiftround
 set splitbelow
 set splitright
 set t_Co=256
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap Q <nop>
@@ -123,6 +121,7 @@ nmap <Leader>s :call RunNearestSpec()<CR>
 nmap <Leader>t :call RunCurrentSpecFile()<CR>
 nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
+nmap <Leader>g :UndotreeShow<CR>
 vmap <Enter> <Plug>(EasyAlign)
 
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -133,7 +132,7 @@ let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
 let g:neocomplete#enable_at_startup = 1
-let g:numbers_exclude = ['tagbar', 'startify', 'gundo', 'netrw']
+let g:numbers_exclude = ['tagbar', 'startify', 'undo', 'netrw']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
@@ -151,7 +150,7 @@ endif
 
 if has("gui_running")
   set guioptions=agite
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set guifont=Fira\ Mono\ for\ Powerline:h13
   set background=dark
   colorscheme base16-ocean
 else
