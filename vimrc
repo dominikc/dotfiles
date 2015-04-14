@@ -127,7 +127,9 @@ vmap <Enter> <Plug>(EasyAlign)
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
-let g:airline_powerline_fonts = 1
+let g:airline_symbols = {}
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
@@ -136,11 +138,8 @@ let g:numbers_exclude = ['tagbar', 'startify', 'undo', 'netrw']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
-let g:syntastic_error_symbol = '✗✗'
 let g:syntastic_html_checkers=['']
-let g:syntastic_style_error_symbol = '✠✠'
-let g:syntastic_style_warning_symbol = '≈≈'
-let g:syntastic_warning_symbol = '∆∆'
+" let g:airline_powerline_fonts = 1
 
 if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
@@ -154,7 +153,7 @@ if has("gui_running")
   set background=dark
   colorscheme base16-ocean
 else
-  let g:airline_theme = 'dark'
+  " let g:airline_theme = 'dark'
   set background=dark
   colorscheme jellybeans
 endif
