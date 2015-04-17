@@ -62,6 +62,7 @@ Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
+Plug 'edkolev/tmuxline.vim'
 
 " Themes
 Plug 'chriskempson/base16-vim'
@@ -127,6 +128,7 @@ vmap <Enter> <Plug>(EasyAlign)
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_symbols = {}
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -139,7 +141,8 @@ let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
 let g:syntastic_html_checkers=['']
-" let g:airline_powerline_fonts = 1
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = 'minimal'
 
 if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
@@ -149,9 +152,9 @@ endif
 
 if has("gui_running")
   set guioptions=agite
-  set guifont=Fira\ Mono\ for\ Powerline:h13
+  set guifont=Fira\ Mono:h14
   set background=dark
-  colorscheme base16-ocean
+  colorscheme base16-tomorrow
 else
   " let g:airline_theme = 'dark'
   set background=dark
