@@ -154,9 +154,12 @@ if has("gui_running")
   set guioptions=agite
   set guifont=Fira\ Mono:h14
   set background=dark
+  set linespace=1
   colorscheme base16-tomorrow
 else
-  " let g:airline_theme = 'dark'
   set background=dark
-  colorscheme jellybeans
+  try
+    colorscheme jellybeans
+  catch /^Vim\%((\a\+)\)\=:E185/
+  endtry
 endif
