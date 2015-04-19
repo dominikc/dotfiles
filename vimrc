@@ -51,10 +51,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'aquach/vim-http-client'
 Plug 'bling/vim-airline'
 Plug 'calebsmith/vim-lambdify'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'edkolev/tmuxline.vim'
 Plug 'gregsexton/gitv'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'junegunn/vim-peekaboo'
-Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
@@ -62,7 +63,6 @@ Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
-Plug 'edkolev/tmuxline.vim'
 
 " Themes
 Plug 'chriskempson/base16-vim'
@@ -118,8 +118,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 nmap <Leader>a :Ag<Space>
 nmap <Leader>T :TagbarToggle<CR>
-nmap <Leader>s :call RunNearestSpec()<CR>
-nmap <Leader>t :call RunCurrentSpecFile()<CR>
+nmap <Leader>rs :call RunNearestSpec()<CR>
+nmap <Leader>rr :call RunCurrentSpecFile()<CR>
 nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
 nmap <Leader>g :UndotreeShow<CR>

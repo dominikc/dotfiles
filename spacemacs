@@ -32,8 +32,8 @@
 
     require-final-newline t
     evil-want-fine-undo nil
+    truncate-lines 1
     evil-shift-width 2
-    projectile-enable-caching nil
     )
   )
 
