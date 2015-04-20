@@ -34,6 +34,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
@@ -53,7 +54,7 @@ Plug 'bling/vim-airline'
 Plug 'calebsmith/vim-lambdify'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'gregsexton/gitv'
+Plug 'gabesoft/vim-ags'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'junegunn/vim-peekaboo'
 Plug 'majutsushi/tagbar'
@@ -122,27 +123,42 @@ nmap <Leader>rs :call RunNearestSpec()<CR>
 nmap <Leader>rr :call RunCurrentSpecFile()<CR>
 nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
-nmap <Leader>g :UndotreeShow<CR>
+nmap <Leader>z :UndotreeShow<CR>
 vmap <Enter> <Plug>(EasyAlign)
+
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
 
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#tmuxline#enabled = 0
-let g:airline_symbols = {}
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+let g:airline_symbols = {}
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
 let g:neocomplete#enable_at_startup = 1
 let g:numbers_exclude = ['tagbar', 'startify', 'undo', 'netrw']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
+let g:sneak#streak = 1
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
 let g:syntastic_html_checkers=['']
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = 'minimal'
+
+autocmd FileType css,scss,html setlocal iskeyword+=-
 
 if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
@@ -152,7 +168,7 @@ endif
 
 if has("gui_running")
   set guioptions=agite
-  set guifont=Fira\ Mono:h14
+  set guifont=Fira\ Mono:h13
   set background=dark
   set linespace=1
   colorscheme base16-tomorrow
