@@ -5,20 +5,13 @@
   (setq-default
     dotspacemacs-configuration-layer-path '()
     dotspacemacs-configuration-layers '(
-                                         auto-completion
-                                         colors
-                                         editorconfig
-                                         evil-commentary
-                                         (git :variables
-                                           git-gutter-use-fringe t)
-                                         javascript
-                                         restclient
-                                         ruby
-                                         osx
-                                         tmux
-                                         syntax-checking
-                                         themes-megapack
-                                         vagrant
+                                         auto-completion smex syntax-checking
+                                         colors themes-megapack
+                                         evil-commentary vim-empty-lines
+                                         editorconfig restclient
+                                         (git :variables git-gutter-use-fringe t)
+                                         osx tmux vagrant
+                                         c-c++ html javascript ruby
                                          )
     dotspacemacs-excluded-packages '()
     dotspacemacs-delete-orphan-packages t))
