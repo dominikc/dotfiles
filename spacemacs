@@ -25,7 +25,7 @@
 
 (defun dotspacemacs/init ()
   (setq-default
-    dotspacemacs-themes '(monokai gruvbox zenburn)
+    dotspacemacs-themes '(material monokai leuven gruvbox zenburn)
 
     ruby-enable-ruby-on-rails-support t
     ruby-version-manager 'rbenv
@@ -39,5 +39,6 @@
 
 (defun dotspacemacs/config ()
   (global-linum-mode)
+  (global-aggressive-indent-mode)
   (linum-relative-toggle)
   )

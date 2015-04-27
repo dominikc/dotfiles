@@ -46,6 +46,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'tmhedberg/matchit'
+Plug 'wellle/targets.vim'
 
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
@@ -56,7 +57,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'junegunn/vim-peekaboo'
+Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
@@ -145,6 +146,9 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
+let g:buffergator_viewport_split_policy = "B"
+let g:buffergator_autoupdate = 1
+let g:buffergator_hsplit_size = 10
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
