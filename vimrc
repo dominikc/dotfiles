@@ -57,6 +57,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'keithbsmiley/investigate.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
@@ -105,7 +106,6 @@ set undofile
 set undolevels=1000
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
-nnoremap Q <nop>
 nnoremap <leader>l :set list!<CR>
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -115,6 +115,11 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
+
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>l
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
 
 autocmd QuickFixCmdPost *grep* cwindow
 
