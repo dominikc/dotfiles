@@ -10,7 +10,7 @@
                                          evil-commentary vim-empty-lines
                                          editorconfig restclient
                                          (git :variables git-gutter-use-fringe t)
-                                         osx tmux vagrant
+                                         osx vagrant
                                          c-c++ html javascript ruby
                                          )
     dotspacemacs-excluded-packages '()
@@ -31,7 +31,10 @@
   )
 
 (defun dotspacemacs/config ()
+  (setq powerline-default-separator nil)
   (global-linum-mode)
+  (global-auto-complete-mode)
   (global-aggressive-indent-mode)
   (linum-relative-toggle)
+  (spacemacs/toggle-golden-ratio)
   )

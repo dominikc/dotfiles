@@ -81,7 +81,6 @@ Plug 'wesQ3/vim-windowswap'
 
 call plug#end()
 
-let mapleader=" "
 set number
 set hlsearch
 set ignorecase
@@ -106,7 +105,6 @@ set undofile
 set undolevels=1000
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
-nnoremap <leader>l :set list!<CR>
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -130,6 +128,7 @@ nmap <Leader>rr :call RunCurrentSpecFile()<CR>
 nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
 nmap <Leader>z :UndotreeShow<CR>
+nmap <Leader>Z :UndotreeHide<CR>
 vmap <Enter> <Plug>(EasyAlign)
 
 nmap f <Plug>Sneak_f
@@ -137,12 +136,19 @@ nmap F <Plug>Sneak_F
 nmap t <Plug>Sneak_t
 nmap T <Plug>Sneak_T
 
-nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>gr :Gread<CR>
-nnoremap <space>gw :Gwrite<CR><CR>
-nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gb :Gblame<CR>
+nnoremap <space>wh <C-w>h
+nnoremap <space>wj <C-w>j
+nnoremap <space>wk <C-w>k
+nnoremap <space>wl <C-w>l
+nnoremap <space>w- <C-w>s
+nnoremap <space>w/ <C-w>v
+nnoremap <space>wc <C-w>c
+nnoremap <space>ww <C-w>w
+nnoremap <space>bn :bnext<CR>
+nnoremap <space>bp :bprevious<CR>
+nnoremap <space>bb <C-^>
 
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
