@@ -51,6 +51,10 @@ if prompt_ "Install ruby (rbenv)?"; then
   fi
 fi
 
+if prompt_ "Install spacemacs?"; then
+  git clone --recursive http://github.com/syl20bnr/spacemacs ~/.emacs.d
+fi
+
 if prompt_ "Install vim-plug?"; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

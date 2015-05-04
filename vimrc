@@ -74,7 +74,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
 
 " Window Management
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'jimsei/winresizer'
 Plug 'regedarek/ZoomWin'
 Plug 'wesQ3/vim-windowswap'
@@ -114,11 +113,6 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>l
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
-
 autocmd QuickFixCmdPost *grep* cwindow
 
 nmap <Leader>a :Ag<Space>
@@ -130,11 +124,6 @@ nmap ]c <Plug>GitGutterNextHunk
 nmap <Leader>z :UndotreeShow<CR>
 nmap <Leader>Z :UndotreeHide<CR>
 vmap <Enter> <Plug>(EasyAlign)
-
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
 
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
@@ -149,6 +138,7 @@ nnoremap <space>ww <C-w>w
 nnoremap <space>bn :bnext<CR>
 nnoremap <space>bp :bprevious<CR>
 nnoremap <space>bb <C-^>
+nnoremap <space>/ :Ag<Space>
 
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
