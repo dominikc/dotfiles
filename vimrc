@@ -26,15 +26,12 @@ Plug 'tejr/vim-tmux'
 Plug 'vim-ruby/vim-ruby'
 
 " Editor
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'chrisbra/NrrwRgn'
-Plug 'dietsche/vim-lastplace'
+Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'garbas/vim-snipmate'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
@@ -50,34 +47,27 @@ Plug 'wellle/targets.vim'
 
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
-Plug 'aquach/vim-http-client'
 Plug 'bling/vim-airline'
-Plug 'calebsmith/vim-lambdify'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'keithbsmiley/investigate.vim'
+Plug 'jimsei/winresizer'
 Plug 'kshenoy/vim-signature'
-Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
+Plug 'wesq3/vim-windowswap'
 
 " Themes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
+Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
-
-" Window Management
-Plug 'jimsei/winresizer'
-Plug 'regedarek/ZoomWin'
-Plug 'wesQ3/vim-windowswap'
-
 call plug#end()
 
 set number
@@ -179,8 +169,10 @@ if has("gui_running")
   colorscheme base16-tomorrow
 else
   set background=dark
+  let g:rehash256 = 1
+  let g:airline_theme = 'dark'
   try
-    colorscheme jellybeans
+    colorscheme molokai
   catch /^Vim\%((\a\+)\)\=:E185/
   endtry
 endif

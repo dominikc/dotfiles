@@ -6,7 +6,7 @@
     dotspacemacs-configuration-layer-path '()
     dotspacemacs-configuration-layers '(
                                          auto-completion smex syntax-checking
-                                         colors themes-megapack
+                                         colors themes-megapack org
                                          evil-commentary vim-empty-lines
                                          editorconfig restclient
                                          (git :variables git-gutter-use-fringe t)
@@ -36,5 +36,4 @@
   (global-auto-complete-mode)
   (global-aggressive-indent-mode)
   (linum-relative-toggle)
-  (spacemacs/toggle-golden-ratio)
   )
