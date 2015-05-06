@@ -48,9 +48,9 @@ Plug 'wellle/targets.vim'
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'gabesoft/vim-ags'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'jimsei/winresizer'
 Plug 'kshenoy/vim-signature'
@@ -169,10 +169,8 @@ if has("gui_running")
   colorscheme base16-tomorrow
 else
   set background=dark
-  let g:rehash256 = 1
-  let g:airline_theme = 'dark'
   try
-    colorscheme molokai
+    colorscheme jellybeans
   catch /^Vim\%((\a\+)\)\=:E185/
   endtry
 endif

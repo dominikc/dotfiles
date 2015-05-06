@@ -14,5 +14,6 @@ if [ -n "$TMUX" ]; then
 fi
 
 alias gpush='git push origin $(git-branch-current)'
+_VIM=$(which vim)
+alias vim!=$_VIM
 alias vim='echo "Use e to edit"'
-alias vim!='/usr/local/bin/vim'
