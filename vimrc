@@ -24,6 +24,7 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tejr/vim-tmux'
 Plug 'vim-ruby/vim-ruby'
+Plug 'elzr/vim-json'
 
 " Editor
 Plug 'andrewradev/splitjoin.vim'
@@ -51,7 +52,6 @@ Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'jimsei/winresizer'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree'
@@ -59,6 +59,7 @@ Plug 'mhinz/vim-startify'
 Plug 'myusuf3/numbers.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
+Plug 'sjbach/lusty'
 Plug 'thoughtbot/vim-rspec'
 Plug 'wesq3/vim-windowswap'
 
@@ -71,6 +72,7 @@ Plug 'w0ng/vim-hybrid'
 call plug#end()
 
 set number
+set hidden
 set hlsearch
 set ignorecase
 set smartcase
@@ -129,6 +131,7 @@ nnoremap <space>bn :bnext<CR>
 nnoremap <space>bp :bprevious<CR>
 nnoremap <space>bb <C-^>
 nnoremap <space>/ :Ag<Space>
+nnoremap <space><space> :LustyBufferExplorer<CR>
 
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -143,7 +146,6 @@ let g:buffergator_hsplit_size = 10
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
-let g:neocomplete#enable_at_startup = 1
 let g:numbers_exclude = ['tagbar', 'startify', 'undo', 'netrw']
 let g:rspec_command = "Dispatch bundle exec rspec --format progress {spec}"
 let g:sneak#streak = 1
