@@ -1,4 +1,5 @@
 #!/bin/bash
+RUBY_VERSION="2.2.2"
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ORIG_DOTFILES=$DOTFILES
 TMP_PATH="/tmp/dotfiles"
@@ -40,22 +41,23 @@ if prompt_ "Install suggested packages? (recommended)"; then
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
-hash zsh 2>/dev/null || { echo >&2 "Zsh not found. Aborting"; exit 1; }
 hash curl 2>/dev/null || { echo >&2 "curl not found. Aborting"; exit 1; }
 
 colorize "Installing dominikc/dotfiles" 32
 
-if prompt_ "Install ruby (rbenv)?"; then
-  if prompt_ "Install ruby-2.2.1?"; then
-    rbenv install 2.2.1 && rbenv global 2.2.1
-  fi
+if hash rbenv 2>/dev/null && [ ! $(rbenv global) == $RUBY_VERSION ] && prompt_ "Install ruby-${RUBY_VERSION}?"; then
+  rbenv install $RUBY_VERSION && rbenv global $RUBY_VERSION
 fi
 
-if prompt_ "Install spacemacs?"; then
+if hash emacs 2>/dev/null && [ ! -d "$HOME/.emacs.d" ] && prompt_ "Install spacemacs?"; then
   git clone --recursive http://github.com/syl20bnr/spacemacs ~/.emacs.d
 fi
 
-if prompt_ "Install vim-plug?"; then
+if [ ! -d "$HOME/.zprezto" ] && prompt_ "Install zprezto?"; then
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
+fi
+
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ] && prompt_ "Install vim-plug?"; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
@@ -72,13 +74,15 @@ do
   if try_unlink "$HOME/.$file"; then (link_ $file); fi
 done
 
-zsh_files=(zshrc zpreztorc zprofile zshenv zlogin)
-DOTFILES="$DOTFILES/zprezto"
-for file in ${zsh_files[*]}
-do
-  if try_unlink "$HOME/.$file"; then (link_ $file); fi
-done
-DOTFILES="$ORIG_DOTFILES"
+if [ -d "$HOME/.zprezto" ]; then
+  zsh_files=(zshrc zpreztorc zprofile zshenv zlogin)
+  DOTFILES="$DOTFILES/zprezto"
+  for file in ${zsh_files[*]}
+  do
+    if try_unlink "$HOME/.$file"; then (link_ $file); fi
+  done
+  DOTFILES="$ORIG_DOTFILES"
+fi
 
 if prompt_ "Install gitconfig?"; then
   if try_unlink "$HOME/.gitconfig"; then
@@ -87,10 +91,6 @@ if prompt_ "Install gitconfig?"; then
     sed -e "s/GIT_USER_NAME/$username/" -e "s/GIT_USER_EMAIL/$email/" \
       $DOTFILES/gitconfig > $HOME/.gitconfig
   fi
-fi
-
-if prompt_ "Install zprezto?"; then
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 fi
 
 if prompt_ "Install solarized OS X terminal theme?"; then
