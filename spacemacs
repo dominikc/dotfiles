@@ -34,6 +34,5 @@
   (setq powerline-default-separator nil)
   (global-linum-mode)
   (global-auto-complete-mode)
-  (global-aggressive-indent-mode)
   (linum-relative-toggle)
   )

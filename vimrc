@@ -122,7 +122,8 @@ nmap ]c <Plug>GitGutterNextHunk
 nmap <Leader>z :UndotreeShow<CR>
 nmap <Leader>Z :UndotreeHide<CR>
 vmap <Enter> <Plug>(EasyAlign)
-nmap <Leader>e :NERDTreeToggle<CR>
+nmap <Leader>e :NERDTreeFocus<CR>
+nmap <Leader>E :NERDTreeClose<CR>
 
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
@@ -163,7 +164,7 @@ let g:tmuxline_preset = 'minimal'
 autocmd FileType css,scss,html setlocal iskeyword+=-
 
 if executable("ag")
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --vimgrep
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
@@ -175,9 +176,9 @@ if has("gui_running")
   set linespace=1
   colorscheme base16-tomorrow
 else
-  set background=light
+  set background=dark
   try
-    colorscheme solarized
+    colorscheme jellybeans
   catch /^Vim\%((\a\+)\)\=:E185/
   endtry
 endif

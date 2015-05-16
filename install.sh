@@ -37,7 +37,10 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  install_osx "vim tmux ag tig htop ssh-copy-id git tree ctags zsh rename rbenv rbenv-gem-rehash ruby-build"
+  PACKAGES="vim tmux ag tig htop ssh-copy-id git tree ctags zsh rename rbenv rbenv-gem-rehash ruby-build fpp editorconfig"
+  if prompt_ "[$PACKAGES]"; then
+    install_osx "$PACKAGES"
+  fi;
 fi;
 
 hash git 2>/dev/null || { echo >&2 "Git not found. Aborting"; exit 1; }
@@ -57,8 +60,18 @@ if [ ! -d "$HOME/.zprezto" ] && prompt_ "Install zprezto?"; then
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 fi
 
+if [ ! -d "$HOME/.vim/undodir" ] && prompt_ "Create undodir (vim)?"; then
+  mkdir -p $HOME/.vim/undodir/
+
+fi
+
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ] && prompt_ "Install vim-plug?"; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+if hash nvim 2>/dev/null && [ ! -f "$HOME/.nvim/autoload/plug.vim" ] && prompt_ "Install vim-plug (neovim)?"; then
+  curl -fLo ~/.nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
