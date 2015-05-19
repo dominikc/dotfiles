@@ -15,11 +15,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 
-" Dependencies
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'vim-scripts/SyntaxRange'
-Plug 'vim-scripts/ingo-library'
 
 " Syntax
 Plug 'cakebaker/scss-syntax.vim'
