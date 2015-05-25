@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-endwise'
@@ -54,7 +55,6 @@ Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'jimsei/winresizer'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree'
@@ -62,6 +62,7 @@ Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'szw/vim-ctrlspace'
 Plug 'thoughtbot/vim-rspec'
 Plug 'wesq3/vim-windowswap'
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -69,10 +70,15 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 " Themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
+Plug 'jpo/vim-railscasts-theme'
 Plug 'morhetz/gruvbox'
+Plug 'jnurmine/Zenburn'
 Plug 'nanotech/jellybeans.vim'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'sjl/badwolf'
 Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
+Plug 'zeis/vim-kolor'
 call plug#end()
 
 set number
@@ -85,12 +91,10 @@ set cursorline
 set colorcolumn=80
 set noshowmode
 set lazyredraw
-set listchars=tab:▸\ ,trail:·,eol:¬
 set diffopt=filler,vertical
 set noswapfile
 set nobackup
 set nowritebackup
-set scrolloff=5
 set shiftround
 set splitbelow
 set splitright
@@ -98,6 +102,29 @@ set t_Co=256
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
+
+let g:GUI_COLOR = "base16-monokai"
+let g:TERM_COLOR = "papercolor"
+let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeMinimalUI = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols = {}
+let g:buffergator_autoupdate = 1
+let g:buffergator_hsplit_size = 10
+let g:buffergator_viewport_split_policy = "B"
+let g:ctrlp_reuse_window = 'startify'
+let g:ctrlp_switch_buffer = 0
+let g:gitgutter_map_keys = 0
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:startify_change_to_dir = 0
+let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
+let g:syntastic_html_checkers=['']
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = 'minimal'
 
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 noremap <Up> <nop>
@@ -138,26 +165,6 @@ nnoremap <space>bp :bprevious<CR>
 nnoremap <space>bb <C-^>
 nnoremap <space>/ :Ag<Space>
 
-let g:NERDTreeHijackNetrw = 0
-let g:NERDTreeMinimalUI = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols = {}
-let g:buffergator_autoupdate = 1
-let g:buffergator_hsplit_size = 10
-let g:buffergator_viewport_split_policy = "B"
-let g:ctrlp_reuse_window = 'startify'
-let g:ctrlp_switch_buffer = 0
-let g:gitgutter_map_keys = 0
-let g:rspec_command = "Dispatch bundle exec spring rspec --format progress {spec}"
-let g:startify_change_to_dir = 0
-let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
-let g:syntastic_html_checkers=['']
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = 'minimal'
 
 autocmd FileType css,scss,html setlocal iskeyword+=-
 
@@ -167,16 +174,25 @@ if executable("ag")
   let g:ctrlp_use_caching = 0
 endif
 
+
+fun! SetThemeHooks()
+  let l:THEME_HOOKS = {
+        \ 'papercolor' : 'let g:airline_theme = "kalisi"',
+        \ 'molokai' : 'let g:rehash256 = 1 | let g:airline_theme = "dark"'
+        \}
+
+  if has_key(l:THEME_HOOKS, g:TERM_COLOR)
+    execute l:THEME_HOOKS[g:TERM_COLOR]
+  endif
+endf
+
 if has("gui_running")
   set guioptions=agite
   set guifont=Fira\ Mono:h13
   set background=dark
   set linespace=1
-  colorscheme base16-tomorrow
+  execute 'colorscheme' g:GUI_COLOR
 else
-  set background=dark
-  try
-    colorscheme jellybeans
-  catch /^Vim\%((\a\+)\)\=:E185/
-  endtry
+  call SetThemeHooks()
+  execute 'colorscheme' g:TERM_COLOR
 endif

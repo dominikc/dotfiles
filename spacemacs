@@ -5,12 +5,11 @@
   (setq-default
     dotspacemacs-configuration-layer-path '()
     dotspacemacs-configuration-layers '(
-                                         auto-completion smex syntax-checking
+                                         auto-completion syntax-checking
                                          colors themes-megapack org
                                          evil-commentary vim-empty-lines
-                                         editorconfig restclient
+                                         editorconfig restclient osx vagrant
                                          (git :variables git-gutter-use-fringe t)
-                                         osx vagrant
                                          c-c++ html javascript ruby
                                          )
     dotspacemacs-excluded-packages '()
@@ -18,7 +17,7 @@
 
 (defun dotspacemacs/init ()
   (setq-default
-    dotspacemacs-themes '(material monokai leuven gruvbox zenburn)
+    dotspacemacs-themes '(leuven monokai material gruvbox zenburn)
 
     ruby-enable-ruby-on-rails-support t
     ruby-version-manager 'rbenv
@@ -34,5 +33,4 @@
   (setq powerline-default-separator nil)
   (global-linum-mode)
   (global-auto-complete-mode)
-  (linum-relative-toggle)
   )
