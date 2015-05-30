@@ -70,9 +70,9 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 " Themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
+Plug 'jnurmine/Zenburn'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'morhetz/gruvbox'
-Plug 'jnurmine/Zenburn'
 Plug 'nanotech/jellybeans.vim'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'sjl/badwolf'
@@ -103,8 +103,10 @@ set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
 
-let g:GUI_COLOR = "base16-monokai"
-let g:TERM_COLOR = "papercolor"
+" Override colors in ~/.vimrc.local
+let g:GUI_COLOR = "base16-tomorrow"
+let g:TERM_COLOR = "jellybeans"
+
 let g:NERDTreeHijackNetrw = 0
 let g:NERDTreeMinimalUI = 1
 let g:airline#extensions#tabline#enabled = 0
@@ -113,9 +115,6 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
-let g:buffergator_autoupdate = 1
-let g:buffergator_hsplit_size = 10
-let g:buffergator_viewport_split_policy = "B"
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
@@ -146,9 +145,9 @@ nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
 nmap <Leader>z :UndotreeShow<CR>
 nmap <Leader>Z :UndotreeHide<CR>
-vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>e :NERDTreeFocus<CR>
 nmap <Leader>E :NERDTreeClose<CR>
+vmap <Enter> <Plug>(EasyAlign)
 
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
@@ -158,13 +157,15 @@ nnoremap <space>wk <C-w>k
 nnoremap <space>wl <C-w>l
 nnoremap <space>w- <C-w>s
 nnoremap <space>w/ <C-w>v
+nnoremap <space>ws <C-w>s
+nnoremap <space>ww <C-w>v
 nnoremap <space>wc <C-w>c
 nnoremap <space>ww <C-w>w
 nnoremap <space>bn :bnext<CR>
 nnoremap <space>bp :bprevious<CR>
 nnoremap <space>bb <C-^>
 nnoremap <space>/ :Ag<Space>
-
+nmap     <space>ph <C-p>
 
 autocmd FileType css,scss,html setlocal iskeyword+=-
 
@@ -174,25 +175,29 @@ if executable("ag")
   let g:ctrlp_use_caching = 0
 endif
 
+fun! SetTheme()
+  if has("gui_running")
+    set guioptions=agite
+    set guifont=Fira\ Mono:h13
+    set background=dark
+    set linespace=1
+    execute 'colorscheme' g:GUI_COLOR
+  else
+    let l:THEME_HOOKS = {
+          \ 'papercolor' : 'let g:airline_theme = "kalisi"',
+          \ 'molokai' : 'let g:rehash256 = 1 | let g:airline_theme = "dark"'
+          \}
 
-fun! SetThemeHooks()
-  let l:THEME_HOOKS = {
-        \ 'papercolor' : 'let g:airline_theme = "kalisi"',
-        \ 'molokai' : 'let g:rehash256 = 1 | let g:airline_theme = "dark"'
-        \}
-
-  if has_key(l:THEME_HOOKS, g:TERM_COLOR)
-    execute l:THEME_HOOKS[g:TERM_COLOR]
+    if has_key(l:THEME_HOOKS, g:TERM_COLOR)
+      execute l:THEME_HOOKS[g:TERM_COLOR]
+    endif
+    execute 'colorscheme' g:TERM_COLOR
   endif
 endf
 
-if has("gui_running")
-  set guioptions=agite
-  set guifont=Fira\ Mono:h13
-  set background=dark
-  set linespace=1
-  execute 'colorscheme' g:GUI_COLOR
-else
-  call SetThemeHooks()
-  execute 'colorscheme' g:TERM_COLOR
-endif
+
+if !empty(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+end
+
+call SetTheme()
