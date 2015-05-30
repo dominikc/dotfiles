@@ -22,6 +22,7 @@ Plug 'tomtom/tlib_vim'
 
 " Syntax
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
@@ -29,7 +30,6 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tejr/vim-tmux'
 Plug 'vim-ruby/vim-ruby'
-Plug 'elzr/vim-json'
 
 " Editor
 Plug 'andrewradev/splitjoin.vim'
@@ -52,7 +52,6 @@ Plug 'wellle/targets.vim'
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jimsei/winresizer'
@@ -81,21 +80,22 @@ Plug 'w0ng/vim-hybrid'
 Plug 'zeis/vim-kolor'
 call plug#end()
 
-set number
+set background=dark
+set colorcolumn=80
+set cursorline
+set diffopt=filler,vertical
 set hidden
 set hlsearch
 set ignorecase
-set smartcase
-set nowrap
-set cursorline
-set colorcolumn=80
-set noshowmode
 set lazyredraw
-set diffopt=filler,vertical
-set noswapfile
 set nobackup
+set noshowmode
+set noswapfile
+set nowrap
 set nowritebackup
+set number
 set shiftround
+set smartcase
 set splitbelow
 set splitright
 set t_Co=256
@@ -179,7 +179,6 @@ fun! SetTheme()
   if has("gui_running")
     set guioptions=agite
     set guifont=Fira\ Mono:h13
-    set background=dark
     set linespace=1
     execute 'colorscheme' g:GUI_COLOR
   else

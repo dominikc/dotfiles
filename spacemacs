@@ -17,7 +17,12 @@
 
 (defun dotspacemacs/init ()
   (setq-default
-    dotspacemacs-themes '(leuven monokai material gruvbox zenburn)
+    dotspacemacs-themes '(monokai leuven material gruvbox zenburn)
+    dotspacemacs-default-font '("Fira Mono"
+                                :size 13
+                                :weight normal
+                                :width normal
+                                :powerline-scale 1.1)
 
     ruby-enable-ruby-on-rails-support t
     ruby-version-manager 'rbenv

@@ -3,6 +3,8 @@ RUBY_VERSION="2.2.2"
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ORIG_DOTFILES=$DOTFILES
 TMP_PATH="/tmp/dotfiles"
+FIRA_URL="http://www.carrois.com/downloads/fira_mono_3_2/FiraMonoFonts3202.zip"
+mkdir -p $TMP_PATH
 
 prompt_() {
   while true; do
@@ -80,6 +82,14 @@ if prompt_ "Install Powerline fonts?"; then
   $TMP_PATH/powerline/install.sh
 fi
 
+if [ ! -f "$HOME/Library/Fonts/FiraMono-Regular.otf" ] && prompt_ "Install Fira Mono fonts?"; then
+  cd $TMP_PATH;
+  curl -O $FIRA_URL;
+  unzip Fira*.zip;
+  mv Fira*/OTF/*otf $HOME/Library/Fonts/
+  cd -
+fi
+
 files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin spacemacs)
 
 for file in ${files[*]}
@@ -111,3 +121,5 @@ if prompt_ "Install solarized OS X terminal theme?"; then
   open "$TMP_PATH/solarized/Solarized Dark.terminal"
   open "$TMP_PATH/solarized/Solarized Light.terminal"
 fi
+
+rm -r $TMP_PATH
