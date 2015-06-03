@@ -34,6 +34,7 @@ Plug 'vim-ruby/vim-ruby'
 " Editor
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'fmoralesc/vim-pad'
 Plug 'garbas/vim-snipmate'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
@@ -102,6 +103,7 @@ set t_Co=256
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
+set wildmode=list:longest,full
 
 " Override colors in ~/.vimrc.local
 let g:GUI_COLOR = "base16-tomorrow"
@@ -118,6 +120,7 @@ let g:airline_symbols = {}
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
+let g:pad#dir="~/.vim/pad/"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
@@ -149,6 +152,10 @@ nmap <Leader>e :NERDTreeFocus<CR>
 nmap <Leader>E :NERDTreeClose<CR>
 vmap <Enter> <Plug>(EasyAlign)
 
+if has("nvim")
+  tmap <Esc> <C-\><C-n>
+end
+
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
 nnoremap <space>wh <C-w>h
@@ -175,28 +182,15 @@ if executable("ag")
   let g:ctrlp_use_caching = 0
 endif
 
-fun! SetTheme()
-  if has("gui_running")
-    set guioptions=agite
-    set guifont=Fira\ Mono:h13
-    set linespace=1
-    execute 'colorscheme' g:GUI_COLOR
-  else
-    let l:THEME_HOOKS = {
-          \ 'papercolor' : 'let g:airline_theme = "kalisi"',
-          \ 'molokai' : 'let g:rehash256 = 1 | let g:airline_theme = "dark"'
-          \}
-
-    if has_key(l:THEME_HOOKS, g:TERM_COLOR)
-      execute l:THEME_HOOKS[g:TERM_COLOR]
-    endif
-    execute 'colorscheme' g:TERM_COLOR
-  endif
-endf
-
-
 if !empty(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 end
 
-call SetTheme()
+if has("gui_running")
+  set guioptions=agite
+  set guifont=Fira\ Mono:h13
+  set linespace=1
+  execute 'colorscheme' g:GUI_COLOR
+else
+  execute 'colorscheme' g:TERM_COLOR
+endif
