@@ -9,5 +9,6 @@
 
 
 (when (maybe-require-package 'git-gutter-fringe)
+  (global-git-gutter-mode)
   )
 (provide 'init-git)

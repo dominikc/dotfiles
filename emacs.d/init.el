@@ -37,7 +37,12 @@
 
 (maybe-require-package 'guide-key)
 (maybe-require-package 'powerline)
-(maybe-require-package 'yasnippet)
+(when (maybe-require-package 'yasnippet)
+  (eval-after-load 'company
+    '(push 'company-yasnippet company-backends))
+  (yas-global-mode)
+  (yas-activate-extra-mode 'ruby-mode)
+  )
 
 
 (when (maybe-require-package 'whitespace-cleanup-mode)
