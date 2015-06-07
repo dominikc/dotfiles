@@ -3,17 +3,21 @@
 (maybe-require-package 'ruby-tools)
 (maybe-require-package 'yaml-mode)
 (maybe-require-package 'bundler)
+(maybe-require-package 'projectile-rails)
+(maybe-require-package 'feature-mode)
+(maybe-require-package 'yaml-mode)
+
 (when (maybe-require-package 'rbenv)
   (global-rbenv-mode))
 
-(defun configure-ruby-mode ()
-  (robe-mode)
-  (enh-ruby-mode)
-  (evil-leader/set-key-for-mode 'enh-ruby-mode "mgg" 'robe-jump)
-  )
+(evil-leader/set-key "rgg" 'robe-jump)
+(eval-after-load 'company
+                 '(push 'company-robe company-backends))
 
-(add-hook 'ruby-mode-hook 'configure-ruby-mode)
+(add-hook 'ruby-mode-hook 'enh-ruby-mode)
+(add-hook 'enh-ruby-mode-hook 'robe-mode)
 
 (add-hook 'enhanced-ruby-mode 'inf-ruby-minor-mode)
-(require-package 'yaml-mode)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+
 (provide 'init-lang-ruby)

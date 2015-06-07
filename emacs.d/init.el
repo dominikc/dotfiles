@@ -24,7 +24,7 @@
 (maybe-require-package 'ag)
 
 (when (maybe-require-package 'company)
-  (setq company-idle-delay 0.2
+  (setq company-idle-delay 0.5
         company-tooltip-limit 10
         company-minimum-prefix-length 1
         company-tooltip-flip-when-above t)
@@ -32,6 +32,7 @@
   )
 
 (when (maybe-require-package 'flycheck)
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   (global-flycheck-mode))
 
 (maybe-require-package 'guide-key)
@@ -56,12 +57,12 @@
   (diminish 'whitespace-cleanup-mode)
   (diminish 'abbrev-mode)
   (diminish 'undo-tree-mode)
-  (diminish 'flycheck-mode " FC")
-  (diminish 'company-mode " C")
   )
 
 (setq projectile-mode-line '(:eval (format " [%s]" (projectile-project-name))))
 (maybe-require-package 'molokai-theme)
 (maybe-require-package 'solarized-theme)
 (maybe-require-package 'zenburn-theme)
-(load-theme 'molokai t)
+(maybe-require-package 'base16-theme)
+
+(load-theme 'base16-tomorrow-dark t)
