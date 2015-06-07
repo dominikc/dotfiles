@@ -1,4 +1,4 @@
-emacs.d/.cask
-emacs.d/url
-emacs.d/projectile.cache
+emacs.d/elpa/
+emacs.d/auto-save-list/
+emacs.d/*.dat
 emacs.d/projectile-bookmarks.eld
