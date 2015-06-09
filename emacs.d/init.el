@@ -21,8 +21,6 @@
 (require 'init-lang-js)
 (require 'init-lang-ruby)
 
-(maybe-require-package 'ag)
-
 (when (maybe-require-package 'company)
   (setq company-idle-delay 0.5
         company-tooltip-limit 10
@@ -38,12 +36,9 @@
 (maybe-require-package 'guide-key)
 (maybe-require-package 'powerline)
 (when (maybe-require-package 'yasnippet)
-  (eval-after-load 'company
-    '(push 'company-yasnippet company-backends))
   (yas-global-mode)
-  (yas-activate-extra-mode 'ruby-mode)
-  )
-
+  (yas-activate-extra-mode 'ruby-mode))
+(load-theme 'base16-tomorrow-dark t)
 
 (when (maybe-require-package 'whitespace-cleanup-mode)
   (global-whitespace-cleanup-mode))
@@ -55,6 +50,9 @@
 (setq-default guide-key/guide-key-sequence t
               guide-key/idle-delay 0.5)
 
+(when (maybe-require-package 'smartparens)
+  (smartparens-global-mode 1))
+
 (when (maybe-require-package 'diminish)
   (diminish 'evil-commentary-mode)
   (diminish 'guide-key-mode)
@@ -62,6 +60,7 @@
   (diminish 'whitespace-cleanup-mode)
   (diminish 'abbrev-mode)
   (diminish 'undo-tree-mode)
+  (diminish 'yas-minor-mode)
   )
 
 (setq projectile-mode-line '(:eval (format " [%s]" (projectile-project-name))))

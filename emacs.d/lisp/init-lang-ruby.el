@@ -6,7 +6,9 @@
 (maybe-require-package 'projectile-rails)
 (maybe-require-package 'feature-mode)
 (maybe-require-package 'yaml-mode)
+(maybe-require-package 'web-mode)
 
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (when (maybe-require-package 'rbenv)
   (global-rbenv-mode))
 

@@ -8,5 +8,9 @@
   (js2-mode)
   )
 
+(add-hook 'js2-mode-hook
+	  (lambda ()
+	    (push '("function" . ?λ) prettify-symbols-alist)))
+
 (add-hook 'js-mode-hook'configure-js2-mode)
 (provide 'init-lang-js)

@@ -6,6 +6,8 @@
   (define-key helm-map (kbd "C-l") 'helm-previous-source)
   )
 
+(evil-leader/set-key "/" 'helm-projectile-ag)
+
 (maybe-require-package 'helm-ag)
 (maybe-require-package 'helm-themes)
 
