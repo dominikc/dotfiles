@@ -68,5 +68,6 @@
 (maybe-require-package 'solarized-theme)
 (maybe-require-package 'zenburn-theme)
 (maybe-require-package 'base16-theme)
+(maybe-require-package 'material-theme)
 
-(load-theme 'base16-tomorrow-dark t)
+(load-theme 'material t)

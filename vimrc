@@ -17,8 +17,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 
-Plug 'marcweber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
 
 " Syntax
 Plug 'cakebaker/scss-syntax.vim'
@@ -35,7 +33,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fmoralesc/vim-pad'
-Plug 'garbas/vim-snipmate'
+Plug 'garbas/vim-snipmate' | Plug 'marcweber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
