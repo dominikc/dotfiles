@@ -7,6 +7,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-flagship'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
@@ -16,7 +17,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-
 
 " Syntax
 Plug 'cakebaker/scss-syntax.vim'
@@ -49,7 +49,6 @@ Plug 'wellle/targets.vim'
 
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jimsei/winresizer'
@@ -59,7 +58,6 @@ Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'szw/vim-ctrlspace'
 Plug 'thoughtbot/vim-rspec'
 Plug 'wesq3/vim-windowswap'
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -102,6 +100,9 @@ set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
 set wildmode=list:longest,full
+set laststatus=2
+set showtabline=2
+
 
 " Override colors in ~/.vimrc.local
 let g:GUI_COLOR = "base16-tomorrow"
@@ -185,10 +186,12 @@ if !empty(glob("~/.vimrc.local"))
 end
 
 if has("gui_running")
-  set guioptions=agite
+  set guioptions=agit
   set guifont=Fira\ Mono:h13
   set linespace=1
   execute 'colorscheme' g:GUI_COLOR
 else
   execute 'colorscheme' g:TERM_COLOR
 endif
+
+autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
