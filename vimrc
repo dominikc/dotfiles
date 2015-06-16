@@ -149,6 +149,7 @@ nmap <Leader>Z :UndotreeHide<CR>
 nmap <Leader>e :NERDTreeFocus<CR>
 nmap <Leader>E :NERDTreeClose<CR>
 vmap <Enter> <Plug>(EasyAlign)
+nnoremap <CR> :
 
 if has("nvim")
   tmap <Esc> <C-\><C-n>
