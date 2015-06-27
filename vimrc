@@ -32,7 +32,6 @@ Plug 'vim-ruby/vim-ruby'
 " Editor
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fmoralesc/vim-pad'
 Plug 'garbas/vim-snipmate' | Plug 'marcweber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim'
 Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
@@ -118,7 +117,6 @@ let g:airline_symbols = {}
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_switch_buffer = 0
 let g:gitgutter_map_keys = 0
-let g:pad#dir="~/.vim/pad/"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
