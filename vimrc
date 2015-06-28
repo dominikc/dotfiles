@@ -66,6 +66,7 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
+Plug 'atweiden/vim-colors-behelit'
 Plug 'chriskempson/base16-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'jpo/vim-railscasts-theme'
