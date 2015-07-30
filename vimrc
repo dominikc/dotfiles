@@ -58,12 +58,10 @@ Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'szw/vim-ctrlspace'
 Plug 'thoughtbot/vim-rspec'
 Plug 'wesq3/vim-windowswap'
-Plug 'xuyuanp/nerdtree-git-plugin'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
@@ -108,8 +106,6 @@ set wildmode=list:longest,full
 let g:GUI_COLOR = "base16-tomorrow"
 let g:TERM_COLOR = "jellybeans"
 
-let g:NERDTreeHijackNetrw = 0
-let g:NERDTreeMinimalUI = 1
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tmuxline#enabled = 0
@@ -123,6 +119,8 @@ let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
 let g:syntastic_html_checkers=['']
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = 'minimal'
 
@@ -146,8 +144,6 @@ nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
 nmap <Leader>z :UndotreeShow<CR>
 nmap <Leader>Z :UndotreeHide<CR>
-nmap <Leader>e :NERDTreeFocus<CR>
-nmap <Leader>E :NERDTreeClose<CR>
 vmap <Enter> <Plug>(EasyAlign)
 nnoremap <CR> :
 

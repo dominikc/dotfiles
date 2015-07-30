@@ -16,3 +16,5 @@ fi
 
 alias gpush='git push origin $(git-branch-current)'
 alias be='bundle exec'
+alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop || echo "develop")'
+alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
