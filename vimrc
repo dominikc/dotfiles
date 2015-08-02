@@ -59,7 +59,6 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
-Plug 'szw/vim-ctrlspace'
 Plug 'thoughtbot/vim-rspec'
 Plug 'wesq3/vim-windowswap'
 
@@ -68,7 +67,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'atweiden/vim-colors-behelit'
 Plug 'chriskempson/base16-vim'
 Plug 'jnurmine/Zenburn'
-Plug 'jpo/vim-railscasts-theme'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'nlknguyen/papercolor-theme'
@@ -134,6 +132,8 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
+nmap gs :Ag<Space>
+
 autocmd QuickFixCmdPost *grep* cwindow
 
 nmap <Leader>a :Ag<Space>
@@ -150,24 +150,6 @@ nnoremap <CR> :
 if has("nvim")
   tmap <Esc> <C-\><C-n>
 end
-
-nnoremap <space>gs :Gstatus<CR>
-nnoremap <space>gb :Gblame<CR>
-nnoremap <space>wh <C-w>h
-nnoremap <space>wj <C-w>j
-nnoremap <space>wk <C-w>k
-nnoremap <space>wl <C-w>l
-nnoremap <space>w- <C-w>s
-nnoremap <space>w/ <C-w>v
-nnoremap <space>ws <C-w>s
-nnoremap <space>ww <C-w>v
-nnoremap <space>wc <C-w>c
-nnoremap <space>ww <C-w>w
-nnoremap <space>bn :bnext<CR>
-nnoremap <space>bp :bprevious<CR>
-nnoremap <space>bb <C-^>
-nnoremap <space>/ :Ag<Space>
-nmap     <space>ph <C-p>
 
 autocmd FileType css,scss,html setlocal iskeyword+=-
 
