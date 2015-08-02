@@ -64,13 +64,11 @@ Plug 'wesq3/vim-windowswap'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
-Plug 'atweiden/vim-colors-behelit'
 Plug 'chriskempson/base16-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'nlknguyen/papercolor-theme'
-Plug 'sjl/badwolf'
 Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
 Plug 'zeis/vim-kolor'

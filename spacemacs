@@ -17,7 +17,7 @@
 
 (defun dotspacemacs/init ()
   (setq-default
-    dotspacemacs-themes '(monokai leuven material gruvbox zenburn)
+    dotspacemacs-themes '(solarized-dark solarized-light monokai leuven zenburn)
     dotspacemacs-default-font '("Fira Mono"
                                 :size 13
                                 :weight normal
