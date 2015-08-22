@@ -28,3 +28,4 @@ ssh() {
 }
 
 alias ssh!='command ssh'
+alias ghh='git flow hotfix'

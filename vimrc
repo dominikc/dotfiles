@@ -20,6 +20,7 @@ Plug 'tpope/vim-vinegar'
 
 " Syntax
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'chrisbra/csv.vim'
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
 Plug 'kchmck/vim-coffee-script'
@@ -38,6 +39,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
+Plug 'unblevable/quick-scope'
 
 " Text objects
 Plug 'kana/vim-textobj-entire'
