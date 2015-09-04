@@ -20,7 +20,6 @@
     company-tooltip-flip-when-above t)
 (global-company-mode 1)
 
-
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-gui)
