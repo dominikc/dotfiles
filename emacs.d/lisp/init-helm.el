@@ -1,2 +1,7 @@
-(require 'helm)
+(helm-mode 1)
+(define-key helm-map (kbd "C-j") 'helm-next-line)
+(define-key helm-map (kbd "C-k") 'helm-previous-line)
+(define-key helm-map (kbd "C-h") 'helm-next-source)
+(define-key helm-map (kbd "C-l") 'helm-previous-source)
+(projectile-global-mode)
 (provide 'init-helm)
