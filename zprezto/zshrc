@@ -15,17 +15,4 @@ alias be='bundle exec'
 alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop || echo "develop")'
 alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
-ssh() {
-  if [ -n "$TMUX" ]; then
-    tmux rename-window -t${TMUX_PANE} "@$1"
-  fi;
-
-  command ssh ubuntu@$1
-
-  if [ -n "$TMUX" ]; then
-    tmux rename-window -t${TMUX_PANE} "zsh"
-  fi;
-}
-
-alias ssh!='command ssh'
 alias ghh='git flow hotfix'
