@@ -26,6 +26,7 @@
 (depends-on "s")
 (depends-on "shut-up")
 (depends-on "smartparens")
+(depends-on "solarized-theme")
 (depends-on "web-mode")
 (depends-on "yaml-mode")
 (depends-on "zenburn-theme")

@@ -25,4 +25,6 @@
 (require 'init-helm)
 (require 'init-gui)
 (require 'init-syntax)
-(require 'zenburn-theme)
+
+(setq solarized-distinct-fringe-background t)
+(require 'solarized-light-theme)
