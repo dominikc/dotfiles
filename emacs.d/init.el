@@ -16,5 +16,6 @@
 
 (require 'init-evil)
 (require 'init-helm)
+(require 'init-gui)
 
 (require 'zenburn-theme)
