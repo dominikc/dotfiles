@@ -12,5 +12,10 @@
   (global-git-gutter-mode +1)
   )
 
+(guide-key-mode 1)
+(setq-default guide-key/guide-key-sequence t
+            guide-key/idle-delay 0.5)
+
+(smartparens-global-mode 1)
 
 (provide 'init-gui)
