@@ -1,4 +1,4 @@
-emacs.d/elpa/
-emacs.d/auto-save-list/
-emacs.d/*.dat
-emacs.d/projectile-bookmarks.eld
+emacs.*/elpa/
+emacs.*/auto-save-list/
+emacs.*/*.dat
+emacs.*/projectile-bookmarks.eld
