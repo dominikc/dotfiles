@@ -9,6 +9,7 @@
 (depends-on "evil-surround")
 (depends-on "f")
 (depends-on "flymake-haml")
+(depends-on "git-gutter-fringe")
 (depends-on "haml-mode")
 (depends-on "helm-ag")
 (depends-on "helm-projectile")

@@ -9,6 +9,8 @@
   (global-linum-mode)
 
   (global-prettify-symbols-mode 1)
+  (global-git-gutter-mode +1)
   )
+
 
 (provide 'init-gui)

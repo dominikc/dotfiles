@@ -1,3 +1,4 @@
+(setq helm-mode-fuzzy-match t)
 (helm-mode 1)
 (define-key helm-map (kbd "C-j") 'helm-next-line)
 (define-key helm-map (kbd "C-k") 'helm-previous-line)
