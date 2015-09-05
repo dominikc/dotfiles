@@ -1,4 +1,5 @@
 (evil-commentary-mode)
+(global-evil-surround-mode)
 
 (setq evil-want-C-u-scroll t)
 (setq-default evil-want-fine-undo nil)

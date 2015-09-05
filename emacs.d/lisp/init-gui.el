@@ -16,6 +16,6 @@
 (setq-default guide-key/guide-key-sequence t
             guide-key/idle-delay 0.5)
 
-(smartparens-global-mode 1)
+; (smartparens-global-mode 1)
 
 (provide 'init-gui)

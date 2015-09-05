@@ -14,12 +14,6 @@
 (setq make-backup-files nil)
 (auto-save-mode)
 
-(setq company-idle-delay 0.2
-    company-tooltip-limit 10
-    company-minimum-prefix-length 1
-    company-tooltip-flip-when-above t)
-(global-company-mode 1)
-
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-gui)
