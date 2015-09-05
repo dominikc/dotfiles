@@ -9,13 +9,17 @@
   (global-linum-mode)
 
   (global-prettify-symbols-mode 1)
+
+  (require 'git-gutter-fringe)
   (global-git-gutter-mode +1)
+  ; (setq git-gutter-fr:side 'right-fringe)
+
   )
 
 (guide-key-mode 1)
 (setq-default guide-key/guide-key-sequence t
             guide-key/idle-delay 0.5)
 
-; (smartparens-global-mode 1)
+;; (smartparens-global-mode 1)
 
 (provide 'init-gui)

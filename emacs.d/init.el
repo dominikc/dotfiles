@@ -1,6 +1,8 @@
 (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 
+(setq ad-redefinition-action 'accept)
+
 ;; Init pallet
 (require 'pallet)
 (pallet-mode t)
@@ -21,3 +23,5 @@
 
 (setq solarized-distinct-fringe-background t)
 (require 'solarized-light-theme)
+
+(powerline-default-theme)
