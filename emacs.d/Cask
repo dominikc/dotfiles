@@ -20,7 +20,6 @@
 (depends-on "helm-ag")
 (depends-on "helm-projectile")
 (depends-on "helm-themes")
-(depends-on "js2-mode")
 (depends-on "literate-coffee-mode")
 (depends-on "magit")
 (depends-on "molokai-theme")

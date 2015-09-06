@@ -2,7 +2,7 @@
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
-  (set-frame-name "Emacs")
+  (setq frame-title-format "%b")
 
   (add-to-list 'default-frame-alist '(font . "Fira Mono-13"))
   (set-face-attribute 'default t :font "Fira Mono-13")
@@ -12,8 +12,12 @@
 
   (require 'git-gutter-fringe)
   (global-git-gutter-mode +1)
-  ; (setq git-gutter-fr:side 'right-fringe)
+  (setq git-gutter-fr:side 'right-fringe)
 
+
+
+  (setq solarized-distinct-fringe-background t)
+  (require 'solarized-light-theme)
   )
 
 (guide-key-mode 1)

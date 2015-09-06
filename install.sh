@@ -39,7 +39,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  PACKAGES="vim tmux ag tig htop ssh-copy-id git tree ctags zsh rename rbenv rbenv-gem-rehash ruby-build fpp editorconfig"
+  PACKAGES="vim tmux ag tig htop ssh-copy-id git tree ctags zsh rename rbenv rbenv-gem-rehash ruby-build fpp editorconfig node"
   if prompt_ "[$PACKAGES]"; then
     install_osx "$PACKAGES"
   fi;

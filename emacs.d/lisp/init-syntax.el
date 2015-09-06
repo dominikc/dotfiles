@@ -1,4 +1,4 @@
-(global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 (yas-global-mode)
 
 (setq company-idle-delay 0.2
@@ -8,8 +8,8 @@
 (global-company-mode 1)
 
 ; Javascript
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook
+; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js-mode-hook
 	  (lambda ()
 	    (push '("function" . ?λ) prettify-symbols-alist)))
 
@@ -28,5 +28,8 @@
 (add-hook 'enh-ruby-mode-hook 'load-ruby-snippets)
 (add-hook 'enhanced-ruby-mode 'inf-ruby-minor-mode)
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+
+; Restclient
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
 (provide 'init-syntax)
