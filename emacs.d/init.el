@@ -8,7 +8,7 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
-
+(setq make-backup-files nil)
 
 ;; Init pallet
 (require 'pallet)
@@ -19,9 +19,6 @@
 (setq inhibit-splash-screen t
       inhibit-startup-message t
       inhibit-startup-echo-area-message t)
-
-(setq make-backup-files nil)
-(auto-save-mode)
 
 (require 'init-evil)
 (require 'init-helm)

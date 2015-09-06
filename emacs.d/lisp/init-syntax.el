@@ -18,7 +18,7 @@
   (yas-activate-extra-mode 'ruby-mode)
   )
 
-(setq rbenv-modeline-function 'rbenv--modeline-plain)
+(setq rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
 (eval-after-load 'company
                  '(push 'company-robe company-backends))

@@ -3,3 +3,4 @@ emacs.*/auto-save-list/
 emacs.*/*.dat
 emacs.*/projectile-bookmarks.eld
 emacs.*/.cask/
+emacs.*/recentf
