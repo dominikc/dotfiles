@@ -22,7 +22,7 @@
 
 (require 'init-evil)
 (require 'init-helm)
-(require 'init-gui)
 (require 'init-syntax)
+(require 'init-gui)
 
 (powerline-default-theme)

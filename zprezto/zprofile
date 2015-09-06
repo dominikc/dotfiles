@@ -3,7 +3,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 export ALTERNATE_EDITOR
-export EDITOR='emacsclient -c'
+export EDITOR='emacsclient -t'
 export VISUAL="$EDITOR"
 export PAGER='less'
 

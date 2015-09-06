@@ -20,10 +20,19 @@
   (require 'solarized-light-theme)
   )
 
+(indent-guide-global-mode)
 (guide-key-mode 1)
 (setq-default guide-key/guide-key-sequence t
             guide-key/idle-delay 0.5)
 
-;; (smartparens-global-mode 1)
+(diminish 'evil-commentary-mode)
+(diminish 'guide-key-mode)
+(diminish 'undo-tree-mode)
+(diminish 'yas-minor-mode)
+(diminish 'company-mode)
+(diminish 'helm-mode)
+(diminish 'abbrev-mode)
+(diminish 'indent-guide-mode)
+
 
 (provide 'init-gui)
