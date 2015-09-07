@@ -9,4 +9,6 @@
 (define-key helm-map (kbd "C-h") 'helm-next-source)
 (define-key helm-map (kbd "C-l") 'helm-previous-source)
 (projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 (provide 'init-helm)

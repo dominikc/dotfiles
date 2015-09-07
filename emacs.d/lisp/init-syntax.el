@@ -29,6 +29,11 @@
 (add-hook 'enhanced-ruby-mode 'inf-ruby-minor-mode)
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
+; Rspec
+(setq rspec-use-rake-when-possible nil)
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
+
 ; Restclient
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
