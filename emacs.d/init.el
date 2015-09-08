@@ -1,6 +1,7 @@
 (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 
+(setq-default evil-want-C-u-scroll t)
 (setq ad-redefinition-action 'accept)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backup")))
 (setq backup-by-copying t)
@@ -25,4 +26,4 @@
 (require 'init-syntax)
 (require 'init-gui)
 
-(powerline-default-theme)
+; (powerline-default-theme)

@@ -24,7 +24,7 @@
 (depends-on "indent-guide")
 (depends-on "literate-coffee-mode")
 (depends-on "magit")
-(depends-on "molokai-theme")
+(depends-on "monokai-theme")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "powerline")

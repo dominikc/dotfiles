@@ -14,12 +14,10 @@
   (global-git-gutter-mode +1)
   (setq git-gutter-fr:side 'right-fringe)
 
-
-
-  (setq solarized-distinct-fringe-background t)
-  (require 'solarized-light-theme)
+  (require 'monokai-theme)
   )
 
+(global-hl-line-mode)
 (indent-guide-global-mode)
 (guide-key-mode 1)
 (setq-default guide-key/guide-key-sequence t
