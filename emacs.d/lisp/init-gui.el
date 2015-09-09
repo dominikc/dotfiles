@@ -32,5 +32,5 @@
 (diminish 'abbrev-mode)
 (diminish 'indent-guide-mode)
 
-
+(setq uniquify-buffer-name-style 'forward)
 (provide 'init-gui)

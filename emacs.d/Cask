@@ -34,6 +34,7 @@
 (depends-on "robe")
 (depends-on "rspec-mode")
 (depends-on "s")
+(depends-on "sass-mode")
 (depends-on "shut-up")
 (depends-on "smartparens")
 (depends-on "solarized-theme")

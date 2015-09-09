@@ -39,7 +39,6 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
-Plug 'unblevable/quick-scope'
 
 " Text objects
 Plug 'kana/vim-textobj-entire'
