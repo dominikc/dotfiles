@@ -118,6 +118,7 @@ let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
 let g:syntastic_html_checkers=['']
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_ruby_checkers=['rubocop', 'mri']
+let g:syntastic_haml_checkers=['haml_lint', 'haml']
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = 'minimal'
 
