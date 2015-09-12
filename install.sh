@@ -1,5 +1,5 @@
 #!/bin/bash
-RUBY_VERSION="2.2.2"
+RUBY_VERSION="2.2.3"
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ORIG_DOTFILES=$DOTFILES
 TMP_PATH="/tmp/dotfiles"
