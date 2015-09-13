@@ -2,8 +2,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-export ALTERNATE_EDITOR
-export EDITOR='emacsclient -t'
+export EDITOR='vim'
 export VISUAL="$EDITOR"
 export PAGER='less'
 

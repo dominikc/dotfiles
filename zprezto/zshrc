@@ -16,5 +16,3 @@ alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop 
 alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
 alias ghh='git flow hotfix'
-alias vim=$EDITOR
-alias vim!='command vim'
