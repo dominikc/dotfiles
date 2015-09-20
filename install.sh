@@ -86,7 +86,7 @@ if [ ! -f "$HOME/Library/Fonts/FiraMono-Regular.otf" ] && prompt_ "Install Fira 
   cd -
 fi
 
-files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin spacemacs antigen.zsh)
+files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin spacemacs zgen.zsh)
 
 for file in ${files[*]}
 do

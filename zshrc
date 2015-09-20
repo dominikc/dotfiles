@@ -19,14 +19,15 @@ alias gco='git checkout'
 alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop || echo "develop")'
 alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
-if [ -f "$HOME/.antigen.zsh" ]; then
-  source "$HOME/.antigen.zsh"
-  antigen use oh-my-zsh
-  antigen theme sorin
+source "$HOME/.zgen.zsh"
 
-  antigen bundle rimraf/k
-  antigen bundle djui/alias-tips
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-history-substring-search
-  antigen apply
+if ! zgen saved; then
+  zgen oh-my-zsh
+  zgen load rimraf/k
+  zgen load djui/alias-tips
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-history-substring-search
+
+  zgen oh-my-zsh themes/sorin
+  zgen save
 fi
