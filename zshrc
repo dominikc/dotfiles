@@ -28,13 +28,11 @@ source "$HOME/.zgen.zsh"
 PURE_GIT_PULL=0
 
 if ! zgen saved; then
-  zgen load mafredri/zsh-async
-  zgen load sindresorhus/pure
-
-  zgen load rimraf/k
   zgen load djui/alias-tips
-  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load nojhan/liquidprompt
+  zgen load rimraf/k
   zgen load zsh-users/zsh-history-substring-search
+  zgen load zsh-users/zsh-syntax-highlighting
 
   zgen save
 fi
