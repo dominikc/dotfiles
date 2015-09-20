@@ -13,9 +13,8 @@
   (require 'git-gutter-fringe)
   (global-git-gutter-mode +1)
   (setq git-gutter-fr:side 'right-fringe)
-
-  (require 'monokai-theme)
   )
+(require 'zenburn-theme)
 
 (global-hl-line-mode)
 (indent-guide-global-mode)

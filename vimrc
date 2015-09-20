@@ -101,7 +101,7 @@ set wildmode=list:longest,full
 
 " Override colors in ~/.vimrc.local
 let g:GUI_COLOR = "base16-tomorrow"
-let g:TERM_COLOR = "jellybeans"
+let g:TERM_COLOR = "zenburn"
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_tabs = 1
