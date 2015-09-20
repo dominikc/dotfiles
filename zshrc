@@ -22,7 +22,11 @@ alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 if [ -f "$HOME/.antigen.zsh" ]; then
   source "$HOME/.antigen.zsh"
   antigen use oh-my-zsh
-  antigen bundle zsh-users/zsh-syntax-highlighting
   antigen theme sorin
+
+  antigen bundle rimraf/k
+  antigen bundle djui/alias-tips
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-history-substring-search
   antigen apply
 fi
