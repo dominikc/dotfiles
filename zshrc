@@ -1,27 +1,28 @@
-export LC_MESSAGES="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
-export ZSH=$HOME/.oh-my-zsh
-export EDITOR="vim"
-export VISUAL="$EDITOR"
-ZSH_THEME="nanotech"
-
-COMPLETION_WAITING_DOTS="true"
-[[ -n $TMUX ]] || DISABLE_AUTO_TITLE="true"
-
-BUNDLED_COMMANDS=(rails)
-
-plugins=(
-  adb bundler git git-flow rails rbenv tmuxinator vundle zsh-syntax-highlighting history-substring-search
-)
-
-source $ZSH/oh-my-zsh.sh
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH="$HOME/.bin:$PATH"
+export EDITOR=vim
 
-test -f /usr/local/rvm/scripts/rvm && source /usr/local/rvm/scripts/rvm
-alias sync!="git pull --rebase origin develop"
-alias push!=ggpush
-alias pushf!="ggpush -f"
-alias e=$VISUAL
+alias be='bundle exec'
+alias e="$EDITOR"
+
+alias gwd='git diff'
+alias gid='git diff --cached'
+alias gws='git status -s'
+alias gb='git branch'
+alias gco='git checkout'
+
+alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop || echo "develop")'
+alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
+
+if [ -f "$HOME/.antigen.zsh" ]; then
+  source "$HOME/.antigen.zsh"
+  antigen use oh-my-zsh
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen theme sorin
+  antigen apply
+fi

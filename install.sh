@@ -58,10 +58,6 @@ if hash emacs 2>/dev/null && [ ! -d "$HOME/.emacs.d" ] && prompt_ "Install space
   git clone --recursive http://github.com/syl20bnr/spacemacs ~/.emacs.d
 fi
 
-if [ ! -d "$HOME/.zprezto" ] && prompt_ "Install zprezto?"; then
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
-fi
-
 if [ ! -d "$HOME/.vim/undodir" ] && prompt_ "Create undodir (vim)?"; then
   mkdir -p $HOME/.vim/undodir/
 
@@ -90,22 +86,12 @@ if [ ! -f "$HOME/Library/Fonts/FiraMono-Regular.otf" ] && prompt_ "Install Fira 
   cd -
 fi
 
-files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin spacemacs)
+files=(agignore editorconfig gitignore_global tmux.conf tmuxline vimrc zshrc tigrc bin spacemacs antigen.zsh)
 
 for file in ${files[*]}
 do
   if try_unlink "$HOME/.$file"; then (link_ $file); fi
 done
-
-if [ -d "$HOME/.zprezto" ]; then
-  zsh_files=(zshrc zpreztorc zprofile zshenv zlogin)
-  DOTFILES="$DOTFILES/zprezto"
-  for file in ${zsh_files[*]}
-  do
-    if try_unlink "$HOME/.$file"; then (link_ $file); fi
-  done
-  DOTFILES="$ORIG_DOTFILES"
-fi
 
 if prompt_ "Install gitconfig?"; then
   if try_unlink "$HOME/.gitconfig"; then
