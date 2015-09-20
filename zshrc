@@ -21,13 +21,16 @@ alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
 source "$HOME/.zgen.zsh"
 
+PURE_GIT_PULL=0
+
 if ! zgen saved; then
-  zgen oh-my-zsh
+  zgen load mafredri/zsh-async
+  zgen load sindresorhus/pure
+
   zgen load rimraf/k
   zgen load djui/alias-tips
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load zsh-users/zsh-history-substring-search
 
-  zgen oh-my-zsh themes/sorin
   zgen save
 fi
