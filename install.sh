@@ -39,7 +39,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  PACKAGES="ag coreutils ctags editorconfig git htop node rbenv rbenv-gem-rehash rename ruby-build ssh-copy-id tig tmux tree vim watch zsh"
+  PACKAGES="ag coreutils ctags editorconfig git grc htop node rbenv rbenv-gem-rehash rename ruby-build ssh-copy-id tig tmux tree vim watch zsh"
   if prompt_ "[$PACKAGES]"; then
     install_osx "$PACKAGES"
   fi;

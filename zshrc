@@ -10,9 +10,13 @@ export EDITOR=vim
 alias be='bundle exec'
 alias e="$EDITOR"
 
+alias ls='ls -G'
+alias grep='grep --color=auto'
+
 alias map="xargs -n1"
 alias ll=k
 alias l=k
+
 
 alias gwd='git diff'
 alias gid='git diff --cached'
@@ -25,8 +29,6 @@ alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
 source "$HOME/.zgen.zsh"
 
-PURE_GIT_PULL=0
-
 if ! zgen saved; then
   zgen load djui/alias-tips
   zgen load nojhan/liquidprompt
@@ -35,4 +37,8 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-syntax-highlighting
 
   zgen save
+fi
+
+if [ -f "/usr/local/opt/grc/etc/grc.bashrc" ]; then
+  source "/usr/local/opt/grc/etc/grc.bashrc"
 fi
