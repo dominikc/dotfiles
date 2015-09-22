@@ -50,7 +50,7 @@ git-branch-current() {
 _prompt_git_branch () {
   ref=$(git rev-parse --short HEAD 2>/dev/null)
   if [ ! -z $ref ]; then
-    symbolic_ref=$(git-branch-current 2>/dev/null)
+    symbolic_ref=$(git describe --contains --all HEAD 2>/dev/null)
     _PROMPT=" %{$fg[green]%}git%{$reset_color%}"
 
     if [ ! -z $symbolic_ref ]; then
