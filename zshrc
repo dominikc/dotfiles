@@ -23,7 +23,7 @@ alias gid='git diff --cached'
 alias gws='git status -s'
 alias gb='git branch'
 alias gco='git checkout'
-alias gpush='git push'
+alias gpush='git push origin $(git-branch-current)'
 alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop || echo "develop")'
 alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
@@ -43,11 +43,21 @@ SAVEHIST=10000
 setopt append_history
 setopt share_history
 
+git-branch-current() {
+  git symbolic-ref --short HEAD
+}
+
 _prompt_git_branch () {
-  ref=$(git symbolic-ref --short HEAD 2>/dev/null)
+  ref=$(git rev-parse --short HEAD 2>/dev/null)
   if [ ! -z $ref ]; then
-    _PROMPT=" %{$fg[green]%}git%{$reset_color%}:%{$fg[blue]%}${ref}%{$reset_color%}"
-    _PROMPT="${_PROMPT}:%{$fg[magenta]%}$(git rev-parse --short HEAD)%{$reset_color%}"
+    symbolic_ref=$(git-branch-current 2>/dev/null)
+    _PROMPT=" %{$fg[green]%}git%{$reset_color%}"
+
+    if [ ! -z $symbolic_ref ]; then
+      _PROMPT="${_PROMPT}:%{$fg[blue]%}${symbolic_ref}%{$reset_color%}"
+    fi
+
+    _PROMPT="${_PROMPT}:%{$fg[magenta]%}${ref}%{$reset_color%}"
 
     INDEX=$(command git status --porcelain -b 2> /dev/null);
 
