@@ -44,10 +44,34 @@ setopt append_history
 setopt share_history
 
 _prompt_git_branch () {
-  ref=$(git symbolic-ref HEAD 2>/dev/null)
+  ref=$(git symbolic-ref --short HEAD 2>/dev/null)
   if [ ! -z $ref ]; then
-    newref=$(echo $ref | cut -d'/' -f3)
-    echo " %{$fg[green]%}git%{$reset_color%}:%{$fg[blue]%}${newref}%{$reset_color%}"
+    _PROMPT=" %{$fg[green]%}git%{$reset_color%}:%{$fg[blue]%}${ref}%{$reset_color%}"
+    _PROMPT="${_PROMPT}:%{$fg[magenta]%}$(git rev-parse --short HEAD)%{$reset_color%}"
+
+    INDEX=$(command git status --porcelain -b 2> /dev/null);
+
+    _GIT_STATUS_ADDED="%{$fg[green]%}*%{$reset_color%}"
+    _GIT_STATUS_MODIFIED="%{$fg[red]%}*%{$reset_color%}"
+    _GIT_STATUS_UNTRACKED="%{$fg[white]%}?%{$reset_color%}"
+
+    if $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
+      _PROMPT="${_PROMPT}${_GIT_STATUS_ADDED}"
+    elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
+      _PROMPT="${_PROMPT}${_GIT_STATUS_ADDED}"
+    fi
+
+    if $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
+      _PROMPT="${_PROMPT}${_GIT_STATUS_MODIFIED}"
+    elif $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
+      _PROMPT="${_PROMPT}${_GIT_STATUS_MODIFIED}"
+    fi
+
+    if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
+      _PROMPT="${_PROMPT}${_GIT_STATUS_UNTRACKED}"
+    fi
+
+    echo "$_PROMPT"
   fi
 }
 

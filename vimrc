@@ -19,8 +19,10 @@ Plug 'tpope/vim-vinegar'
 
 
 " Syntax
+Plug 'burnettk/vim-angular'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
 Plug 'kchmck/vim-coffee-script'
@@ -101,7 +103,7 @@ set wildmode=list:longest,full
 
 " Override colors in ~/.vimrc.local
 let g:GUI_COLOR = "base16-tomorrow"
-let g:TERM_COLOR = "zenburn"
+let g:TERM_COLOR = "jellybeans"
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_tabs = 1
