@@ -2,7 +2,16 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+_prompt_rbenv_version () {
+  if which rbenv > /dev/null; then
+    _PROMPT="%{$fg[red]%}$(rbenv version-name)%{$reset_color%}"
+    _PROMPT="[${_PROMPT}]"
+    echo "${_PROMPT}"
+  fi
+}
 
 export PATH="$HOME/.bin:$PATH"
 export EDITOR=vim
@@ -51,42 +60,39 @@ _prompt_git_branch () {
   ref=$(git rev-parse --short HEAD 2>/dev/null)
   if [ ! -z $ref ]; then
     symbolic_ref=$(git describe --contains --all HEAD 2>/dev/null)
-    _PROMPT=" %{$fg[green]%}git%{$reset_color%}"
+    _PROMPT=""
 
     if [ ! -z $symbolic_ref ]; then
-      _PROMPT="${_PROMPT}:%{$fg[blue]%}${symbolic_ref}%{$reset_color%}"
+      _PROMPT="%{$fg[blue]%}${symbolic_ref}%{$reset_color%}:"
     fi
 
-    _PROMPT="${_PROMPT}:%{$fg[magenta]%}${ref}%{$reset_color%}"
+    _PROMPT="${_PROMPT}%{$fg[magenta]%}${ref}%{$reset_color%}"
 
     INDEX=$(command git status --porcelain -b 2> /dev/null);
 
+    _GIT_STATUS=""
     _GIT_STATUS_ADDED="%{$fg[green]%}*%{$reset_color%}"
     _GIT_STATUS_MODIFIED="%{$fg[red]%}*%{$reset_color%}"
     _GIT_STATUS_UNTRACKED="%{$fg[white]%}?%{$reset_color%}"
 
     if $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
-      _PROMPT="${_PROMPT}${_GIT_STATUS_ADDED}"
+      _GIT_STATUS="${_GIT_STATUS}${_GIT_STATUS_ADDED}"
     elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
-      _PROMPT="${_PROMPT}${_GIT_STATUS_ADDED}"
+      _GIT_STATUS="${_GIT_STATUS}${_GIT_STATUS_ADDED}"
     fi
 
     if $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
-      _PROMPT="${_PROMPT}${_GIT_STATUS_MODIFIED}"
+      _GIT_STATUS="${_GIT_STATUS}${_GIT_STATUS_MODIFIED}"
     elif $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
-      _PROMPT="${_PROMPT}${_GIT_STATUS_MODIFIED}"
+      _GIT_STATUS="${_GIT_STATUS}${_GIT_STATUS_MODIFIED}"
     fi
 
     if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
-      _PROMPT="${_PROMPT}${_GIT_STATUS_UNTRACKED}"
+      _GIT_STATUS="${_GIT_STATUS}${_GIT_STATUS_UNTRACKED}"
     fi
 
-    echo "$_PROMPT"
+    echo "[${_GIT_STATUS}${_PROMPT}]"
   fi
-}
-
-_prompt_rbenv_version () {
-  echo " %{$fg[red]%}rbenv%{$reset_color%}:%{$fg[blue]%}$(rbenv version-name)%{$reset_color%}"
 }
 
 # Prompt
