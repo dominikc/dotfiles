@@ -53,7 +53,6 @@ Plug 'wellle/targets.vim'
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jimsei/winresizer'
