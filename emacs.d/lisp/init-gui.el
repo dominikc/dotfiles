@@ -31,5 +31,7 @@
 (diminish 'abbrev-mode)
 (diminish 'indent-guide-mode)
 
+(global-set-key (kbd "C-x e") 'neotree-projectile-action)
+
 (setq uniquify-buffer-name-style 'forward)
 (provide 'init-gui)
