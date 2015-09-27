@@ -40,6 +40,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jimsei/winresizer'
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-abolish'
@@ -89,6 +90,8 @@ set wildmode=list:longest,full
 let g:GUI_COLOR = "base16-tomorrow"
 let g:TERM_COLOR = "jellybeans"
 
+let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeMinimalUI = 1
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -109,6 +112,7 @@ nmap gs :Ag<Space>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
+nmap <Leader>e :NERDTreeToggle<CR>
 nmap <Leader>a :Ag<Space>
 nmap <Leader>rs :call RunNearestSpec()<CR>
 nmap <Leader>rr :call RunCurrentSpecFile()<CR>
