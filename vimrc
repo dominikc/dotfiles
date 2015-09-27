@@ -1,22 +1,4 @@
 call plug#begin()
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-dotenv'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-
 
 " Syntax
 Plug 'burnettk/vim-angular'
@@ -30,50 +12,53 @@ Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tejr/vim-tmux'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 
 " Editor
-Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'garbas/vim-snipmate' | Plug 'marcweber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim'
-Plug 'gregsexton/MatchTag'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
-
-" Text objects
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-user'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'tmhedberg/matchit'
-Plug 'wellle/targets.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'edkolev/tmuxline.vim'
 Plug 'jimsei/winresizer'
-Plug 'kshenoy/vim-signature'
-Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec'
-Plug 'wesq3/vim-windowswap'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
 Plug 'jnurmine/Zenburn'
-Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
-Plug 'nlknguyen/papercolor-theme'
 Plug 'tomasr/molokai'
-Plug 'w0ng/vim-hybrid'
-Plug 'zeis/vim-kolor'
+
+if !empty(glob("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+end
+
 call plug#end()
 
 set background=dark
@@ -105,8 +90,6 @@ let g:GUI_COLOR = "base16-tomorrow"
 let g:TERM_COLOR = "jellybeans"
 
 let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
@@ -116,35 +99,21 @@ let g:gitgutter_map_keys = 0
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
+let g:syntastic_check_on_open = 1
+let g:syntastic_haml_checkers=['haml_lint', 'haml']
 let g:syntastic_html_checkers=['']
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_ruby_checkers=['rubocop', 'mri']
-let g:syntastic_haml_checkers=['haml_lint', 'haml']
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = 'minimal'
-
-nnoremap <silent> <Leader>/ :nohlsearch<CR>
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
 
 nmap gs :Ag<Space>
 
 autocmd QuickFixCmdPost *grep* cwindow
 
 nmap <Leader>a :Ag<Space>
-nmap <Leader>T :TagbarToggle<CR>
 nmap <Leader>rs :call RunNearestSpec()<CR>
 nmap <Leader>rr :call RunCurrentSpecFile()<CR>
 nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
-nmap <Leader>z :UndotreeShow<CR>
-nmap <Leader>Z :UndotreeHide<CR>
 vmap <Enter> <Plug>(EasyAlign)
 nnoremap <CR> :
 
