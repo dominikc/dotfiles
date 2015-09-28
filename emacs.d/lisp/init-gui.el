@@ -18,12 +18,11 @@
 
 (global-hl-line-mode)
 (indent-guide-global-mode)
-(guide-key-mode 1)
-(setq-default guide-key/guide-key-sequence t
-            guide-key/idle-delay 0.5)
+(setq which-key-idle-delay 0.3)
+(which-key-mode 1)
 
 (diminish 'evil-commentary-mode)
-(diminish 'guide-key-mode)
+(diminish 'which-key-mode)
 (diminish 'undo-tree-mode)
 (diminish 'yas-minor-mode)
 (diminish 'company-mode)

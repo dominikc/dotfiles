@@ -25,5 +25,3 @@
 (require 'init-helm)
 (require 'init-syntax)
 (require 'init-gui)
-
-; (powerline-default-theme)
