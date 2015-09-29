@@ -12,6 +12,7 @@
 (depends-on "evil")
 (depends-on "evil-commentary")
 (depends-on "evil-surround")
+(depends-on "eyebrowse")
 (depends-on "f")
 (depends-on "feature-mode")
 (depends-on "flycheck")

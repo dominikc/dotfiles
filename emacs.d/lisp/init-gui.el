@@ -29,8 +29,20 @@
 (diminish 'helm-mode)
 (diminish 'abbrev-mode)
 (diminish 'indent-guide-mode)
+(diminish 'git-gutter-mode)
 
 (global-set-key (kbd "C-x e") 'neotree-projectile-action)
+
+(eyebrowse-mode 1)
+(define-key evil-motion-state-map (kbd "gt") 'eyebrowse-next-window-config)
+(define-key evil-motion-state-map (kbd "gT") 'eyebrowse-prev-window-config)
+(eyebrowse-setup-opinionated-keys)
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(spaceline-toggle-flycheck-error-on)
+(spaceline-toggle-flycheck-warning-on)
+(spaceline-toggle-flycheck-info-on)
 
 (setq uniquify-buffer-name-style 'forward)
 (provide 'init-gui)
