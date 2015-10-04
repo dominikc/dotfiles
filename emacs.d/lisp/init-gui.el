@@ -14,7 +14,7 @@
   (global-git-gutter-mode +1)
   (setq git-gutter-fr:side 'right-fringe)
   )
-(require 'zenburn-theme)
+(load-theme 'spacemacs-dark t)
 
 (global-hl-line-mode)
 (indent-guide-global-mode)

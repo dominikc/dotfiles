@@ -102,7 +102,6 @@ let g:gitgutter_map_keys = 0
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions']
-let g:syntastic_check_on_open = 1
 let g:syntastic_haml_checkers=['haml_lint', 'haml']
 let g:syntastic_html_checkers=['']
 let g:syntastic_javascript_checkers=['jshint']
