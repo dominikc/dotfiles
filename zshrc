@@ -36,11 +36,7 @@ alias gpush='git push origin $(git-branch-current)'
 alias sync!='git pull --rebase origin $(git config --get gitflow.branch.develop || echo "develop")'
 alias bump!='vim VERSION && git commit -m "Bump version" VERSION'
 
-# Key bindings
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward
+bindkey -e
 
 # History
 if [ -z "$HISTFILE" ]; then
