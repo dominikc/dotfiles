@@ -3,7 +3,7 @@ RUBY_VERSION="2.2.3"
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ORIG_DOTFILES=$DOTFILES
 TMP_PATH="/tmp/dotfiles"
-FIRA_URL="http://www.carrois.com/downloads/fira_mono_3_2/FiraMonoFonts3202.zip"
+FIRA_URL="http://www.carrois.com/downloads/fira_mono_3_2/FiraMonoFonts3206.zip"
 mkdir -p $TMP_PATH
 
 prompt_() {
@@ -39,7 +39,7 @@ link_() {
 }
 
 if prompt_ "Install suggested packages? (recommended)"; then
-  PACKAGES="ag coreutils ctags editorconfig git grc htop node rbenv rbenv-gem-rehash rename ruby-build ssh-copy-id tig tmux tree vim watch zsh"
+  PACKAGES="ag ansible coreutils ctags editorconfig git grc htop node rbenv rbenv-gem-rehash rename ruby-build ssh-copy-id tig tmux tree vim watch zsh"
   if prompt_ "[$PACKAGES]"; then
     install_osx "$PACKAGES"
   fi;
