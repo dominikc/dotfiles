@@ -110,7 +110,3 @@ if ! zgen saved; then
 
   zgen save
 fi
-
-if [ -f "/usr/local/opt/grc/etc/grc.bashrc" ]; then
-  source "/usr/local/opt/grc/etc/grc.bashrc"
-fi
