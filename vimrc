@@ -36,6 +36,7 @@ Plug 'tpope/vim-vinegar'
 " UI / Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jimsei/winresizer'
 Plug 'mhinz/vim-startify'
