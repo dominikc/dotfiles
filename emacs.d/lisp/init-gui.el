@@ -13,6 +13,7 @@
   (require 'git-gutter-fringe)
   (global-git-gutter-mode +1)
   (setq git-gutter-fr:side 'right-fringe)
+  (diminish 'git-gutter-mode)
   )
 (load-theme 'spacemacs-dark t)
 
@@ -29,7 +30,6 @@
 (diminish 'helm-mode)
 (diminish 'abbrev-mode)
 (diminish 'indent-guide-mode)
-(diminish 'git-gutter-mode)
 
 (global-set-key (kbd "C-x e") 'neotree-projectile-action)
 
